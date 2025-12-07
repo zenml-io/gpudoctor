@@ -4,7 +4,6 @@
 
 A curated catalog of ML Docker base images to help engineers escape "CUDA hell" and choose the right container for their GPU workloads.
 
-[![maintained-by-zenml](assets/maintained-by-zenml.png)](https://github.com/zenml-io/zenml)
 ## The Problem
 
 Selecting a Docker base image for ML is painful:
@@ -61,6 +60,4 @@ yarn dev
 - `/table` - Searchable/filterable table of all images
 - `/images/[id]` - Detailed view of a single image with specs, security info, and quick-start commands
 
-## License
-
-MIT
+[![maintained-by-zenml](assets/maintained-by-zenml.png)](https://github.com/zenml-io/zenml)
