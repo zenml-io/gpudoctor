@@ -17,15 +17,7 @@ export function Header() {
             GPU DOCTOR
           </span>
         </Link>
-        <Link
-          href="https://zenml.io"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-1 text-xs font-medium text-neutral-500 transition-colors hover:text-neutral-900 sm:text-sm"
-        >
-          <span>Made by ZenML</span>
-          <span aria-hidden="true">↗</span>
-        </Link>
+{/* ZenML branding moved to CornerRibbon component */}
       </div>
     </header>
   );

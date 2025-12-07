@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import { CornerRibbon } from '@/components/layout/CornerRibbon';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-neutral-50 text-neutral-900 antialiased`}
       >
+        <CornerRibbon />
         {children}
       </body>
     </html>
