@@ -7,14 +7,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 GPU Doctor is a curated catalog of ML Docker base images to help engineers select the right container for their GPU workloads. The project consists of:
 
 1. **Data layer**: JSON Schema + catalog of ML Docker images (`data/`)
-2. **Website** (planned): SPA with guided picker and searchable table
+2. **Website**: Next.js app with 5-step guided picker, searchable table, and image detail pages (`web/`)
 3. **CI automation** (planned): Auto-populate image metadata and security scans
 4. **Claude skill** (planned): Recommendations based on the catalog
 
 ## Key Files
 
+**Data:**
 - `data/schema.json` - JSON Schema 2020-12 defining image catalog structure
 - `data/images.json` - The actual image catalog (validates against schema)
+
+**Website:**
+- `web/app/guide/GuideClient.tsx` - Multi-step wizard with URL-driven state
+- `web/lib/url/guideSearchParams.ts` - GuideState type and URL serialization
+- `web/lib/filters/guideFilters.ts` - Image filtering logic
+- `web/components/guide/` - Step components (UseCaseStep, EnvironmentStep, etc.)
+- `web/app/table/` - Searchable table view
+- `web/app/images/[id]/` - Image detail page
+
+**Project:**
 - `design/plan.md` - High-level roadmap and field specifications
 - `changelog.md` - Session notes tracking work done (update this when you get done with a task block)
 
@@ -35,6 +46,19 @@ print(f'Valid: {len(data[\"images\"])} images')
 ### Install dependencies
 ```bash
 uv pip install jsonschema
+```
+
+### Run the website
+```bash
+cd web
+yarn install
+yarn dev
+```
+
+### Type-check the website
+```bash
+cd web
+npx tsc --noEmit
 ```
 
 ## Data Schema Architecture

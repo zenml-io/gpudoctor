@@ -1,5 +1,66 @@
 # GPU Doctor Changelog
 
+## 2025-12-07 ~16:30 UTC
+
+### Guide Wizard - Multi-Step Navigation UX
+
+**Files modified:**
+- `web/components/guide/GuideStepper.tsx` - Step indicators now clickable for backward navigation
+- `web/components/guide/PrioritiesStep.tsx` - "Find Images" button scrolls to results
+- `web/components/guide/GuideResults.tsx` - Added `id="guide-results"` scroll target
+- `web/app/guide/GuideClient.tsx` - Wired up `onStepClick` and `scrollToResults` handlers
+
+**UX improvements:**
+- Completed step circles (steps 1-5) are now clickable buttons that allow users to jump back
+- Forward navigation is intentionally disabled—users must progress step by step
+- The "Find Images" button on step 5 smoothly scrolls to the recommendations section
+- Added proper `aria-label` for accessibility on step navigation buttons
+
+---
+
+## 2025-12-07 ~15:00 UTC
+
+### Guide Wizard - 5-Step Flow
+
+**Files created:**
+- `web/components/guide/GuideStepper.tsx` - Horizontal progress indicator with step numbers and labels
+- `web/components/guide/UseCaseStep.tsx` - Step 1: Select ML workload (CV, LLM training, inference, etc.)
+- `web/components/guide/EnvironmentStep.tsx` - Step 2: GPU preference and cloud provider selection
+- `web/components/guide/FrameworkRoleStep.tsx` - Step 3: Framework and image role selection
+- `web/components/guide/RuntimeComplianceStep.tsx` - Step 4: Python version, license, and security preferences
+- `web/components/guide/PrioritiesStep.tsx` - Step 5: Drag-to-reorder priority ranking
+
+**Files modified:**
+- `web/app/guide/GuideClient.tsx` - Refactored from two-panel layout to multi-step wizard with `currentStep` state
+- `web/components/guide/GuideResults.tsx` - Enhanced summary with GPU, license, Python, security, and priority labels
+- `web/lib/url/guideSearchParams.ts` - Extended `GuideState` with new fields (gpuPreference, cloudSpecificity, licensePreference, minSecurityRating, pythonVersion, priorities)
+
+**Architecture:**
+- URL-driven state persistence via `parseGuideState`/`serializeGuideState`
+- Live filtering: `matchingImages` updates as users progress through steps
+- Each step receives only its required props (state down, callbacks up pattern)
+
+---
+
+## 2025-12-07 ~14:00 UTC
+
+### Image Detail Page - Full Metadata Surfacing
+
+**Files modified:**
+- `web/components/images/ImageDetailClient.tsx` - Enhanced header badges and new sections
+- `web/components/images/ImageSpecs.tsx` - Additional specification rows
+
+**Enhancements:**
+- License badge in header
+- Last-updated metadata
+- Improved size display (compressed with hover showing uncompressed)
+- Full recommended_for list (was showing only first item)
+- Security CVE breakdown with severity pills (Critical/High/Medium/Low)
+- New "Metadata & links" card with external URLs (Registry, Documentation, Source)
+- New "System packages & notes" card
+
+---
+
 ## 2025-12-07 ~13:30 UTC
 
 ### Created JSON Schema and Initial Data

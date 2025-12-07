@@ -41,9 +41,24 @@ print('Valid')
 
 - [x] JSON Schema design
 - [x] Initial catalog (15 images)
-- [ ] Website (guided picker + table view)
+- [x] Website with guided picker (5-step wizard) and table view
 - [ ] CI automation for metadata/security scans
 - [ ] Claude skill for recommendations
+
+## Website
+
+The website is a Next.js app in `web/`:
+
+```bash
+cd web
+yarn install
+yarn dev
+```
+
+**Pages:**
+- `/guide` - 5-step wizard to find the right image based on workload, environment, frameworks, and priorities
+- `/table` - Searchable/filterable table of all images
+- `/images/[id]` - Detailed view of a single image with specs, security info, and quick-start commands
 
 ## License
 
