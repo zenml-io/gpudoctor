@@ -1,7 +1,11 @@
 import Link from 'next/link';
 
 import type { ImageEntry } from '@/lib/types/images';
-import type { GuideState, GuideWorkload } from '@/lib/url/guideSearchParams';
+import type {
+  GuideState,
+  GuideWorkload,
+  GuidePriorityKey
+} from '@/lib/url/guideSearchParams';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { ImageCard } from '@/components/guide/ImageCard';
 
@@ -20,7 +24,7 @@ export function GuideResults({ images, state }: GuideResultsProps) {
 
   if (!hasResults) {
     return (
-      <section aria-label="Recommended images" className="space-y-3">
+      <section id="guide-results" aria-label="Recommended images" className="space-y-3">
         <h2 className="text-lg font-semibold text-neutral-900">
           Recommended images
         </h2>
@@ -46,11 +50,41 @@ export function GuideResults({ images, state }: GuideResultsProps) {
     summaryParts.push(formatCloudSummary(state.clouds));
   }
 
+  if (state.gpuPreference === 'gpu-required') {
+    summaryParts.push('GPU-enabled images');
+  } else if (state.gpuPreference === 'cpu-only') {
+    summaryParts.push('CPU-only images');
+  }
+
+  if (state.licensePreference === 'oss-only') {
+    summaryParts.push('Open-source licenses only');
+  }
+
+  if (state.pythonVersion) {
+    summaryParts.push(`Python ${state.pythonVersion}`);
+  }
+
+  if (state.minSecurityRating) {
+    summaryParts.push(`Security rating ≥ ${state.minSecurityRating}`);
+  }
+
+  // Show priorities if customized - check first two priorities
+  const defaultTopTwo: GuidePriorityKey[] = ['security', 'gpu'];
+  const currentTopTwo = state.priorities.slice(0, 2);
+  const prioritiesCustomized =
+    currentTopTwo[0] !== defaultTopTwo[0] ||
+    currentTopTwo[1] !== defaultTopTwo[1];
+
+  if (prioritiesCustomized) {
+    const topLabels = currentTopTwo.map(formatPriorityLabel).join(' & ');
+    summaryParts.push(`Prioritizing ${topLabels}`);
+  }
+
   const summary =
     summaryParts.length > 0 ? summaryParts.join(' + ') : 'All available images';
 
   return (
-    <section aria-label="Recommended images" className="space-y-4">
+    <section id="guide-results" aria-label="Recommended images" className="space-y-4">
       <div className="flex items-baseline justify-between gap-3">
         <div className="space-y-1">
           <h2 className="text-lg font-semibold text-neutral-900">
@@ -157,4 +191,16 @@ function formatCloudSummary(clouds: string[]): string {
   return unique
     .map((cloud) => labels[cloud] ?? cloud.toUpperCase())
     .join(', ');
+}
+
+function formatPriorityLabel(key: GuidePriorityKey): string {
+  const labels: Record<GuidePriorityKey, string> = {
+    security: 'Security',
+    size: 'Size',
+    license: 'Licensing',
+    gpu: 'GPU',
+    cloud: 'Cloud',
+    freshness: 'Freshness'
+  };
+  return labels[key] ?? key;
 }

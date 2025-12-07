@@ -7,25 +7,23 @@ import type { ImageEntry } from '@/lib/types/images';
 import {
   parseGuideState,
   serializeGuideState,
-  type GuideState,
-  type GuideWorkload
+  type GuideState
 } from '@/lib/url/guideSearchParams';
 import { filterImages } from '@/lib/filters/guideFilters';
-import { getAllFrameworkNames } from '@/lib/data/images.client';
+import { getAllFrameworkNames, getAllPythonVersions } from '@/lib/data/images.client';
 import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { UseCaseSelector } from '@/components/guide/UseCaseSelector';
-import { RequirementsSection } from '@/components/guide/RequirementsSection';
+import { GuideStepper } from '@/components/guide/GuideStepper';
+import { UseCaseStep } from '@/components/guide/UseCaseStep';
+import { EnvironmentStep } from '@/components/guide/EnvironmentStep';
+import { FrameworkRoleStep } from '@/components/guide/FrameworkRoleStep';
+import { RuntimeComplianceStep } from '@/components/guide/RuntimeComplianceStep';
+import { PrioritiesStep } from '@/components/guide/PrioritiesStep';
 import { GuideResults } from '@/components/guide/GuideResults';
 
 interface GuideClientProps {
   images: ImageEntry[];
 }
 
-/**
- * Client-side wrapper for the interactive guide experience.
- * Manages URL-backed state for workload and filter selections.
- */
 export function GuideClient({ images }: GuideClientProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -34,8 +32,16 @@ export function GuideClient({ images }: GuideClientProps) {
     parseGuideState(searchParams)
   );
 
+  const [currentStep, setCurrentStep] = useState<number>(1);
+  const totalSteps = 5;
+
   const availableFrameworks = useMemo(
     () => getAllFrameworkNames(images),
+    [images]
+  );
+
+  const pythonVersions = useMemo(
+    () => getAllPythonVersions(images),
     [images]
   );
 
@@ -51,15 +57,23 @@ export function GuideClient({ images }: GuideClientProps) {
     router.replace(href, { scroll: false });
   }
 
-  function handleWorkloadChange(workload: GuideWorkload | null) {
-    updateState({
-      ...state,
-      workload
-    });
+  function goToStep(step: number) {
+    setCurrentStep(Math.min(Math.max(step, 1), totalSteps));
   }
 
-  function handleRequirementsChange(next: GuideState) {
-    updateState(next);
+  function goNext() {
+    goToStep(currentStep + 1);
+  }
+
+  function goBack() {
+    goToStep(currentStep - 1);
+  }
+
+  function scrollToResults() {
+    const el = document.getElementById('guide-results');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   return (
@@ -70,34 +84,59 @@ export function GuideClient({ images }: GuideClientProps) {
         </h1>
         <p className="max-w-2xl text-sm text-neutral-600">
           Answer a few quick questions and we&apos;ll recommend Docker images
-          that match your frameworks, cloud environment, and workload.
+          that match your requirements.
         </p>
       </section>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1.8fr)]">
-        <Card className="h-full">
-          <UseCaseSelector
-            value={state.workload}
-            onChange={handleWorkloadChange}
+      <Card className="space-y-6">
+        <GuideStepper currentStep={currentStep} totalSteps={totalSteps} onStepClick={goToStep} />
+
+        {currentStep === 1 && (
+          <UseCaseStep
+            workload={state.workload}
+            onChange={(workload) => updateState({ ...state, workload })}
+            onNext={goNext}
           />
-        </Card>
-        <Card className="flex h-full flex-col justify-between gap-4">
-          <RequirementsSection
+        )}
+
+        {currentStep === 2 && (
+          <EnvironmentStep
             state={state}
-            onChange={handleRequirementsChange}
-            availableFrameworks={availableFrameworks}
+            onChange={updateState}
+            onNext={goNext}
+            onBack={goBack}
           />
-          <div className="mt-4 flex justify-end">
-            <Button
-              type="button"
-              size="lg"
-              className="inline-flex items-center gap-2"
-            >
-              <span>Show matching images ({matchingImages.length})</span>
-            </Button>
-          </div>
-        </Card>
-      </div>
+        )}
+
+        {currentStep === 3 && (
+          <FrameworkRoleStep
+            state={state}
+            availableFrameworks={availableFrameworks}
+            onChange={updateState}
+            onNext={goNext}
+            onBack={goBack}
+          />
+        )}
+
+        {currentStep === 4 && (
+          <RuntimeComplianceStep
+            state={state}
+            pythonVersions={pythonVersions}
+            onChange={updateState}
+            onNext={goNext}
+            onBack={goBack}
+          />
+        )}
+
+        {currentStep === 5 && (
+          <PrioritiesStep
+            state={state}
+            onChange={updateState}
+            onBack={goBack}
+            onSubmit={scrollToResults}
+          />
+        )}
+      </Card>
 
       <GuideResults images={matchingImages} state={state} />
     </div>
