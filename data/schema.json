@@ -1,0 +1,415 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zenml.io/gpudoctor/schema/images.json",
+  "title": "GPU Doctor Image Catalog",
+  "description": "Schema for ML Docker base image metadata catalog",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to this schema"
+    },
+    "version": {
+      "type": "string",
+      "description": "Schema version for the data file",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date",
+      "description": "When this catalog was last updated"
+    },
+    "images": {
+      "type": "array",
+      "description": "Array of ML Docker image entries",
+      "items": {
+        "$ref": "#/$defs/image"
+      }
+    }
+  },
+  "required": ["version", "images"],
+
+  "$defs": {
+    "image": {
+      "type": "object",
+      "description": "A single ML Docker image entry",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this image (kebab-case)",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full image name with tag (e.g., pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime)"
+        },
+        "metadata": {
+          "$ref": "#/$defs/metadata"
+        },
+        "cuda": {
+          "oneOf": [
+            { "$ref": "#/$defs/cuda" },
+            { "type": "null" }
+          ],
+          "description": "CUDA configuration (null for CPU-only images)"
+        },
+        "runtime": {
+          "$ref": "#/$defs/runtime"
+        },
+        "frameworks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/framework"
+          },
+          "description": "ML frameworks included in this image"
+        },
+        "capabilities": {
+          "$ref": "#/$defs/capabilities"
+        },
+        "cloud": {
+          "oneOf": [
+            { "$ref": "#/$defs/cloud" },
+            { "type": "null" }
+          ],
+          "description": "Cloud-specific configuration (null if not cloud-specific)"
+        },
+        "security": {
+          "oneOf": [
+            { "$ref": "#/$defs/security" },
+            { "type": "null" }
+          ],
+          "description": "Security scan results (null if not yet scanned)"
+        },
+        "size": {
+          "oneOf": [
+            { "$ref": "#/$defs/size" },
+            { "type": "null" }
+          ],
+          "description": "Image size information (null if not yet measured)"
+        },
+        "urls": {
+          "$ref": "#/$defs/urls"
+        },
+        "recommended_for": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Short descriptions of recommended use cases"
+        },
+        "system_packages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Notable system packages included (e.g., git, ffmpeg, poppler)"
+        },
+        "notes": {
+          "type": ["string", "null"],
+          "description": "Additional notes or observations about this image"
+        }
+      },
+      "required": ["id", "name", "metadata", "runtime", "capabilities", "urls"]
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Image metadata and provenance",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["official", "community", "verified"],
+          "description": "Image trust status"
+        },
+        "provider": {
+          "type": "string",
+          "enum": [
+            "nvidia-ngc",
+            "aws-dlc",
+            "gcp-dlc",
+            "azure-ml",
+            "pytorch",
+            "tensorflow",
+            "jax",
+            "huggingface",
+            "vllm",
+            "ollama",
+            "jupyter",
+            "community"
+          ],
+          "description": "Organization or project that maintains this image"
+        },
+        "registry": {
+          "type": "string",
+          "enum": ["dockerhub", "ecr", "gcr", "ngc", "ghcr", "mcr"],
+          "description": "Container registry where image is hosted"
+        },
+        "maintenance": {
+          "type": "string",
+          "enum": ["active", "deprecated", "end-of-life"],
+          "description": "Current maintenance status"
+        },
+        "last_updated": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "When this image was last updated (YYYY-MM-DD)"
+        },
+        "license": {
+          "type": ["string", "null"],
+          "description": "License identifier (e.g., BSD-3-Clause, Apache-2.0, MIT)"
+        }
+      },
+      "required": ["status", "provider", "registry", "maintenance"]
+    },
+
+    "cuda": {
+      "type": "object",
+      "description": "CUDA and GPU compute configuration",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "CUDA toolkit version (e.g., 12.1, 11.8)",
+          "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
+        },
+        "cudnn": {
+          "type": ["string", "null"],
+          "description": "cuDNN version if included",
+          "pattern": "^\\d+(\\.\\d+)*$"
+        },
+        "min_driver": {
+          "type": ["string", "null"],
+          "description": "Minimum required NVIDIA driver version",
+          "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
+        },
+        "compute_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+$"
+          },
+          "description": "Supported CUDA compute capabilities (e.g., 7.0, 8.0, 9.0)"
+        }
+      },
+      "required": ["version"]
+    },
+
+    "runtime": {
+      "type": "object",
+      "description": "Runtime environment configuration",
+      "properties": {
+        "python": {
+          "type": ["string", "null"],
+          "description": "Python version (null for non-Python images)",
+          "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
+        },
+        "os": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": ["ubuntu", "debian", "centos", "rhel", "alpine", "rockylinux"],
+              "description": "Base OS distribution"
+            },
+            "version": {
+              "type": "string",
+              "description": "OS version (e.g., 22.04, 11, 8)"
+            }
+          },
+          "required": ["name", "version"]
+        },
+        "architectures": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["amd64", "arm64"]
+          },
+          "minItems": 1,
+          "description": "Supported CPU architectures"
+        }
+      },
+      "required": ["os", "architectures"]
+    },
+
+    "framework": {
+      "type": "object",
+      "description": "An ML framework included in the image",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Framework name (e.g., pytorch, tensorflow, jax)"
+        },
+        "version": {
+          "type": "string",
+          "description": "Framework version"
+        }
+      },
+      "required": ["name", "version"]
+    },
+
+    "capabilities": {
+      "type": "object",
+      "description": "Image capabilities and intended use",
+      "properties": {
+        "gpu_vendors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["nvidia", "amd", "intel", "none"]
+          },
+          "description": "Supported GPU vendors (use 'none' for CPU-only)"
+        },
+        "image_type": {
+          "type": "string",
+          "enum": ["base", "runtime", "devel"],
+          "description": "Image type: base (minimal), runtime (libraries only), devel (includes compilers)"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["base", "training", "inference", "notebook", "serving"],
+          "description": "Primary intended role for this image"
+        },
+        "workloads": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "classical-ml",
+              "llm",
+              "multimodal",
+              "computer-vision",
+              "nlp",
+              "audio",
+              "reinforcement-learning",
+              "scientific-computing",
+              "generic"
+            ]
+          },
+          "description": "Types of ML workloads this image is suited for"
+        }
+      },
+      "required": ["gpu_vendors", "image_type", "role", "workloads"]
+    },
+
+    "cloud": {
+      "type": "object",
+      "description": "Cloud provider specific configuration",
+      "properties": {
+        "affinity": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["aws", "gcp", "azure", "any"]
+          },
+          "description": "Cloud providers this image works well with"
+        },
+        "exclusive_to": {
+          "type": ["string", "null"],
+          "enum": ["aws", "gcp", "azure", null],
+          "description": "If set, image only works on this cloud provider"
+        },
+        "aws_ami": {
+          "type": ["string", "null"],
+          "description": "AWS AMI ID if available"
+        },
+        "gcp_image": {
+          "type": ["string", "null"],
+          "description": "GCP image name if available"
+        },
+        "azure_image": {
+          "type": ["string", "null"],
+          "description": "Azure image reference if available"
+        }
+      },
+      "required": ["affinity"]
+    },
+
+    "security": {
+      "type": "object",
+      "description": "Security scan results",
+      "properties": {
+        "total_cves": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of CVEs found"
+        },
+        "critical": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of critical severity CVEs"
+        },
+        "high": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of high severity CVEs"
+        },
+        "medium": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of medium severity CVEs"
+        },
+        "low": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of low severity CVEs"
+        },
+        "rating": {
+          "type": "string",
+          "enum": ["A", "B", "C", "D", "F"],
+          "description": "Overall security rating"
+        },
+        "last_scan": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of last security scan"
+        },
+        "scanner": {
+          "type": "string",
+          "enum": ["trivy", "grype", "snyk", "clair"],
+          "description": "Scanner used for vulnerability detection"
+        }
+      },
+      "required": ["total_cves", "rating", "last_scan", "scanner"]
+    },
+
+    "size": {
+      "type": "object",
+      "description": "Image size information",
+      "properties": {
+        "compressed_mb": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Compressed image size in megabytes (as stored in registry)"
+        },
+        "uncompressed_mb": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "description": "Uncompressed image size in megabytes (on disk)"
+        }
+      },
+      "required": ["compressed_mb"]
+    },
+
+    "urls": {
+      "type": "object",
+      "description": "Related URLs",
+      "properties": {
+        "registry": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to image on container registry"
+        },
+        "documentation": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL to official documentation"
+        },
+        "source": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL to source repository (Dockerfile, etc.)"
+        }
+      },
+      "required": ["registry"]
+    }
+  }
+}
