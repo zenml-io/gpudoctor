@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { CornerRibbon } from '@/components/layout/CornerRibbon';
@@ -46,6 +47,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://plausible.io/js/pa-mSc3k1pMOuwU7mO_OcGI_.js"
+          strategy="afterInteractive"
+        />
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+          plausible.init()`}
+        </Script>
+      </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-neutral-50 text-neutral-900 antialiased`}
       >
