@@ -1,9 +1,10 @@
 # GPU Doctor
 
-[![maintained-by-zenml](assets/maintained-by-zenml.png)](https://github.com/zenml-io/zenml)
+![](assets/gpu-doctor-screenshot.png)
 
 A curated catalog of ML Docker base images to help engineers escape "CUDA hell" and choose the right container for their GPU workloads.
 
+[![maintained-by-zenml](assets/maintained-by-zenml.png)](https://github.com/zenml-io/zenml)
 ## The Problem
 
 Selecting a Docker base image for ML is painful:
