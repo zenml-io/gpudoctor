@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import type { Route } from 'next';
 
 import type { ImageEntry } from '@/lib/types/images';
 import {
@@ -54,7 +55,7 @@ export function GuideClient({ images }: GuideClientProps) {
     setState(next);
     const query = serializeGuideState(next);
     const href = query ? `/guide?${query}` : '/guide';
-    router.replace(href, { scroll: false });
+    router.replace(href as Route, { scroll: false });
   }
 
   function goToStep(step: number) {

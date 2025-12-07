@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { Route } from 'next';
 import clsx from 'clsx';
 
 export type TabKey = 'guide' | 'table';
@@ -27,7 +28,7 @@ export function TabNav({ activeTab }: TabNavProps) {
 }
 
 interface TabLinkProps {
-  href: string;
+  href: Route;
   isActive: boolean;
   children: React.ReactNode;
 }

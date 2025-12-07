@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import type { Route } from 'next';
 
 import type { ImageEntry } from '@/lib/types/images';
 import type {
@@ -43,7 +44,7 @@ export function TableClient({ images }: TableClientProps) {
     setState(next);
     const query = serializeTableState(next);
     const href = query ? `/table?${query}` : '/table';
-    router.replace(href, { scroll: false });
+    router.replace(href as Route, { scroll: false });
   }
 
   function handleSort(column: TableSortBy) {
