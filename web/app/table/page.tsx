@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { PageShell } from '@/components/layout/PageShell';
 import { getAllImages } from '@/lib/data/images';
 import { TableClient } from './TableClient';
@@ -9,7 +10,9 @@ export default function TablePage() {
 
   return (
     <PageShell activeTab="table">
-      <TableClient images={images} />
+      <Suspense fallback={<div className="animate-pulse text-neutral-400">Loading table...</div>}>
+        <TableClient images={images} />
+      </Suspense>
     </PageShell>
   );
 }
