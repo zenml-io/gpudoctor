@@ -58,12 +58,19 @@ export function getAllWorkloads(images: ImageEntry[]): Workload[] {
 
 export function getAllPythonVersions(images: ImageEntry[]): string[] {
   const versions = new Set<string>();
+  const seedVersions = ['3.10', '3.11', '3.12', '3.13', '3.14', '3.15'];
+
+  for (const seed of seedVersions) {
+    versions.add(seed);
+  }
+
   for (const image of images) {
     const py = image.runtime.python;
     if (py) {
       versions.add(py);
     }
   }
+
   return Array.from(versions).sort((a, b) =>
     a.localeCompare(b, undefined, { numeric: true })
   );
