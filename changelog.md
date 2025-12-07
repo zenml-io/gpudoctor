@@ -1,5 +1,38 @@
 # GPU Doctor Changelog
 
+## 2025-12-07 ~18:15 UTC
+
+### Table View - Expanded Metadata Columns
+
+**Files modified:**
+- `web/lib/url/tableSearchParams.ts` - Extended `TableSortBy` with 5 new sortable keys: `role`, `imageType`, `os`, `arch`, `size`
+- `web/lib/filters/tableFilters.ts` - Added sorting logic for new columns with rank-based comparators for enum fields
+- `web/components/table/DataTable.tsx` - Expanded header row from 6 to 13 columns; added horizontal scroll wrapper
+- `web/components/table/DataRow.tsx` - Added 7 new cells with formatting helpers for each metadata field
+
+**New columns (13 total):**
+1. Image (sortable) - existing
+2. Framework (display-only) - existing
+3. Role (sortable) - Training, Inference, Serving, Notebook, Base
+4. Type (sortable) - Runtime, Devel, Base
+5. CUDA (sortable) - existing
+6. cuDNN (display-only) - NEW
+7. Python (sortable) - existing
+8. OS (sortable) - e.g., "Ubuntu 22.04"
+9. Arch (sortable) - e.g., "x86_64" or "x86_64 / ARM64"
+10. Size (sortable, right-aligned) - e.g., "2.9 GB"
+11. Status (sortable) - existing
+12. Provider (sortable) - existing
+13. License (display-only) - e.g., "BSD-3-Clause"
+
+**Implementation details:**
+- Rank-based sorting for enum fields (role, imageType, status) ensures semantic ordering
+- Array fields (architectures) sorted and joined for deterministic comparison
+- Null handling: display "—", sort as empty string or 0 for numeric fields
+- Table wrapped in `overflow-x-auto` for horizontal scrolling on narrower desktop screens
+
+---
+
 ## 2025-12-07 ~16:30 UTC
 
 ### Guide Wizard - Multi-Step Navigation UX

@@ -4,7 +4,17 @@ import type {
   Workload
 } from '@/lib/types/images';
 
-export type TableSortBy = 'name' | 'provider' | 'cuda' | 'python' | 'status';
+export type TableSortBy =
+  | 'name'
+  | 'provider'
+  | 'cuda'
+  | 'python'
+  | 'status'
+  | 'role'
+  | 'imageType'
+  | 'os'
+  | 'arch'
+  | 'size';
 export type TableSortDir = 'asc' | 'desc';
 
 export interface TableState {
@@ -94,7 +104,18 @@ const WORKLOAD_VALUES: Workload[] = [
 
 const STATUS_VALUES: MaintenanceStatus[] = ['active', 'deprecated', 'end-of-life'];
 
-const SORT_BY_VALUES: TableSortBy[] = ['name', 'provider', 'cuda', 'python', 'status'];
+const SORT_BY_VALUES: TableSortBy[] = [
+  'name',
+  'provider',
+  'cuda',
+  'python',
+  'status',
+  'role',
+  'imageType',
+  'os',
+  'arch',
+  'size'
+];
 const SORT_DIR_VALUES: TableSortDir[] = ['asc', 'desc'];
 
 /**

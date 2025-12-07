@@ -4,7 +4,10 @@ import type {
   ImageEntry,
   ImageProvider,
   MaintenanceStatus,
-  Workload
+  Workload,
+  ImageRole,
+  ImageType,
+  CpuArchitecture
 } from '@/lib/types/images';
 import type {
   TableState,
@@ -142,6 +145,53 @@ function compareByColumn(
       }
       return sa - sb;
     }
+    case 'role': {
+      const ra = roleRank(a.capabilities.role);
+      const rb = roleRank(b.capabilities.role);
+      if (ra === rb) {
+        return fallbackNameCompare(a, b);
+      }
+      return ra - rb;
+    }
+    case 'imageType': {
+      const ta = imageTypeRank(a.capabilities.image_type);
+      const tb = imageTypeRank(b.capabilities.image_type);
+      if (ta === tb) {
+        return fallbackNameCompare(a, b);
+      }
+      return ta - tb;
+    }
+    case 'os': {
+      const na = a.runtime.os.name;
+      const nb = b.runtime.os.name;
+      const nameCompare = na.localeCompare(nb);
+      if (nameCompare !== 0) {
+        return nameCompare;
+      }
+
+      const va = a.runtime.os.version ?? '';
+      const vb = b.runtime.os.version ?? '';
+      if (va === vb) {
+        return fallbackNameCompare(a, b);
+      }
+      return va.localeCompare(vb, undefined, { numeric: true });
+    }
+    case 'arch': {
+      const ka = architectureKey(a.runtime.architectures);
+      const kb = architectureKey(b.runtime.architectures);
+      if (ka === kb) {
+        return fallbackNameCompare(a, b);
+      }
+      return ka.localeCompare(kb);
+    }
+    case 'size': {
+      const sa = a.size?.compressed_mb ?? 0;
+      const sb = b.size?.compressed_mb ?? 0;
+      if (sa === sb) {
+        return fallbackNameCompare(a, b);
+      }
+      return sa - sb;
+    }
     case 'name':
     default:
       return fallbackNameCompare(a, b);
@@ -170,4 +220,41 @@ function maintenanceRank(status: MaintenanceStatus): number {
     default:
       return 3;
   }
+}
+
+function roleRank(role: ImageRole): number {
+  switch (role) {
+    case 'base':
+      return 0;
+    case 'training':
+      return 1;
+    case 'inference':
+      return 2;
+    case 'notebook':
+      return 3;
+    case 'serving':
+      return 4;
+    default:
+      return 5;
+  }
+}
+
+function imageTypeRank(t: ImageType): number {
+  switch (t) {
+    case 'base':
+      return 0;
+    case 'runtime':
+      return 1;
+    case 'devel':
+      return 2;
+    default:
+      return 3;
+  }
+}
+
+function architectureKey(archs: CpuArchitecture[]): string {
+  if (!archs || archs.length === 0) {
+    return '';
+  }
+  return [...archs].sort().join(',');
 }
