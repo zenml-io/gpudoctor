@@ -16,7 +16,7 @@ GPU Doctor is a curated catalog of ML Docker base images to help engineers selec
 - `data/schema.json` - JSON Schema 2020-12 defining image catalog structure
 - `data/images.json` - The actual image catalog (validates against schema)
 - `design/plan.md` - High-level roadmap and field specifications
-- `changelog.md` - Session notes tracking work done
+- `changelog.md` - Session notes tracking work done (update this when you get done with a task block)
 
 ## Commands
 
