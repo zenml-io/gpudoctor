@@ -58,6 +58,9 @@ export function filterImages(images: ImageEntry[], state: GuideState): ImageEntr
     if (!matchesSecurityFloor(image, state.minSecurityRating)) {
       return false;
     }
+    if (!matchesPythonVersion(image, state.pythonVersion)) {
+      return false;
+    }
     return true;
   });
 
@@ -323,6 +326,16 @@ function matchesSecurityFloor(
   const minScore = securityRatingScore(minRating);
   if (!image.security) return false;
   return securityRatingScore(image.security.rating) >= minScore;
+}
+
+function matchesPythonVersion(
+  image: ImageEntry,
+  pythonVersion: GuideState['pythonVersion']
+): boolean {
+  if (!pythonVersion) {
+    return true;
+  }
+  return image.runtime.python === pythonVersion;
 }
 
 type CloudSpecificityClass = 'cloud-optimized' | 'portable';
