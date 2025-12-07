@@ -85,19 +85,11 @@ export function GuideResults({ images, state }: GuideResultsProps) {
 
   return (
     <section id="guide-results" aria-label="Recommended images" className="space-y-4">
-      <div className="flex items-baseline justify-between gap-3">
-        <div className="space-y-1">
-          <h2 className="text-lg font-semibold text-neutral-900">
-            Recommended images
-          </h2>
-          <p className="text-sm text-neutral-600">Based on: {summary}</p>
-        </div>
-        <Link
-          href="/guide"
-          className="text-xs font-medium text-neutral-500 hover:text-neutral-800"
-        >
-          Modify filters
-        </Link>
+      <div className="space-y-1">
+        <h2 className="text-lg font-semibold text-neutral-900">
+          Recommended images
+        </h2>
+        <p className="text-sm text-neutral-600">Based on: {summary}</p>
       </div>
 
       <div className="space-y-4">
