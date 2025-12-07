@@ -9,11 +9,11 @@ interface GuideStepperProps {
 }
 
 const STEP_LABELS: string[] = [
-  '1. ML Task',
-  '2. Environment',
-  '3. Framework',
-  '4. Runtime',
-  '5. Priorities'
+  'ML Task',
+  'Environment',
+  'Framework',
+  'Runtime',
+  'Priorities'
 ];
 
 /**
