@@ -1,10 +1,15 @@
 import type { ImageEntry } from '@/lib/types/images';
+import type { TableSortBy, TableSortDir } from '@/lib/url/tableSearchParams';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { ImageCard } from '@/components/guide/ImageCard';
 import { DataRow } from '@/components/table/DataRow';
+import { SortableHeader } from '@/components/table/SortableHeader';
 
 interface DataTableProps {
   images: ImageEntry[];
+  sortBy: TableSortBy;
+  sortDir: TableSortDir;
+  onSort: (column: TableSortBy) => void;
 }
 
 /**
@@ -12,7 +17,12 @@ interface DataTableProps {
  * On desktop it renders a classic HTML table; on mobile it falls back to
  * the compact ImageCard list layout used in the guide.
  */
-export function DataTable({ images }: DataTableProps) {
+export function DataTable({
+  images,
+  sortBy,
+  sortDir,
+  onSort
+}: DataTableProps) {
   if (images.length === 0) {
     return (
       <EmptyState
@@ -28,12 +38,47 @@ export function DataTable({ images }: DataTableProps) {
         <table className="min-w-full border-collapse text-sm">
           <thead className="bg-neutral-100 text-xs font-semibold uppercase tracking-wide text-neutral-500">
             <tr>
-              <th className="px-4 py-2 text-left">Image</th>
+              <SortableHeader
+                label="Image"
+                sortKey="name"
+                currentSortBy={sortBy}
+                currentSortDir={sortDir}
+                onSort={onSort}
+                align="left"
+              />
               <th className="px-4 py-2 text-left">Framework</th>
-              <th className="px-4 py-2 text-left">CUDA</th>
-              <th className="px-4 py-2 text-left">Python</th>
-              <th className="px-4 py-2 text-left">Status</th>
-              <th className="px-4 py-2 text-left">Provider</th>
+              <SortableHeader
+                label="CUDA"
+                sortKey="cuda"
+                currentSortBy={sortBy}
+                currentSortDir={sortDir}
+                onSort={onSort}
+                align="left"
+              />
+              <SortableHeader
+                label="Python"
+                sortKey="python"
+                currentSortBy={sortBy}
+                currentSortDir={sortDir}
+                onSort={onSort}
+                align="left"
+              />
+              <SortableHeader
+                label="Status"
+                sortKey="status"
+                currentSortBy={sortBy}
+                currentSortDir={sortDir}
+                onSort={onSort}
+                align="left"
+              />
+              <SortableHeader
+                label="Provider"
+                sortKey="provider"
+                currentSortBy={sortBy}
+                currentSortDir={sortDir}
+                onSort={onSort}
+                align="left"
+              />
             </tr>
           </thead>
           <tbody className="bg-white">

@@ -4,7 +4,11 @@ import { useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import type { ImageEntry } from '@/lib/types/images';
-import type { TableState } from '@/lib/url/tableSearchParams';
+import type {
+  TableState,
+  TableSortBy,
+  TableSortDir
+} from '@/lib/url/tableSearchParams';
 import {
   parseTableState,
   serializeTableState
@@ -42,6 +46,18 @@ export function TableClient({ images }: TableClientProps) {
     router.replace(href, { scroll: false });
   }
 
+  function handleSort(column: TableSortBy) {
+    const isSameColumn = state.sortBy === column;
+    const nextDir: TableSortDir =
+      isSameColumn && state.sortDir === 'asc' ? 'desc' : 'asc';
+
+    updateState({
+      ...state,
+      sortBy: column,
+      sortDir: nextDir
+    });
+  }
+
   const totalCount = images.length;
   const showingCount = filteredImages.length;
   const isGuideConstrained = state.ids.length > 0;
@@ -61,7 +77,12 @@ export function TableClient({ images }: TableClientProps) {
 
       <TableToolbar state={state} onStateChange={updateState} images={images} />
       <FilterChips state={state} onStateChange={updateState} />
-      <DataTable images={filteredImages} />
+      <DataTable
+        images={filteredImages}
+        sortBy={state.sortBy}
+        sortDir={state.sortDir}
+        onSort={handleSort}
+      />
     </div>
   );
 }
