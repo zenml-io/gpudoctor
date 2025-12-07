@@ -44,15 +44,18 @@ export function TableClient({ images }: TableClientProps) {
 
   const totalCount = images.length;
   const showingCount = filteredImages.length;
+  const isGuideConstrained = state.ids.length > 0;
 
   return (
     <div className="space-y-6">
       <section className="space-y-2">
         <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl">
-          Browse all images
+          {isGuideConstrained ? 'Guide-matched images' : 'Browse all images'}
         </h1>
         <p className="max-w-2xl text-sm text-neutral-600">
-          Showing {showingCount} of {totalCount} images in the catalog.
+          {isGuideConstrained
+            ? `Showing ${showingCount} of ${state.ids.length} guide-matched images.`
+            : `Showing ${showingCount} of ${totalCount} images in the catalog.`}
         </p>
       </section>
 

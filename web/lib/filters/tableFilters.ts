@@ -1,0 +1,173 @@
+import Fuse from 'fuse.js';
+
+import type {
+  ImageEntry,
+  ImageProvider,
+  MaintenanceStatus,
+  Workload
+} from '@/lib/types/images';
+import type {
+  TableState,
+  TableSortBy
+} from '@/lib/url/tableSearchParams';
+
+/**
+ * Applies text search (via Fuse.js), structured filters, and sorting to the
+ * full image list based on the current TableState.
+ */
+export function filterTableImages(
+  images: ImageEntry[],
+  state: TableState
+): ImageEntry[] {
+  if (images.length === 0) {
+    return [];
+  }
+
+  const baseImages: ImageEntry[] =
+    state.ids.length > 0
+      ? (() => {
+          const allowed = new Set(state.ids);
+          return images.filter((image) => allowed.has(image.id));
+        })()
+      : images;
+
+  if (baseImages.length === 0) {
+    return [];
+  }
+
+  let working: ImageEntry[] = baseImages;
+
+  // Text search using Fuse.js when a query is present.
+  if (state.query.trim().length > 0) {
+    const fuse = new Fuse(baseImages, {
+      keys: [
+        'name',
+        'metadata.provider',
+        'frameworks.name',
+        'frameworks.version',
+        'capabilities.workloads',
+        'urls.registry',
+        'recommended_for'
+      ],
+      threshold: 0.35,
+      ignoreLocation: true,
+      minMatchCharLength: 2
+    });
+
+    const results = fuse.search(state.query.trim());
+    working = results.map((result) => result.item);
+  }
+
+  // Structured filters.
+  if (state.frameworks.length > 0) {
+    const desired = new Set(state.frameworks.map((fw) => fw.toLowerCase()));
+    working = working.filter((image) => {
+      const imageFrameworks = image.frameworks.map((f) =>
+        f.name.toLowerCase()
+      );
+      return imageFrameworks.some((fw) => desired.has(fw));
+    });
+  }
+
+  if (state.providers.length > 0) {
+    const desired = new Set<ImageProvider>(state.providers);
+    working = working.filter((image) =>
+      desired.has(image.metadata.provider)
+    );
+  }
+
+  if (state.workloads.length > 0) {
+    const desired = new Set<Workload>(state.workloads);
+    working = working.filter((image) =>
+      image.capabilities.workloads.some((wk) => desired.has(wk))
+    );
+  }
+
+  if (state.status.length > 0) {
+    const desired = new Set<MaintenanceStatus>(state.status);
+    working = working.filter((image) =>
+      desired.has(image.metadata.maintenance)
+    );
+  }
+
+  if (state.cudaVersions.length > 0) {
+    const desired = new Set(state.cudaVersions);
+    working = working.filter((image) => {
+      const version = image.cuda?.version;
+      if (!version) {
+        return false;
+      }
+      return desired.has(version);
+    });
+  }
+
+  // Sorting.
+  const sorted = [...working].sort((a, b) => {
+    const compare = compareByColumn(a, b, state.sortBy);
+    return state.sortDir === 'asc' ? compare : -compare;
+  });
+
+  return sorted;
+}
+
+function compareByColumn(
+  a: ImageEntry,
+  b: ImageEntry,
+  sortBy: TableSortBy
+): number {
+  switch (sortBy) {
+    case 'provider':
+      return a.metadata.provider.localeCompare(b.metadata.provider);
+    case 'cuda': {
+      const va = a.cuda?.version ?? '';
+      const vb = b.cuda?.version ?? '';
+      if (va === vb) {
+        return fallbackNameCompare(a, b);
+      }
+      return va.localeCompare(vb, undefined, { numeric: true });
+    }
+    case 'python': {
+      const va = a.runtime.python ?? '';
+      const vb = b.runtime.python ?? '';
+      if (va === vb) {
+        return fallbackNameCompare(a, b);
+      }
+      return va.localeCompare(vb, undefined, { numeric: true });
+    }
+    case 'status': {
+      const sa = maintenanceRank(a.metadata.maintenance);
+      const sb = maintenanceRank(b.metadata.maintenance);
+      if (sa === sb) {
+        return fallbackNameCompare(a, b);
+      }
+      return sa - sb;
+    }
+    case 'name':
+    default:
+      return fallbackNameCompare(a, b);
+  }
+}
+
+function fallbackNameCompare(a: ImageEntry, b: ImageEntry): number {
+  const providerCompare = a.metadata.provider.localeCompare(
+    b.metadata.provider
+  );
+  if (providerCompare !== 0) {
+    return providerCompare;
+  }
+  return a.name.localeCompare(b.name);
+}
+
+function maintenanceRank(status: MaintenanceStatus): number {
+  // Lower is "better" so that Active appears before Deprecated/EOL.
+  switch (status) {
+    case 'active':
+      return 0;
+    case 'deprecated':
+      return 1;
+    case 'end-of-life':
+      return 2;
+    default:
+      return 3;
+  }
+}

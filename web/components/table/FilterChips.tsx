@@ -30,24 +30,38 @@ export function FilterChips({ state, onStateChange }: FilterChipsProps) {
       providers: [],
       workloads: [],
       status: [],
-      cudaVersions: []
+      cudaVersions: [],
+      ids: []
     });
   }
 
   return (
     <div className="flex flex-wrap items-center gap-2 text-xs">
       <span className="text-neutral-500">Active filters:</span>
-      {chips.map((chip) => (
-        <button
-          key={chip.key}
-          type="button"
-          onClick={chip.onRemove}
-          className="inline-flex items-center gap-1 rounded-full border border-neutral-200 bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-700 hover:bg-neutral-200"
-        >
-          <span>{chip.label}</span>
-          <X className="h-3 w-3" aria-hidden="true" />
-        </button>
-      ))}
+      {chips.map((chip) => {
+        const isFromGuide = chip.key === 'ids:guide';
+
+        const baseClasses =
+          'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium';
+        const guideClasses =
+          'border-primary-200 bg-primary-50 text-primary-700 hover:bg-primary-100';
+        const defaultClasses =
+          'border-neutral-200 bg-neutral-100 text-neutral-700 hover:bg-neutral-200';
+
+        return (
+          <button
+            key={chip.key}
+            type="button"
+            onClick={chip.onRemove}
+            className={`${baseClasses} ${
+              isFromGuide ? guideClasses : defaultClasses
+            }`}
+          >
+            <span>{chip.label}</span>
+            <X className="h-3 w-3" aria-hidden="true" />
+          </button>
+        );
+      })}
       <button
         type="button"
         onClick={handleClearAll}
@@ -70,6 +84,21 @@ function buildChips(
   onStateChange: (next: TableState) => void
 ): Chip[] {
   const chips: Chip[] = [];
+
+  if (state.ids.length > 0) {
+    chips.push({
+      key: 'ids:guide',
+      label:
+        state.ids.length > 1
+          ? `From guide (${state.ids.length})`
+          : 'From guide',
+      onRemove: () =>
+        onStateChange({
+          ...state,
+          ids: []
+        })
+    });
+  }
 
   for (const fw of state.frameworks) {
     chips.push({

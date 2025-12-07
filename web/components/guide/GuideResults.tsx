@@ -109,7 +109,12 @@ export function GuideResults({ images, state }: GuideResultsProps) {
         {images.length > 5 && (
           <div>
             <Link
-              href="/table"
+              href={{
+                pathname: '/table',
+                query: {
+                  ids: images.map((img) => img.id).join(',')
+                }
+              }}
               className="text-sm font-medium text-primary-600 hover:text-primary-700"
             >
               View all {images.length} matching images in table →
