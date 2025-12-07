@@ -2,6 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  basePath: process.env.GITHUB_ACTIONS ? '/gpudoctor' : '',
+  assetPrefix: process.env.GITHUB_ACTIONS ? '/gpudoctor/' : '',
   images: {
     unoptimized: true
   },
