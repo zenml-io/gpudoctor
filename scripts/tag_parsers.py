@@ -434,6 +434,86 @@ def parse_ngc_rapids(tag: str) -> ParsedTag | None:
     )
 
 
+def parse_jupyter_stack(tag: str) -> ParsedTag | None:
+    """Parse Jupyter Docker Stacks image tags.
+
+    The Jupyter stacks use semantic tags like:
+        - "latest" -> rolling release
+        - "python-3.13" or "python-3.13.11" -> Python version pinned
+        - "lab-4.5.0" -> JupyterLab version pinned
+        - "ubuntu-24.04" -> Ubuntu version pinned
+        - "notebook-7.5.0" -> Jupyter Notebook version pinned
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info
+    """
+    # Handle "latest" tag
+    if tag == "latest":
+        return ParsedTag(
+            framework="jupyter",
+            framework_version="latest",
+            image_type="runtime",
+            flavor="notebook",
+        )
+
+    # Python version tag: python-3.13 or python-3.13.11
+    python_pattern = r"^python-((\d+\.\d+)(?:\.\d+)?)$"
+    python_match = re.match(python_pattern, tag)
+    if python_match:
+        return ParsedTag(
+            framework="jupyter",
+            framework_version=python_match.group(2),  # Major.minor only
+            image_type="runtime",
+            flavor=f"python-{python_match.group(1)}",
+        )
+
+    # JupyterLab version tag: lab-4.5.0
+    lab_pattern = r"^lab-(\d+\.\d+\.\d+)$"
+    lab_match = re.match(lab_pattern, tag)
+    if lab_match:
+        return ParsedTag(
+            framework="jupyterlab",
+            framework_version=lab_match.group(1),
+            image_type="runtime",
+            flavor="lab",
+        )
+
+    # Ubuntu version tag: ubuntu-24.04
+    ubuntu_pattern = r"^ubuntu-(\d+\.\d+)$"
+    ubuntu_match = re.match(ubuntu_pattern, tag)
+    if ubuntu_match:
+        return ParsedTag(
+            framework="jupyter",
+            framework_version=ubuntu_match.group(1),
+            image_type="runtime",
+            flavor="ubuntu",
+            os_name="ubuntu",
+            os_version=ubuntu_match.group(1),
+        )
+
+    # Notebook version tag: notebook-7.5.0
+    notebook_pattern = r"^notebook-(\d+\.\d+\.\d+)$"
+    notebook_match = re.match(notebook_pattern, tag)
+    if notebook_match:
+        return ParsedTag(
+            framework="jupyter-notebook",
+            framework_version=notebook_match.group(1),
+            image_type="runtime",
+            flavor="notebook",
+        )
+
+    # Fallback for other tags (e.g., commit hashes, dates)
+    return ParsedTag(
+        framework="jupyter",
+        framework_version=tag,
+        image_type="runtime",
+        flavor="other",
+    )
+
+
 # Registry mapping parser names to functions
 PARSER_REGISTRY: dict[str, type] = {
     "pytorch_cuda": parse_pytorch_cuda,
@@ -449,6 +529,7 @@ PARSER_REGISTRY: dict[str, type] = {
     "ngc_jax": parse_ngc_jax,
     "ngc_nemo": parse_ngc_nemo,
     "ngc_rapids": parse_ngc_rapids,
+    "jupyter_stack": parse_jupyter_stack,
 }
 
 

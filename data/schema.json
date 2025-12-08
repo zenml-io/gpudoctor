@@ -141,7 +141,7 @@
         },
         "registry": {
           "type": "string",
-          "enum": ["dockerhub", "ecr", "gcr", "ngc", "ghcr", "mcr"],
+          "enum": ["dockerhub", "ecr", "gcr", "ngc", "ghcr", "mcr", "quay"],
           "description": "Container registry where image is hosted"
         },
         "maintenance": {

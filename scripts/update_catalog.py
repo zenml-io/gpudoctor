@@ -33,22 +33,25 @@ from config import (
     DockerHubSeed,
     GHCRSeed,
     NGCSeed,
+    QuaySeed,
     IMAGES_PATH,
     SCHEMA_PATH,
     load_dockerhub_seeds,
     load_ghcr_seeds,
     load_ngc_seeds,
+    load_quay_seeds,
 )
 from fetchers import TagInfo
 from fetchers import dockerhub as dockerhub_client
 from fetchers import ghcr as ghcr_client
 from fetchers import ngc as ngc_client
+from fetchers import quay as quay_client
 from merge import merge_catalog
 from tag_parsers import get_parser
 
 logger = logging.getLogger(__name__)
 
-SOURCE_CHOICES = ("dockerhub", "ghcr", "ngc", "all")
+SOURCE_CHOICES = ("dockerhub", "ghcr", "ngc", "quay", "all")
 
 
 def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
@@ -65,7 +68,7 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
         choices=SOURCE_CHOICES,
         default="dockerhub",
         help=(
-            "Sources to update. Use 'dockerhub', 'ghcr', or 'ngc' to limit to a single registry, "
+            "Sources to update. Use 'dockerhub', 'ghcr', 'ngc', or 'quay' to limit to a single registry, "
             "or 'all' to update from all configured registries."
         ),
     )
@@ -364,6 +367,73 @@ def generate_ngc_images() -> List[Dict[str, Any]]:
     logger.info("Generated %d images from NGC seeds", len(images))
     return images
 
+def generate_quay_images() -> List[Dict[str, Any]]:
+    """Generate catalog images from all configured Quay.io seeds."""
+    seeds: List[QuaySeed] = load_quay_seeds()
+    logger.info("Loaded %d Quay.io seeds from configuration", len(seeds))
+
+    images: List[Dict[str, Any]] = []
+    for seed in seeds:
+        parser_fn = get_parser(seed.parser)
+        builder_fn = get_builder(seed.parser)
+
+        seed_images: List[Dict[str, Any]] = []
+
+        for tag in seed.tags:
+            tag_info = quay_client.get_tag(seed.org, seed.repo, tag)
+            if tag_info is None:
+                logger.warning(
+                    "Seed %s: failed to fetch explicit tag quay.io/%s/%s:%s",
+                    seed.id,
+                    seed.org,
+                    seed.repo,
+                    tag,
+                )
+                continue
+
+            parsed = parser_fn(tag_info.name)
+            if parsed is None:
+                logger.warning(
+                    "Seed %s: parser '%s' could not handle tag %s for %s/%s",
+                    seed.id,
+                    seed.parser,
+                    tag_info.name,
+                    seed.org,
+                    seed.repo,
+                )
+                continue
+
+            try:
+                image = builder_fn(
+                    tag_info,
+                    parsed,
+                    org=seed.org,
+                    repo=seed.repo,
+                )
+            except TypeError as exc:
+                logger.error(
+                    "Seed %s: builder '%s' failed for tag %s: %s",
+                    seed.id,
+                    seed.parser,
+                    tag_info.name,
+                    exc,
+                )
+                continue
+
+            seed_images.append(image)
+
+        logger.info(
+            "Seed %s: built %d images for quay.io/%s/%s",
+            seed.id,
+            len(seed_images),
+            seed.org,
+            seed.repo,
+        )
+        images.extend(seed_images)
+
+    logger.info("Generated %d images from Quay.io seeds", len(images))
+    return images
+
 def summarize_changes(
     existing_images: List[Dict[str, Any]],
     merged_images: List[Dict[str, Any]],
@@ -432,6 +502,9 @@ def run(source: str, dry_run: bool) -> None:
 
     if source in ("ngc", "all"):
         generated_images.extend(generate_ngc_images())
+
+    if source in ("quay", "all"):
+        generated_images.extend(generate_quay_images())
 
     if not generated_images:
         logger.warning("No images were generated from selected sources")

@@ -4,6 +4,1693 @@
   "last_updated": "2025-12-08",
   "images": [
     {
+      "id": "jupyter-all-spark-notebook-latest",
+      "name": "quay.io/jupyter/all-spark-notebook:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 2258,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/all-spark-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-all-spark-notebook-python-3-12",
+      "name": "quay.io/jupyter/all-spark-notebook:python-3.12",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.12",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 2232,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/all-spark-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-base-notebook-latest",
+      "name": "quay.io/jupyter/base-notebook:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 265,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/base-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-base-notebook-python-3-12",
+      "name": "quay.io/jupyter/base-notebook:python-3.12",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.12",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 263,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/base-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-base-notebook-python-3-13",
+      "name": "quay.io/jupyter/base-notebook:python-3.13",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.13",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 265,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/base-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-datascience-notebook-latest",
+      "name": "quay.io/jupyter/datascience-notebook:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "numpy",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pandas",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "scikit-learn",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 2215,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/datascience-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-datascience-notebook-python-3-11",
+      "name": "quay.io/jupyter/datascience-notebook:python-3.11",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "numpy",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pandas",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "scikit-learn",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 2068,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/datascience-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-datascience-notebook-python-3-12",
+      "name": "quay.io/jupyter/datascience-notebook:python-3.12",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.12",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "numpy",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pandas",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "scikit-learn",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 2204,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/datascience-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-datascience-notebook-python-3-13",
+      "name": "quay.io/jupyter/datascience-notebook:python-3.13",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.13",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "numpy",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pandas",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "scikit-learn",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 2215,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/datascience-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-minimal-notebook-latest",
+      "name": "quay.io/jupyter/minimal-notebook:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 498,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/minimal-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-minimal-notebook-python-3-12",
+      "name": "quay.io/jupyter/minimal-notebook:python-3.12",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.12",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 496,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/minimal-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-minimal-notebook-python-3-13",
+      "name": "quay.io/jupyter/minimal-notebook:python-3.13",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.13",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 498,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/minimal-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-pyspark-notebook-latest",
+      "name": "quay.io/jupyter/pyspark-notebook:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pyspark",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1782,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/pyspark-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-pyspark-notebook-python-3-11",
+      "name": "quay.io/jupyter/pyspark-notebook:python-3.11",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pyspark",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1806,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/pyspark-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-pyspark-notebook-python-3-12",
+      "name": "quay.io/jupyter/pyspark-notebook:python-3.12",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.12",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pyspark",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1766,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/pyspark-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-pytorch-notebook-latest",
+      "name": "quay.io/jupyter/pytorch-notebook:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pytorch",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1361,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/pytorch-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-pytorch-notebook-python-3-11",
+      "name": "quay.io/jupyter/pytorch-notebook:python-3.11",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pytorch",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1400,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/pytorch-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-pytorch-notebook-python-3-12",
+      "name": "quay.io/jupyter/pytorch-notebook:python-3.12",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.12",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "pytorch",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1351,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/pytorch-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-scipy-notebook-latest",
+      "name": "quay.io/jupyter/scipy-notebook:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "scipy",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1169,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/scipy-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-scipy-notebook-python-3-11",
+      "name": "quay.io/jupyter/scipy-notebook:python-3.11",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "scipy",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1198,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/scipy-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-scipy-notebook-python-3-12",
+      "name": "quay.io/jupyter/scipy-notebook:python-3.12",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.12",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "scipy",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1158,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/scipy-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-scipy-notebook-python-3-13",
+      "name": "quay.io/jupyter/scipy-notebook:python-3.13",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.13",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "scipy",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1169,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/scipy-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-tensorflow-notebook-latest",
+      "name": "quay.io/jupyter/tensorflow-notebook:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "tensorflow",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1478,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/tensorflow-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-tensorflow-notebook-python-3-11",
+      "name": "quay.io/jupyter/tensorflow-notebook:python-3.11",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "tensorflow",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1497,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/tensorflow-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "jupyter-tensorflow-notebook-python-3-12",
+      "name": "quay.io/jupyter/tensorflow-notebook:python-3.12",
+      "metadata": {
+        "status": "official",
+        "provider": "jupyter",
+        "registry": "quay",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.12",
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "jupyter",
+          "version": "varies-by-tag"
+        },
+        {
+          "name": "tensorflow",
+          "version": "varies-by-tag"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1480,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://quay.io/repository/jupyter/tensorflow-notebook",
+        "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+        "source": "https://github.com/jupyter/docker-stacks"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
       "id": "ngc-jax-23-10",
       "name": "nvcr.io/nvidia/jax:23.10-py3",
       "metadata": {

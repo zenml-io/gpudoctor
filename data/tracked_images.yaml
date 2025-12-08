@@ -405,3 +405,81 @@ ngc:
       # 2023 releases (for compatibility)
       - "23.12-cuda12.0-py3.10"
       - "23.10-cuda12.0-py3.10"
+
+quay:
+  # ==========================================================================
+  # Jupyter Docker Stacks (quay.io)
+  # Official notebook environments maintained by Project Jupyter
+  # ==========================================================================
+  - id: jupyter-datascience
+    org: jupyter
+    repo: datascience-notebook
+    parser: jupyter_stack
+    tags:
+      - "latest"
+      - "python-3.13"
+      - "python-3.12"
+      - "python-3.11"
+
+  - id: jupyter-scipy
+    org: jupyter
+    repo: scipy-notebook
+    parser: jupyter_stack
+    tags:
+      - "latest"
+      - "python-3.13"
+      - "python-3.12"
+      - "python-3.11"
+
+  - id: jupyter-tensorflow
+    org: jupyter
+    repo: tensorflow-notebook
+    parser: jupyter_stack
+    tags:
+      - "latest"
+      - "python-3.12"
+      - "python-3.11"
+
+  - id: jupyter-pytorch
+    org: jupyter
+    repo: pytorch-notebook
+    parser: jupyter_stack
+    tags:
+      - "latest"
+      - "python-3.12"
+      - "python-3.11"
+
+  - id: jupyter-minimal
+    org: jupyter
+    repo: minimal-notebook
+    parser: jupyter_stack
+    tags:
+      - "latest"
+      - "python-3.13"
+      - "python-3.12"
+
+  - id: jupyter-base
+    org: jupyter
+    repo: base-notebook
+    parser: jupyter_stack
+    tags:
+      - "latest"
+      - "python-3.13"
+      - "python-3.12"
+
+  - id: jupyter-pyspark
+    org: jupyter
+    repo: pyspark-notebook
+    parser: jupyter_stack
+    tags:
+      - "latest"
+      - "python-3.12"
+      - "python-3.11"
+
+  - id: jupyter-all-spark
+    org: jupyter
+    repo: all-spark-notebook
+    parser: jupyter_stack
+    tags:
+      - "latest"
+      - "python-3.12"

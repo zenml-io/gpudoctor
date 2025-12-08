@@ -899,6 +899,123 @@ def build_ngc_rapids_image(
     }
 
 
+def build_jupyter_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    org: str = "jupyter",
+    repo: str = "datascience-notebook",
+) -> dict[str, Any]:
+    """Build a catalog entry for Jupyter Docker Stack images.
+
+    ID pattern: jupyter-{repo}-{tag}
+    Examples:
+        - jupyter-datascience-notebook-python-3-13
+        - jupyter-scipy-notebook-latest
+        - jupyter-tensorflow-notebook-python-3-11
+    """
+    # Sanitize repo and tag for ID
+    repo_id = repo.replace("-", "-")
+    tag_id = _version_to_id_part(tag_info.name)
+    image_id = f"jupyter-{repo_id}-{tag_id}"
+    full_name = f"quay.io/{org}/{repo}:{tag_info.name}"
+
+    # Determine Python version from parsed data or tag
+    python_version = None
+    if parsed.flavor and parsed.flavor.startswith("python-"):
+        python_version = parsed.flavor.replace("python-", "")
+    elif parsed.framework_version and parsed.framework_version != "latest":
+        # If framework_version looks like a Python version
+        if parsed.framework == "jupyter" and "." in parsed.framework_version:
+            python_version = parsed.framework_version
+
+    # Determine OS info
+    os_name = parsed.os_name or "ubuntu"
+    os_version = parsed.os_version or "24.04"
+
+    # Determine workloads based on repo type
+    if "tensorflow" in repo:
+        workloads = ["classical-ml", "computer-vision", "nlp", "generic"]
+        frameworks = [
+            {"name": "jupyter", "version": "varies-by-tag"},
+            {"name": "tensorflow", "version": "varies-by-tag"},
+        ]
+    elif "pytorch" in repo:
+        workloads = ["llm", "computer-vision", "nlp", "generic"]
+        frameworks = [
+            {"name": "jupyter", "version": "varies-by-tag"},
+            {"name": "pytorch", "version": "varies-by-tag"},
+        ]
+    elif "pyspark" in repo:
+        workloads = ["classical-ml", "generic"]
+        frameworks = [
+            {"name": "jupyter", "version": "varies-by-tag"},
+            {"name": "pyspark", "version": "varies-by-tag"},
+        ]
+    elif "datascience" in repo:
+        workloads = ["classical-ml", "scientific-computing", "generic"]
+        frameworks = [
+            {"name": "jupyter", "version": "varies-by-tag"},
+            {"name": "numpy", "version": "varies-by-tag"},
+            {"name": "pandas", "version": "varies-by-tag"},
+            {"name": "scikit-learn", "version": "varies-by-tag"},
+        ]
+    elif "scipy" in repo:
+        workloads = ["classical-ml", "scientific-computing", "generic"]
+        frameworks = [
+            {"name": "jupyter", "version": "varies-by-tag"},
+            {"name": "scipy", "version": "varies-by-tag"},
+        ]
+    else:
+        workloads = ["generic"]
+        frameworks = [{"name": "jupyter", "version": "varies-by-tag"}]
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "jupyter",
+            "registry": "quay",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "BSD-3-Clause",
+        },
+        "cuda": None,  # Jupyter stacks are CPU-only
+        "runtime": {
+            "python": python_version,
+            "os": {"name": os_name, "version": os_version},
+            "architectures": tag_info.architectures or ["amd64", "arm64"],
+        },
+        "frameworks": frameworks,
+        "capabilities": {
+            "gpu_vendors": ["none"],
+            "image_type": "runtime",
+            "role": "notebook",
+            "workloads": workloads,
+        },
+        "cloud": {
+            "affinity": ["any"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://quay.io/repository/{org}/{repo}",
+            "documentation": "https://jupyter-docker-stacks.readthedocs.io/en/latest/",
+            "source": f"https://github.com/{org}/docker-stacks",
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": None,
+    }
+
+
 # Registry mapping parser names to builder functions
 BUILDER_REGISTRY: dict[str, type] = {
     "pytorch_cuda": build_pytorch_image,
@@ -914,6 +1031,7 @@ BUILDER_REGISTRY: dict[str, type] = {
     "ngc_jax": build_ngc_jax_image,
     "ngc_nemo": build_ngc_nemo_image,
     "ngc_rapids": build_ngc_rapids_image,
+    "jupyter_stack": build_jupyter_image,
 }
 
 

@@ -59,12 +59,24 @@ class NGCSeed:
 
 
 @dataclass
+class QuaySeed:
+    """A Quay.io image family to track."""
+
+    id: str
+    org: str
+    repo: str
+    parser: str
+    tags: list[str] = field(default_factory=list)
+
+
+@dataclass
 class TrackedImagesConfig:
     """Full configuration from tracked_images.yaml."""
 
     dockerhub: list[DockerHubSeed] = field(default_factory=list)
     ghcr: list[GHCRSeed] = field(default_factory=list)
     ngc: list[NGCSeed] = field(default_factory=list)
+    quay: list[QuaySeed] = field(default_factory=list)
 
 
 def _parse_discover(discover_cfg: dict | None) -> DiscoverConfig | None:
@@ -134,10 +146,24 @@ def load_config(config_path: Path | None = None) -> TrackedImagesConfig:
             )
         )
 
+    # Parse Quay.io seeds
+    quay_seeds: list[QuaySeed] = []
+    for entry in cfg.get("quay", []):
+        quay_seeds.append(
+            QuaySeed(
+                id=entry["id"],
+                org=entry["org"],
+                repo=entry["repo"],
+                parser=entry["parser"],
+                tags=entry.get("tags", []),
+            )
+        )
+
     return TrackedImagesConfig(
         dockerhub=dockerhub_seeds,
         ghcr=ghcr_seeds,
         ngc=ngc_seeds,
+        quay=quay_seeds,
     )
 
 
@@ -154,3 +180,8 @@ def load_ghcr_seeds(config_path: Path | None = None) -> list[GHCRSeed]:
 def load_ngc_seeds(config_path: Path | None = None) -> list[NGCSeed]:
     """Convenience function to load only NGC seeds."""
     return load_config(config_path).ngc
+
+
+def load_quay_seeds(config_path: Path | None = None) -> list[QuaySeed]:
+    """Convenience function to load only Quay.io seeds."""
+    return load_config(config_path).quay
