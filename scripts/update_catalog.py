@@ -46,6 +46,7 @@ from fetchers import dockerhub as dockerhub_client
 from fetchers import ghcr as ghcr_client
 from fetchers import ngc as ngc_client
 from fetchers import quay as quay_client
+from fetchers.cache import TagCache
 from merge import merge_catalog
 from tag_parsers import get_parser
 
@@ -72,6 +73,11 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
             "or 'all' to update from all configured registries."
         ),
     )
+    parser.add_argument(
+        "--no-cache",
+        action="store_true",
+        help="Disable tag metadata caching (forces fresh fetches from registries)",
+    )
     return parser.parse_args(list(argv) if argv is not None else None)
 
 
@@ -90,17 +96,29 @@ def load_existing_catalog() -> Dict[str, Any]:
     return data
 
 
-def fetch_tags_for_dockerhub_seed(seed: DockerHubSeed) -> Dict[str, TagInfo]:
+def fetch_tags_for_dockerhub_seed(
+    seed: DockerHubSeed,
+    cache: TagCache,
+) -> Dict[str, TagInfo]:
     """Fetch TagInfo objects for a Docker Hub seed, combining explicit and discovered tags.
 
     Explicit tags are always fetched. If discover is configured, additional tags
     are pulled from the registry and filtered by the compiled regex until the
     discover limit is reached.
+
+    Uses the provided cache to avoid redundant API calls.
     """
     tags_by_name: Dict[str, TagInfo] = {}
 
     # Explicit tags
     for tag in seed.tags:
+        # Check cache first
+        info = cache.get("dockerhub", seed.namespace, seed.repo, tag)
+        if info is not None:
+            tags_by_name[info.name] = info
+            continue
+
+        # Fetch from registry
         info = dockerhub_client.get_tag(seed.namespace, seed.repo, tag)
         if info is None:
             logger.warning(
@@ -112,6 +130,7 @@ def fetch_tags_for_dockerhub_seed(seed: DockerHubSeed) -> Dict[str, TagInfo]:
             )
             continue
         tags_by_name[info.name] = info
+        cache.set("dockerhub", seed.namespace, seed.repo, tag, info)
 
     # Discovery, if configured
     if seed.discover:
@@ -140,6 +159,7 @@ def fetch_tags_for_dockerhub_seed(seed: DockerHubSeed) -> Dict[str, TagInfo]:
                 continue
 
             tags_by_name[name] = tag_info
+            cache.set("dockerhub", seed.namespace, seed.repo, name, tag_info)
             discovered += 1
 
             if discovered >= limit:
@@ -159,12 +179,15 @@ def fetch_tags_for_dockerhub_seed(seed: DockerHubSeed) -> Dict[str, TagInfo]:
     return tags_by_name
 
 
-def build_images_for_dockerhub_seed(seed: DockerHubSeed) -> List[Dict[str, Any]]:
+def build_images_for_dockerhub_seed(
+    seed: DockerHubSeed,
+    cache: TagCache,
+) -> List[Dict[str, Any]]:
     """Build catalog images for a single Docker Hub seed."""
     parser_fn = get_parser(seed.parser)
     builder_fn = get_builder(seed.parser)
 
-    tags_by_name = fetch_tags_for_dockerhub_seed(seed)
+    tags_by_name = fetch_tags_for_dockerhub_seed(seed, cache)
     images: List[Dict[str, Any]] = []
 
     for tag_name in sorted(tags_by_name.keys()):
@@ -211,20 +234,20 @@ def build_images_for_dockerhub_seed(seed: DockerHubSeed) -> List[Dict[str, Any]]
     return images
 
 
-def generate_dockerhub_images() -> List[Dict[str, Any]]:
+def generate_dockerhub_images(cache: TagCache) -> List[Dict[str, Any]]:
     """Generate catalog images from all configured Docker Hub seeds."""
     seeds = load_dockerhub_seeds()
     logger.info("Loaded %d Docker Hub seeds from configuration", len(seeds))
 
     images: List[Dict[str, Any]] = []
     for seed in seeds:
-        seed_images = build_images_for_dockerhub_seed(seed)
+        seed_images = build_images_for_dockerhub_seed(seed, cache)
         images.extend(seed_images)
 
     logger.info("Generated %d images from Docker Hub seeds", len(images))
     return images
 
-def generate_ghcr_images() -> List[Dict[str, Any]]:
+def generate_ghcr_images(cache: TagCache) -> List[Dict[str, Any]]:
     """Generate catalog images from all configured GHCR seeds."""
     seeds: List[GHCRSeed] = load_ghcr_seeds()
     logger.info("Loaded %d GHCR seeds from configuration", len(seeds))
@@ -237,16 +260,20 @@ def generate_ghcr_images() -> List[Dict[str, Any]]:
         seed_images: List[Dict[str, Any]] = []
 
         for tag in seed.tags:
-            tag_info = ghcr_client.get_tag(seed.org, seed.repo, tag)
+            # Check cache first
+            tag_info = cache.get("ghcr", seed.org, seed.repo, tag)
             if tag_info is None:
-                logger.warning(
-                    "Seed %s: failed to fetch explicit tag ghcr.io/%s/%s:%s",
-                    seed.id,
-                    seed.org,
-                    seed.repo,
-                    tag,
-                )
-                continue
+                tag_info = ghcr_client.get_tag(seed.org, seed.repo, tag)
+                if tag_info is None:
+                    logger.warning(
+                        "Seed %s: failed to fetch explicit tag ghcr.io/%s/%s:%s",
+                        seed.id,
+                        seed.org,
+                        seed.repo,
+                        tag,
+                    )
+                    continue
+                cache.set("ghcr", seed.org, seed.repo, tag, tag_info)
 
             parsed = parser_fn(tag_info.name)
             if parsed is None:
@@ -291,7 +318,7 @@ def generate_ghcr_images() -> List[Dict[str, Any]]:
     logger.info("Generated %d images from GHCR seeds", len(images))
     return images
 
-def generate_ngc_images() -> List[Dict[str, Any]]:
+def generate_ngc_images(cache: TagCache) -> List[Dict[str, Any]]:
     """Generate catalog images from all configured NGC seeds."""
     seeds: List[NGCSeed] = load_ngc_seeds()
     logger.info("Loaded %d NGC seeds from configuration", len(seeds))
@@ -303,20 +330,27 @@ def generate_ngc_images() -> List[Dict[str, Any]]:
 
         seed_images: List[Dict[str, Any]] = []
 
+        # NGC cache key uses org/team as namespace for team-scoped repos
+        cache_namespace = f"{seed.org}/{seed.team}" if seed.team else seed.org
+
         for tag in seed.tags:
-            tag_info = ngc_client.get_tag(seed.org, seed.repo, tag, team=seed.team)
+            # Check cache first
+            tag_info = cache.get("ngc", cache_namespace, seed.repo, tag)
             if tag_info is None:
-                # Build the full image path for logging
-                if seed.team:
-                    image_path = f"nvcr.io/{seed.org}/{seed.team}/{seed.repo}:{tag}"
-                else:
-                    image_path = f"nvcr.io/{seed.org}/{seed.repo}:{tag}"
-                logger.warning(
-                    "Seed %s: failed to fetch explicit tag %s",
-                    seed.id,
-                    image_path,
-                )
-                continue
+                tag_info = ngc_client.get_tag(seed.org, seed.repo, tag, team=seed.team)
+                if tag_info is None:
+                    # Build the full image path for logging
+                    if seed.team:
+                        image_path = f"nvcr.io/{seed.org}/{seed.team}/{seed.repo}:{tag}"
+                    else:
+                        image_path = f"nvcr.io/{seed.org}/{seed.repo}:{tag}"
+                    logger.warning(
+                        "Seed %s: failed to fetch explicit tag %s",
+                        seed.id,
+                        image_path,
+                    )
+                    continue
+                cache.set("ngc", cache_namespace, seed.repo, tag, tag_info)
 
             parsed = parser_fn(tag_info.name)
             if parsed is None:
@@ -367,7 +401,7 @@ def generate_ngc_images() -> List[Dict[str, Any]]:
     logger.info("Generated %d images from NGC seeds", len(images))
     return images
 
-def generate_quay_images() -> List[Dict[str, Any]]:
+def generate_quay_images(cache: TagCache) -> List[Dict[str, Any]]:
     """Generate catalog images from all configured Quay.io seeds."""
     seeds: List[QuaySeed] = load_quay_seeds()
     logger.info("Loaded %d Quay.io seeds from configuration", len(seeds))
@@ -380,16 +414,20 @@ def generate_quay_images() -> List[Dict[str, Any]]:
         seed_images: List[Dict[str, Any]] = []
 
         for tag in seed.tags:
-            tag_info = quay_client.get_tag(seed.org, seed.repo, tag)
+            # Check cache first
+            tag_info = cache.get("quay", seed.org, seed.repo, tag)
             if tag_info is None:
-                logger.warning(
-                    "Seed %s: failed to fetch explicit tag quay.io/%s/%s:%s",
-                    seed.id,
-                    seed.org,
-                    seed.repo,
-                    tag,
-                )
-                continue
+                tag_info = quay_client.get_tag(seed.org, seed.repo, tag)
+                if tag_info is None:
+                    logger.warning(
+                        "Seed %s: failed to fetch explicit tag quay.io/%s/%s:%s",
+                        seed.id,
+                        seed.org,
+                        seed.repo,
+                        tag,
+                    )
+                    continue
+                cache.set("quay", seed.org, seed.repo, tag, tag_info)
 
             parsed = parser_fn(tag_info.name)
             if parsed is None:
@@ -485,9 +523,12 @@ def write_catalog(catalog: Dict[str, Any]) -> None:
     logger.info("Wrote updated catalog to %s", IMAGES_PATH)
 
 
-def run(source: str, dry_run: bool) -> None:
+def run(source: str, dry_run: bool, no_cache: bool = False) -> None:
     if source not in SOURCE_CHOICES:
         raise ValueError(f"Unsupported source '{source}'. Expected one of {SOURCE_CHOICES!r}.")
+
+    # Initialize tag cache (disabled if --no-cache flag is set)
+    cache = TagCache(enabled=not no_cache)
 
     existing_catalog = load_existing_catalog()
     existing_images: List[Dict[str, Any]] = existing_catalog.get("images", [])
@@ -495,16 +536,19 @@ def run(source: str, dry_run: bool) -> None:
     generated_images: List[Dict[str, Any]] = []
 
     if source in ("dockerhub", "all"):
-        generated_images.extend(generate_dockerhub_images())
+        generated_images.extend(generate_dockerhub_images(cache))
 
     if source in ("ghcr", "all"):
-        generated_images.extend(generate_ghcr_images())
+        generated_images.extend(generate_ghcr_images(cache))
 
     if source in ("ngc", "all"):
-        generated_images.extend(generate_ngc_images())
+        generated_images.extend(generate_ngc_images(cache))
 
     if source in ("quay", "all"):
-        generated_images.extend(generate_quay_images())
+        generated_images.extend(generate_quay_images(cache))
+
+    # Save cache after all fetches complete (persists for subsequent runs today)
+    cache.save()
 
     if not generated_images:
         logger.warning("No images were generated from selected sources")
@@ -548,7 +592,7 @@ def main(argv: Iterable[str] | None = None) -> int:
     args = parse_args(argv)
 
     try:
-        run(source=args.source, dry_run=bool(args.dry_run))
+        run(source=args.source, dry_run=bool(args.dry_run), no_cache=bool(args.no_cache))
     except ValidationError as exc:
         logger.error("Schema validation failed: %s", exc)
         return 1
