@@ -344,8 +344,11 @@ def build_nvidia_cuda_image(
     os_id = f"{parsed.os_name}{_version_to_id_part(parsed.os_version or '')}"
     image_type = parsed.image_type or "runtime"
 
-    # Handle cudnn variant
-    type_suffix = "cudnn-devel" if parsed.cudnn_version and image_type == "devel" else image_type
+    # Handle cudnn variant - prepend cudnn to type when cuDNN is included
+    if parsed.cudnn_version:
+        type_suffix = f"cudnn-{image_type}"
+    else:
+        type_suffix = image_type
 
     image_id = f"nvidia-cuda-{cuda_id}-{type_suffix}-{os_id}"
     full_name = f"{namespace}/{repo}:{tag_info.name}"
@@ -502,7 +505,7 @@ def build_ngc_pytorch_image(
             "architectures": tag_info.architectures or ["amd64"],
         },
         "frameworks": [
-            {"name": "pytorch", "version": None},  # Version varies
+            {"name": "pytorch", "version": "varies-by-release"},
         ],
         "capabilities": {
             "gpu_vendors": ["nvidia"],
@@ -568,7 +571,7 @@ def build_ngc_tensorflow_image(
             "architectures": tag_info.architectures or ["amd64"],
         },
         "frameworks": [
-            {"name": "tensorflow", "version": None},
+            {"name": "tensorflow", "version": "varies-by-release"},
         ],
         "capabilities": {
             "gpu_vendors": ["nvidia"],
@@ -634,7 +637,7 @@ def build_ngc_triton_image(
             "architectures": tag_info.architectures or ["amd64"],
         },
         "frameworks": [
-            {"name": "triton-inference-server", "version": None},
+            {"name": "triton-inference-server", "version": "varies-by-release"},
         ],
         "capabilities": {
             "gpu_vendors": ["nvidia"],
@@ -665,6 +668,212 @@ def build_ngc_triton_image(
     }
 
 
+def build_ngc_jax_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    org: str = "nvidia",
+    repo: str = "jax",
+) -> dict[str, Any]:
+    """Build a catalog entry for NVIDIA NGC JAX images.
+
+    ID pattern: ngc-jax-{release}
+    Example: ngc-jax-24-12
+    """
+    release_id = _version_to_id_part(parsed.release or tag_info.name.split("-")[0])
+    image_id = f"ngc-jax-{release_id}"
+    full_name = f"nvcr.io/{org}/{repo}:{tag_info.name}"
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "nvidia-ngc",
+            "registry": "ngc",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "NVIDIA-proprietary",
+        },
+        "cuda": _build_cuda_object(
+            version=None,
+        ),
+        "runtime": {
+            "python": "3.10",
+            "os": {"name": "ubuntu", "version": "22.04"},
+            "architectures": tag_info.architectures or ["amd64"],
+        },
+        "frameworks": [
+            {"name": "jax", "version": "varies-by-release"},
+        ],
+        "capabilities": {
+            "gpu_vendors": ["nvidia"],
+            "image_type": "devel",
+            "role": "training",
+            "workloads": ["llm", "scientific-computing", "generic"],
+        },
+        "cloud": {
+            "affinity": ["any"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://catalog.ngc.nvidia.com/orgs/{org}/containers/{repo}",
+            "documentation": "https://docs.nvidia.com/deeplearning/frameworks/jax-release-notes/",
+            "source": None,
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": None,
+    }
+
+
+def build_ngc_nemo_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    org: str = "nvidia",
+    repo: str = "nemo",
+) -> dict[str, Any]:
+    """Build a catalog entry for NVIDIA NeMo Framework images.
+
+    ID pattern: ngc-nemo-{release}
+    Example: ngc-nemo-24-12
+    """
+    release_id = _version_to_id_part(parsed.release or tag_info.name)
+    image_id = f"ngc-nemo-{release_id}"
+    full_name = f"nvcr.io/{org}/{repo}:{tag_info.name}"
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "nvidia-ngc",
+            "registry": "ngc",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "NVIDIA-proprietary",
+        },
+        "cuda": _build_cuda_object(
+            version=None,
+        ),
+        "runtime": {
+            "python": "3.10",
+            "os": {"name": "ubuntu", "version": "22.04"},
+            "architectures": tag_info.architectures or ["amd64"],
+        },
+        "frameworks": [
+            {"name": "nemo", "version": "varies-by-release"},
+            {"name": "pytorch", "version": "varies-by-release"},
+        ],
+        "capabilities": {
+            "gpu_vendors": ["nvidia"],
+            "image_type": "devel",
+            "role": "training",
+            "workloads": ["llm", "nlp", "audio", "multimodal"],
+        },
+        "cloud": {
+            "affinity": ["any"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://catalog.ngc.nvidia.com/orgs/{org}/containers/{repo}",
+            "documentation": "https://docs.nvidia.com/nemo-framework/user-guide/latest/",
+            "source": "https://github.com/NVIDIA/NeMo",
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": None,
+    }
+
+
+def build_ngc_rapids_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    org: str = "nvidia/rapidsai",
+    repo: str = "base",
+) -> dict[str, Any]:
+    """Build a catalog entry for NVIDIA RAPIDS images.
+
+    ID pattern: ngc-rapids-{release}-cuda{cuda}-py{python}
+    Example: ngc-rapids-24-10-cuda12-5-py3-12
+    """
+    release_id = _version_to_id_part(parsed.release or "")
+    cuda_id = _version_to_id_part(parsed.cuda_version or "")
+    # Extract Python version from tag (e.g., "24.10-cuda12.5-py3.12" -> "3.12")
+    py_version = tag_info.name.split("-py")[-1] if "-py" in tag_info.name else "3.10"
+    py_id = _version_to_id_part(py_version)
+
+    image_id = f"ngc-rapids-{release_id}-cuda{cuda_id}-py{py_id}"
+    full_name = f"nvcr.io/{org}/{repo}:{tag_info.name}"
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "nvidia-ngc",
+            "registry": "ngc",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "Apache-2.0",
+        },
+        "cuda": _build_cuda_object(
+            version=parsed.cuda_version,
+        ),
+        "runtime": {
+            "python": py_version,
+            "os": {"name": "ubuntu", "version": "22.04"},
+            "architectures": tag_info.architectures or ["amd64"],
+        },
+        "frameworks": [
+            {"name": "cudf", "version": "varies-by-release"},
+            {"name": "cuml", "version": "varies-by-release"},
+            {"name": "cugraph", "version": "varies-by-release"},
+        ],
+        "capabilities": {
+            "gpu_vendors": ["nvidia"],
+            "image_type": "runtime",
+            "role": "training",
+            "workloads": ["classical-ml", "scientific-computing", "generic"],
+        },
+        "cloud": {
+            "affinity": ["any"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://catalog.ngc.nvidia.com/orgs/{org}/containers/{repo}",
+            "documentation": "https://docs.rapids.ai/",
+            "source": "https://github.com/rapidsai",
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": None,
+    }
+
+
 # Registry mapping parser names to builder functions
 BUILDER_REGISTRY: dict[str, type] = {
     "pytorch_cuda": build_pytorch_image,
@@ -676,6 +885,9 @@ BUILDER_REGISTRY: dict[str, type] = {
     "ngc_pytorch": build_ngc_pytorch_image,
     "ngc_tensorflow": build_ngc_tensorflow_image,
     "ngc_triton": build_ngc_triton_image,
+    "ngc_jax": build_ngc_jax_image,
+    "ngc_nemo": build_ngc_nemo_image,
+    "ngc_rapids": build_ngc_rapids_image,
 }
 
 

@@ -193,7 +193,12 @@ def _parse_single_manifest(
         except httpx.HTTPError as e:
             logger.debug("Failed to fetch config blob for nvcr.io/%s@%s: %s", image_name, config_digest, e)
 
-    architectures = [architecture] if architecture else ["amd64"]
+    # Filter to valid schema architectures
+    valid_archs = {"amd64", "arm64"}
+    if architecture and architecture in valid_archs:
+        architectures = [architecture]
+    else:
+        architectures = ["amd64"]  # Default fallback
     return architectures, size_bytes, created
 
 
@@ -244,8 +249,10 @@ def _parse_index_manifest(
         auth_headers,
     )
 
-    all_arches = arch_set | set(single_arches)
-    architectures = sorted(a for a in all_arches if a) or ["amd64"]
+    # Filter to valid schema architectures only
+    valid_archs = {"amd64", "arm64"}
+    all_arches = (arch_set | set(single_arches)) & valid_archs
+    architectures = sorted(all_arches) or ["amd64"]
 
     return architectures, size_bytes, created
 

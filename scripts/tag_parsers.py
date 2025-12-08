@@ -203,7 +203,8 @@ def parse_nvidia_cuda(tag: str) -> ParsedTag | None:
         ParsedTag with extracted info, or None if tag doesn't match
     """
     # Pattern: VERSION[-cudnnN]-TYPE-OS (cudnn can be just "cudnn" or "cudnn9" etc.)
-    pattern = r"^(\d+\.\d+\.\d+)(?:-(cudnn)(\d+)?)?-(runtime|devel|base)-(\w+)(\d+\.\d+)$"
+    # OS name is letters only, OS version is digits and dots
+    pattern = r"^(\d+\.\d+\.\d+)(?:-(cudnn)(\d+)?)?-(runtime|devel|base)-([a-zA-Z]+)(\d+\.\d+)$"
     match = re.match(pattern, tag)
 
     if not match:
@@ -307,6 +308,87 @@ def parse_ngc_triton(tag: str) -> ParsedTag | None:
     )
 
 
+def parse_ngc_jax(tag: str) -> ParsedTag | None:
+    """Parse NVIDIA NGC JAX image tags.
+
+    Examples:
+        - "24.10-py3" -> Release 24.10, Python 3
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info, or None if tag doesn't match
+    """
+    # Pattern: YY.MM-py3
+    pattern = r"^(\d+\.\d+)-py3$"
+    match = re.match(pattern, tag)
+
+    if not match:
+        return None
+
+    return ParsedTag(
+        framework="jax",
+        release=match.group(1),
+        image_type="devel",
+    )
+
+
+def parse_ngc_nemo(tag: str) -> ParsedTag | None:
+    """Parse NVIDIA NeMo Framework image tags.
+
+    Examples:
+        - "24.12" -> Release 24.12
+        - "25.01" -> Release 25.01
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info, or None if tag doesn't match
+    """
+    # Pattern: YY.MM or YY.MM.N
+    pattern = r"^(\d+\.\d+)(?:\.\d+)?$"
+    match = re.match(pattern, tag)
+
+    if not match:
+        return None
+
+    return ParsedTag(
+        framework="nemo",
+        release=match.group(1),
+        image_type="devel",
+    )
+
+
+def parse_ngc_rapids(tag: str) -> ParsedTag | None:
+    """Parse NVIDIA RAPIDS image tags.
+
+    Examples:
+        - "24.10-cuda12.5-py3.12" -> Release 24.10, CUDA 12.5, Python 3.12
+        - "24.06-cuda12.2-py3.11" -> Release 24.06, CUDA 12.2, Python 3.11
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info, or None if tag doesn't match
+    """
+    # Pattern: YY.MM-cudaVER-pyVER
+    pattern = r"^(\d+\.\d+)-cuda(\d+\.\d+)-py(\d+\.\d+)$"
+    match = re.match(pattern, tag)
+
+    if not match:
+        return None
+
+    return ParsedTag(
+        framework="rapids",
+        release=match.group(1),
+        cuda_version=match.group(2),
+        image_type="runtime",
+    )
+
+
 # Registry mapping parser names to functions
 PARSER_REGISTRY: dict[str, type] = {
     "pytorch_cuda": parse_pytorch_cuda,
@@ -318,6 +400,9 @@ PARSER_REGISTRY: dict[str, type] = {
     "ngc_pytorch": parse_ngc_pytorch,
     "ngc_tensorflow": parse_ngc_tensorflow,
     "ngc_triton": parse_ngc_triton,
+    "ngc_jax": parse_ngc_jax,
+    "ngc_nemo": parse_ngc_nemo,
+    "ngc_rapids": parse_ngc_rapids,
 }
 
 

@@ -10,85 +10,379 @@
 #   - discover: (optional) Auto-discover new tags matching a pattern
 
 dockerhub:
-  # PyTorch official images
+  # ==========================================================================
+  # PyTorch Official Images
+  # ==========================================================================
   - id: pytorch-cuda
     namespace: pytorch
     repo: pytorch
     parser: pytorch_cuda
     tags:
+      # PyTorch 2.6.x (latest stable)
+      - "2.6.0-cuda12.4-cudnn9-runtime"
+      - "2.6.0-cuda12.4-cudnn9-devel"
+      - "2.6.0-cuda12.1-cudnn9-runtime"
+      - "2.6.0-cuda12.1-cudnn9-devel"
+      - "2.6.0-cuda11.8-cudnn9-runtime"
+      - "2.6.0-cuda11.8-cudnn9-devel"
+      # PyTorch 2.5.x
       - "2.5.1-cuda12.4-cudnn9-runtime"
       - "2.5.1-cuda12.4-cudnn9-devel"
+      - "2.5.1-cuda12.1-cudnn9-runtime"
+      - "2.5.1-cuda12.1-cudnn9-devel"
+      - "2.5.1-cuda11.8-cudnn9-runtime"
+      - "2.5.1-cuda11.8-cudnn9-devel"
+      - "2.5.0-cuda12.4-cudnn9-runtime"
+      - "2.5.0-cuda12.4-cudnn9-devel"
+      - "2.5.0-cuda12.1-cudnn9-runtime"
+      - "2.5.0-cuda12.1-cudnn9-devel"
+      - "2.5.0-cuda11.8-cudnn9-runtime"
+      - "2.5.0-cuda11.8-cudnn9-devel"
+      # PyTorch 2.4.x
+      - "2.4.1-cuda12.4-cudnn9-runtime"
+      - "2.4.1-cuda12.4-cudnn9-devel"
+      - "2.4.1-cuda12.1-cudnn9-runtime"
+      - "2.4.1-cuda12.1-cudnn9-devel"
+      - "2.4.1-cuda11.8-cudnn9-runtime"
+      - "2.4.1-cuda11.8-cudnn9-devel"
+      - "2.4.0-cuda12.4-cudnn9-runtime"
+      - "2.4.0-cuda12.4-cudnn9-devel"
+      - "2.4.0-cuda12.1-cudnn9-runtime"
+      - "2.4.0-cuda12.1-cudnn9-devel"
       - "2.4.0-cuda11.8-cudnn9-runtime"
+      - "2.4.0-cuda11.8-cudnn9-devel"
+      # PyTorch 2.3.x (for broader compatibility)
+      - "2.3.1-cuda12.1-cudnn8-runtime"
+      - "2.3.1-cuda12.1-cudnn8-devel"
+      - "2.3.1-cuda11.8-cudnn8-runtime"
+      - "2.3.1-cuda11.8-cudnn8-devel"
+      - "2.3.0-cuda12.1-cudnn8-runtime"
+      - "2.3.0-cuda12.1-cudnn8-devel"
+      - "2.3.0-cuda11.8-cudnn8-runtime"
+      - "2.3.0-cuda11.8-cudnn8-devel"
+      # PyTorch 2.2.x
+      - "2.2.2-cuda12.1-cudnn8-runtime"
+      - "2.2.2-cuda12.1-cudnn8-devel"
+      - "2.2.2-cuda11.8-cudnn8-runtime"
+      - "2.2.2-cuda11.8-cudnn8-devel"
+      # PyTorch 2.1.x (still widely used)
+      - "2.1.2-cuda12.1-cudnn8-runtime"
+      - "2.1.2-cuda12.1-cudnn8-devel"
+      - "2.1.2-cuda11.8-cudnn8-runtime"
+      - "2.1.2-cuda11.8-cudnn8-devel"
     discover:
-      pattern: "^2\\.(4|5)\\.\\d+-cuda\\d+\\.\\d+-cudnn\\d+-(runtime|devel)$"
-      limit: 10
+      pattern: "^2\\.[3-6]\\.\\d+-cuda\\d+\\.\\d+-cudnn\\d+-(runtime|devel)$"
+      limit: 30
 
-  # TensorFlow official images
+  # ==========================================================================
+  # TensorFlow Official Images
+  # ==========================================================================
   - id: tensorflow
     namespace: tensorflow
     repo: tensorflow
     parser: tensorflow_tf
     tags:
+      # TensorFlow 2.18.x (latest)
+      - "2.18.0"
+      - "2.18.0-gpu"
+      - "2.18.0-gpu-jupyter"
+      # TensorFlow 2.17.x
+      - "2.17.1"
+      - "2.17.1-gpu"
+      - "2.17.1-gpu-jupyter"
       - "2.17.0"
       - "2.17.0-gpu"
       - "2.17.0-gpu-jupyter"
+      # TensorFlow 2.16.x
+      - "2.16.2"
+      - "2.16.2-gpu"
+      - "2.16.2-gpu-jupyter"
+      - "2.16.1"
+      - "2.16.1-gpu"
+      - "2.16.1-gpu-jupyter"
+      # TensorFlow 2.15.x (LTS-like stability)
+      - "2.15.1"
+      - "2.15.1-gpu"
+      - "2.15.1-gpu-jupyter"
+      - "2.15.0"
+      - "2.15.0-gpu"
+      - "2.15.0-gpu-jupyter"
+      # TensorFlow 2.14.x
+      - "2.14.1"
+      - "2.14.1-gpu"
+      - "2.14.1-gpu-jupyter"
 
-  # vLLM OpenAI-compatible server
+  # ==========================================================================
+  # vLLM - High-throughput LLM Inference
+  # ==========================================================================
   - id: vllm-openai
     namespace: vllm
     repo: vllm-openai
     parser: vllm_simple
     tags:
       - "latest"
+      # v0.6.x series
+      - "v0.6.6"
+      - "v0.6.5"
+      - "v0.6.4"
+      - "v0.6.3"
+      - "v0.6.2"
+      - "v0.6.1"
+      - "v0.6.0"
+      # v0.5.x series (for compatibility)
+      - "v0.5.5"
+      - "v0.5.4"
+      - "v0.5.3"
+      - "v0.5.2"
+      - "v0.5.1"
+      - "v0.5.0"
+      # v0.4.x series (older but still used)
+      - "v0.4.3"
+      - "v0.4.2"
 
-  # Ollama local LLM runner
+  # ==========================================================================
+  # Ollama - Local LLM Runner
+  # ==========================================================================
   - id: ollama
     namespace: ollama
     repo: ollama
     parser: ollama_simple
     tags:
       - "latest"
+      - "0.5.4"
+      - "0.5.3"
+      - "0.5.2"
+      - "0.5.1"
+      - "0.5.0"
+      - "0.4.7"
+      - "0.4.6"
 
-  # NVIDIA CUDA base images
+  # ==========================================================================
+  # NVIDIA CUDA Base Images
+  # ==========================================================================
   - id: nvidia-cuda
     namespace: nvidia
     repo: cuda
     parser: nvidia_cuda
     tags:
-      - "12.4.0-runtime-ubuntu22.04"
-      - "12.4.0-devel-ubuntu22.04"
-      - "12.4.0-cudnn9-devel-ubuntu22.04"
+      # CUDA 12.6 (latest)
+      - "12.6.0-runtime-ubuntu24.04"
+      - "12.6.0-devel-ubuntu24.04"
+      - "12.6.0-cudnn9-runtime-ubuntu24.04"
+      - "12.6.0-cudnn9-devel-ubuntu24.04"
+      - "12.6.0-runtime-ubuntu22.04"
+      - "12.6.0-devel-ubuntu22.04"
+      - "12.6.0-cudnn9-runtime-ubuntu22.04"
+      - "12.6.0-cudnn9-devel-ubuntu22.04"
+      # CUDA 12.5
+      - "12.5.1-runtime-ubuntu24.04"
+      - "12.5.1-devel-ubuntu24.04"
+      - "12.5.1-cudnn-runtime-ubuntu24.04"
+      - "12.5.1-cudnn-devel-ubuntu24.04"
+      - "12.5.1-runtime-ubuntu22.04"
+      - "12.5.1-devel-ubuntu22.04"
+      - "12.5.1-cudnn-runtime-ubuntu22.04"
+      - "12.5.1-cudnn-devel-ubuntu22.04"
+      # CUDA 12.4 (using 12.4.1 as latest patch)
+      - "12.4.1-runtime-ubuntu22.04"
+      - "12.4.1-devel-ubuntu22.04"
+      - "12.4.1-cudnn-runtime-ubuntu22.04"
+      - "12.4.1-cudnn-devel-ubuntu22.04"
+      # CUDA 12.3
+      - "12.3.2-runtime-ubuntu22.04"
+      - "12.3.2-devel-ubuntu22.04"
+      - "12.3.2-cudnn9-runtime-ubuntu22.04"
+      - "12.3.2-cudnn9-devel-ubuntu22.04"
+      # CUDA 12.2
+      - "12.2.2-runtime-ubuntu22.04"
+      - "12.2.2-devel-ubuntu22.04"
+      - "12.2.2-cudnn8-runtime-ubuntu22.04"
+      - "12.2.2-cudnn8-devel-ubuntu22.04"
+      # CUDA 12.1
+      - "12.1.1-runtime-ubuntu22.04"
+      - "12.1.1-devel-ubuntu22.04"
+      - "12.1.1-cudnn8-runtime-ubuntu22.04"
+      - "12.1.1-cudnn8-devel-ubuntu22.04"
+      # CUDA 11.8 (widely used for compatibility)
+      - "11.8.0-runtime-ubuntu22.04"
+      - "11.8.0-devel-ubuntu22.04"
+      - "11.8.0-cudnn8-runtime-ubuntu22.04"
+      - "11.8.0-cudnn8-devel-ubuntu22.04"
+      - "11.8.0-runtime-ubuntu20.04"
+      - "11.8.0-devel-ubuntu20.04"
+      - "11.8.0-cudnn8-runtime-ubuntu20.04"
+      - "11.8.0-cudnn8-devel-ubuntu20.04"
+      # CUDA 11.7
+      - "11.7.1-runtime-ubuntu22.04"
+      - "11.7.1-devel-ubuntu22.04"
+      - "11.7.1-cudnn8-runtime-ubuntu22.04"
+      - "11.7.1-cudnn8-devel-ubuntu22.04"
 
 ghcr:
-  # Hugging Face Text Generation Inference
+  # ==========================================================================
+  # Hugging Face Text Generation Inference (TGI)
+  # ==========================================================================
   - id: tgi
     org: huggingface
     repo: text-generation-inference
     parser: tgi_simple
     tags:
+      # TGI 3.x series (latest)
       - "3.3.5"
+      - "3.3.4"
+      - "3.3.3"
+      - "3.3.2"
+      - "3.3.1"
+      - "3.3.0"
+      - "3.2.2"
+      - "3.2.1"
+      - "3.2.0"
+      - "3.1.1"
+      - "3.1.0"
+      - "3.0.1"
+      - "3.0.0"
+      # TGI 2.x series (still widely used)
+      - "2.4.1"
+      - "2.4.0"
+      - "2.3.1"
+      - "2.3.0"
+      - "2.2.0"
+      - "2.1.0"
+      - "2.0.4"
+      - "2.0.3"
+      - "2.0.2"
+      - "2.0.1"
+      - "2.0.0"
+      # TGI 1.x series (legacy)
+      - "1.4.5"
+      - "1.4.4"
+      - "1.4.0"
 
 ngc:
+  # ==========================================================================
   # NVIDIA NGC PyTorch
+  # ==========================================================================
   - id: ngc-pytorch
     org: nvidia
     repo: pytorch
     parser: ngc_pytorch
     tags:
+      # 2025 releases
+      - "25.01-py3"
+      # 2024 releases
       - "24.12-py3"
+      - "24.11-py3"
+      - "24.10-py3"
+      - "24.09-py3"
+      - "24.08-py3"
+      - "24.07-py3"
+      - "24.06-py3"
+      - "24.05-py3"
+      - "24.04-py3"
+      - "24.03-py3"
+      - "24.02-py3"
+      - "24.01-py3"
+      # 2023 releases (for older systems)
+      - "23.12-py3"
+      - "23.11-py3"
+      - "23.10-py3"
 
+  # ==========================================================================
   # NVIDIA NGC TensorFlow
+  # ==========================================================================
   - id: ngc-tensorflow
     org: nvidia
     repo: tensorflow
     parser: ngc_tensorflow
     tags:
+      # 2025 releases
+      - "25.01-tf2-py3"
+      # 2024 releases
       - "24.12-tf2-py3"
+      - "24.11-tf2-py3"
+      - "24.10-tf2-py3"
+      - "24.09-tf2-py3"
+      - "24.08-tf2-py3"
+      - "24.07-tf2-py3"
+      - "24.06-tf2-py3"
+      - "24.05-tf2-py3"
+      - "24.04-tf2-py3"
+      - "24.03-tf2-py3"
+      - "24.02-tf2-py3"
+      - "24.01-tf2-py3"
+      # 2023 releases
+      - "23.12-tf2-py3"
+      - "23.11-tf2-py3"
+      - "23.10-tf2-py3"
 
+  # ==========================================================================
   # NVIDIA Triton Inference Server
+  # ==========================================================================
   - id: tritonserver
     org: nvidia
     repo: tritonserver
     parser: ngc_triton
     tags:
+      # 2025 releases
+      - "25.01-py3"
       - "25.11-py3"
+      # 2024 releases
+      - "24.12-py3"
+      - "24.11-py3"
+      - "24.10-py3"
+      - "24.09-py3"
+      - "24.08-py3"
+      - "24.07-py3"
+      - "24.06-py3"
+      - "24.05-py3"
+      - "24.04-py3"
+      - "24.03-py3"
+      - "24.02-py3"
+      - "24.01-py3"
+      # 2023 releases
+      - "23.12-py3"
+
+  # ==========================================================================
+  # NVIDIA NGC JAX
+  # ==========================================================================
+  - id: ngc-jax
+    org: nvidia
+    repo: jax
+    parser: ngc_jax
+    tags:
+      # 2025 releases
+      - "25.01-py3"
+      # 2024 releases
+      - "24.12-py3"
+      - "24.10-py3"
+      - "24.08-py3"
+      - "24.06-py3"
+      - "24.04-py3"
+      # 2023 releases
+      - "23.12-py3"
+      - "23.10-py3"
+
+  # ==========================================================================
+  # NVIDIA NeMo Framework (LLM Training)
+  # ==========================================================================
+  - id: ngc-nemo
+    org: nvidia
+    repo: nemo
+    parser: ngc_nemo
+    tags:
+      # 2025 releases
+      - "25.01"
+      # 2024 releases
+      - "24.12"
+      - "24.11"
+      - "24.09"
+      - "24.07"
+      - "24.05"
+      - "24.03"
+      - "24.01"
+      # 2023 releases
+      - "23.11"
+      - "23.10"
+
+  # Note: RAPIDS images require special handling due to nested org structure
+  # (nvidia/rapidsai/base). These can be added manually or with custom fetcher support.
