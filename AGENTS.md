@@ -4,14 +4,20 @@
 - `data/`: Source of truth for the catalog. Edit `images.json` and keep it consistent with `schema.json`.
 - `web/`: Next.js 14 + TypeScript app (app router) that renders the picker, table, and image detail pages. Shared UI lives in `web/components`, data helpers in `web/lib`.
 - `design/`: Product notes and UX ideas; helpful context but not shipped code.
-- `scripts/`: Reserved for future automation; prefer adding repeatable tasks here instead of ad-hoc commands.
+- `scripts/`: Catalog automation scripts for updating images from container registries (Docker Hub, GHCR, NGC). Key files:
+  - `update_catalog.py`: Main CLI (`--dry-run`, `--source {dockerhub,ghcr,ngc,all}`)
+  - `config.py`: Loads `data/tracked_images.yaml`
+  - `tag_parsers.py` + `builders.py`: Parse tags and build catalog entries
+  - `merge.py`: Safe merge preserving curated fields
+  - `fetchers/`: Registry API clients
+  - `enrichers/`: Placeholder hooks for future security/CUDA enrichment
 
 ## Build, Test, and Development Commands
 - Install web deps once: `cd web && npm install`.
 - Local dev server: `cd web && npm run dev` (Next dev server with hot reload).
 - Production build: `cd web && npm run build`; run `npm start` to smoke-test the built app.
 - Lint for style correctness: `cd web && npm run lint`.
-- Validate catalog data:  
+- Validate catalog data:
   ```bash
   python -m venv .venv && . .venv/bin/activate
   pip install jsonschema
@@ -21,6 +27,14 @@
   validate(json.load(open("data/images.json")), json.load(open("data/schema.json")))
   print("Valid")
   PY
+  ```
+- Update catalog from registries:
+  ```bash
+  pip install -r scripts/requirements.txt
+  # Dry-run to preview changes
+  python scripts/update_catalog.py --dry-run --source all
+  # Apply updates
+  python scripts/update_catalog.py --source all
   ```
 
 ## Coding Style & Naming Conventions

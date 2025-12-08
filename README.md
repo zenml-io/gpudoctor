@@ -40,10 +40,35 @@ print('Valid')
 ## Project Status
 
 - [x] JSON Schema design
-- [x] Initial catalog (15 images)
+- [x] Initial catalog (15+ images)
 - [x] Website with guided picker (5-step wizard) and table view
-- [ ] CI automation for metadata/security scans
+- [x] CI automation for catalog updates from registries
+- [ ] Security scan enrichment (Trivy integration)
 - [ ] Claude skill for recommendations
+
+## Catalog Automation
+
+The catalog is automatically updated from container registries:
+
+```bash
+# Install dependencies
+pip install -r scripts/requirements.txt
+
+# Dry-run (preview changes without writing)
+python scripts/update_catalog.py --dry-run --source all
+
+# Update from all registries (Docker Hub, GHCR, NGC)
+python scripts/update_catalog.py --source all
+
+# Update from a specific registry
+python scripts/update_catalog.py --source dockerhub
+```
+
+**How it works:**
+- `data/tracked_images.yaml` defines which images to track
+- The script fetches metadata from registries, parses tags, and builds catalog entries
+- Curated fields (`notes`, `recommended_for`, etc.) are preserved during updates
+- A GitHub Actions workflow runs weekly and creates PRs with updates
 
 ## Website
 
