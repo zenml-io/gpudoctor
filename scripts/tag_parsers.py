@@ -496,88 +496,294 @@ def parse_aws_dlc(tag: str) -> ParsedTag | None:
     return None
 
 
-def parse_gcp_dlc(tag: str) -> ParsedTag | None:
-    """Parse GCP Deep Learning Container repo names and tags.
+def parse_gcp_dlc(repo: str) -> ParsedTag | None:
+    """Parse GCP Deep Learning Container repo names.
 
-    GCP DLC repo names encode framework and compute type:
-        pytorch-gpu.2-2, tf-gpu.2-15, base-cu121
-
-    The tag itself is usually "latest", a Python version like "py310",
-    or a milestone like "m96".
-
-    For GCP DLCs, we actually parse the *repo name* which is passed as the tag
-    since the actual tag is typically just "latest" or "py310".
-
-    This parser expects a combined format: REPO:TAG where REPO contains
-    the framework info.
+    GCP DLC repo names encode framework, compute type, version, and Python:
+        pytorch-gpu.2-4             -> PyTorch 2.4, GPU, default CUDA
+        pytorch-gpu.2-4.py310       -> PyTorch 2.4, GPU, Python 3.10
+        pytorch-cu121.2-3           -> PyTorch 2.3, CUDA 12.1 explicit
+        pytorch-cu121-conda.2-3     -> PyTorch 2.3, CUDA 12.1, Conda variant
+        tf-gpu.2-17                 -> TensorFlow 2.17, GPU
+        tf2-gpu.2-17                -> TensorFlow 2.17 (tf2 prefix = same as tf)
+        tf-gpu-slim.2-17            -> TensorFlow 2.17, slim variant
+        base-cu121                  -> Base CUDA 12.1 image
+        base-cu121.py310            -> Base CUDA 12.1 with Python 3.10
+        base-cpu                    -> Base CPU image
+        r-cpu.4-4                   -> R language 4.4
+        sklearn-cpu.0-23            -> scikit-learn 0.23
+        xgboost-cpu.1-1             -> XGBoost 1.1
+        rapids-gpu.21-12            -> RAPIDS 21.12
 
     Args:
-        tag: Combined repo:tag string or just repo name
+        repo: The GCP DLC repo name (not the tag)
 
     Returns:
         ParsedTag with extracted info, or None if doesn't match
     """
-    # This parser is designed for the full repo name which encodes framework/version
-    # Examples: pytorch-gpu.2-2, tf-gpu.2-15, pytorch-cpu.2-2, base-cu121
+    # Extract Python version suffix if present (e.g., .py310 -> 3.10)
+    python_version = None
+    python_match = re.search(r"\.py(\d)(\d+)$", repo)
+    if python_match:
+        python_version = f"{python_match.group(1)}.{python_match.group(2)}"
+        repo = repo[: python_match.start()]  # Remove suffix for further parsing
 
-    # PyTorch GPU pattern: pytorch-gpu.MAJOR-MINOR
-    pytorch_gpu = re.match(r"^pytorch-gpu\.(\d+)-(\d+)$", tag)
-    if pytorch_gpu:
-        version = f"{pytorch_gpu.group(1)}.{pytorch_gpu.group(2)}"
+    # Check for variant suffixes (conda, slim) before version parsing
+    is_conda = "-conda" in repo
+    is_slim = "-slim" in repo
+    if is_conda:
+        repo = repo.replace("-conda", "")
+    if is_slim:
+        repo = repo.replace("-slim", "")
+
+    # Build flavor string combining base compute type with variants
+    def build_flavor(base_flavor: str) -> str:
+        parts = [base_flavor]
+        if is_conda:
+            parts.append("conda")
+        if is_slim:
+            parts.append("slim")
+        return "-".join(parts)
+
+    # --- PyTorch patterns ---
+
+    # pytorch-gpu.MAJOR-MINOR or pytorch-cpu.MAJOR-MINOR
+    pytorch_compute = re.match(r"^pytorch-(gpu|cpu)\.(\d+)-(\d+)$", repo)
+    if pytorch_compute:
+        compute = pytorch_compute.group(1)
+        version = f"{pytorch_compute.group(2)}.{pytorch_compute.group(3)}"
         return ParsedTag(
             framework="pytorch",
             framework_version=version,
-            cuda_version="12.1",  # Default for recent releases
+            cuda_version="12.1" if compute == "gpu" else None,
             image_type="runtime",
-            flavor="gpu",
+            flavor=build_flavor(compute),
         )
 
-    # PyTorch CPU pattern: pytorch-cpu.MAJOR-MINOR
-    pytorch_cpu = re.match(r"^pytorch-cpu\.(\d+)-(\d+)$", tag)
-    if pytorch_cpu:
-        version = f"{pytorch_cpu.group(1)}.{pytorch_cpu.group(2)}"
+    # pytorch-cuXXX.MAJOR-MINOR (explicit CUDA version)
+    pytorch_cuda = re.match(r"^pytorch-cu(\d+)\.(\d+)-(\d+)$", repo)
+    if pytorch_cuda:
+        cuda_raw = pytorch_cuda.group(1)
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+        version = f"{pytorch_cuda.group(2)}.{pytorch_cuda.group(3)}"
         return ParsedTag(
             framework="pytorch",
+            framework_version=version,
+            cuda_version=cuda_version,
+            image_type="runtime",
+            flavor=build_flavor("gpu"),
+        )
+
+    # --- TensorFlow patterns (tf- and tf2- prefixes) ---
+
+    # tf-gpu.MAJOR-MINOR, tf-cpu.MAJOR-MINOR, tf2-gpu.MAJOR-MINOR, tf2-cpu.MAJOR-MINOR
+    tf_compute = re.match(r"^tf2?-(gpu|cpu)\.(\d+)-(\d+)$", repo)
+    if tf_compute:
+        compute = tf_compute.group(1)
+        version = f"{tf_compute.group(2)}.{tf_compute.group(3)}"
+        return ParsedTag(
+            framework="tensorflow",
+            framework_version=version,
+            cuda_version="12.1" if compute == "gpu" else None,
+            image_type="runtime",
+            flavor=build_flavor(compute),
+        )
+
+    # tf-cuXXX.MAJOR-MINOR, tf2-cuXXX.MAJOR-MINOR (explicit CUDA version)
+    tf_cuda = re.match(r"^tf2?-cu(\d+)\.(\d+)-(\d+)$", repo)
+    if tf_cuda:
+        cuda_raw = tf_cuda.group(1)
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+        version = f"{tf_cuda.group(2)}.{tf_cuda.group(3)}"
+        return ParsedTag(
+            framework="tensorflow",
+            framework_version=version,
+            cuda_version=cuda_version,
+            image_type="runtime",
+            flavor=build_flavor("gpu"),
+        )
+
+    # --- Base images ---
+
+    # base-cuXXX (with optional .pyXXX already stripped)
+    base_cuda = re.match(r"^base-cu(\d+)$", repo)
+    if base_cuda:
+        cuda_raw = base_cuda.group(1)
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+        return ParsedTag(
+            framework=None,
+            cuda_version=cuda_version,
+            image_type="base",
+            flavor=build_flavor("gpu"),
+        )
+
+    # base-cpu (no CUDA)
+    if repo == "base-cpu":
+        return ParsedTag(
+            framework=None,
+            cuda_version=None,
+            image_type="base",
+            flavor=build_flavor("cpu"),
+        )
+
+    # base-gpu (generic GPU base, default CUDA)
+    if repo == "base-gpu":
+        return ParsedTag(
+            framework=None,
+            cuda_version="12.1",
+            image_type="base",
+            flavor=build_flavor("gpu"),
+        )
+
+    # --- Other ML frameworks ---
+
+    # R language: r-cpu.MAJOR-MINOR
+    r_cpu = re.match(r"^r-cpu\.(\d+)-(\d+)$", repo)
+    if r_cpu:
+        version = f"{r_cpu.group(1)}.{r_cpu.group(2)}"
+        return ParsedTag(
+            framework="r",
             framework_version=version,
             cuda_version=None,
             image_type="runtime",
             flavor="cpu",
         )
 
-    # TensorFlow GPU pattern: tf-gpu.MAJOR-MINOR
-    tf_gpu = re.match(r"^tf-gpu\.(\d+)-(\d+)$", tag)
-    if tf_gpu:
-        version = f"{tf_gpu.group(1)}.{tf_gpu.group(2)}"
+    # scikit-learn: sklearn-cpu.MAJOR-MINOR
+    sklearn = re.match(r"^sklearn-cpu\.(\d+)-(\d+)$", repo)
+    if sklearn:
+        version = f"{sklearn.group(1)}.{sklearn.group(2)}"
         return ParsedTag(
-            framework="tensorflow",
+            framework="scikit-learn",
+            framework_version=version,
+            cuda_version=None,
+            image_type="runtime",
+            flavor="cpu",
+        )
+
+    # XGBoost: xgboost-cpu.MAJOR-MINOR
+    xgboost = re.match(r"^xgboost-cpu\.(\d+)-(\d+)$", repo)
+    if xgboost:
+        version = f"{xgboost.group(1)}.{xgboost.group(2)}"
+        return ParsedTag(
+            framework="xgboost",
+            framework_version=version,
+            cuda_version=None,
+            image_type="runtime",
+            flavor="cpu",
+        )
+
+    # Spark: spark-cpu (no version in repo name, just .pyXXX)
+    if repo == "spark-cpu":
+        return ParsedTag(
+            framework="spark",
+            framework_version=None,
+            cuda_version=None,
+            image_type="runtime",
+            flavor="cpu",
+        )
+
+    # RAPIDS: rapids-gpu.YY-MM
+    rapids = re.match(r"^rapids-gpu\.(\d+)-(\d+)$", repo)
+    if rapids:
+        version = f"{rapids.group(1)}.{rapids.group(2)}"
+        return ParsedTag(
+            framework="rapids",
             framework_version=version,
             cuda_version="12.1",
             image_type="runtime",
             flavor="gpu",
         )
 
-    # TensorFlow CPU pattern: tf-cpu.MAJOR-MINOR
-    tf_cpu = re.match(r"^tf-cpu\.(\d+)-(\d+)$", tag)
-    if tf_cpu:
-        version = f"{tf_cpu.group(1)}.{tf_cpu.group(2)}"
+    # --- Versionless repos (represent "latest" version) ---
+
+    # pytorch-gpu, pytorch-cpu (no version)
+    pytorch_nover = re.match(r"^pytorch-(gpu|cpu)$", repo)
+    if pytorch_nover:
+        compute = pytorch_nover.group(1)
+        return ParsedTag(
+            framework="pytorch",
+            framework_version=None,
+            cuda_version="12.1" if compute == "gpu" else None,
+            image_type="runtime",
+            flavor=build_flavor(compute),
+        )
+
+    # pytorch-cuXXX (explicit CUDA, no version)
+    pytorch_cuda_nover = re.match(r"^pytorch-cu(\d+)$", repo)
+    if pytorch_cuda_nover:
+        cuda_raw = pytorch_cuda_nover.group(1)
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+        return ParsedTag(
+            framework="pytorch",
+            framework_version=None,
+            cuda_version=cuda_version,
+            image_type="runtime",
+            flavor=build_flavor("gpu"),
+        )
+
+    # tf-gpu, tf-cpu, tf2-gpu, tf2-cpu (no version)
+    tf_nover = re.match(r"^tf2?-(gpu|cpu)$", repo)
+    if tf_nover:
+        compute = tf_nover.group(1)
         return ParsedTag(
             framework="tensorflow",
-            framework_version=version,
+            framework_version=None,
+            cuda_version="12.1" if compute == "gpu" else None,
+            image_type="runtime",
+            flavor=build_flavor(compute),
+        )
+
+    # tf-cuXXX, tf2-cuXXX (explicit CUDA, no version)
+    tf_cuda_nover = re.match(r"^tf2?-cu(\d+)$", repo)
+    if tf_cuda_nover:
+        cuda_raw = tf_cuda_nover.group(1)
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+        return ParsedTag(
+            framework="tensorflow",
+            framework_version=None,
+            cuda_version=cuda_version,
+            image_type="runtime",
+            flavor=build_flavor("gpu"),
+        )
+
+    # r-cpu (no version)
+    if repo == "r-cpu":
+        return ParsedTag(
+            framework="r",
+            framework_version=None,
+            cuda_version=None,
+            image_type="runtime",
+            flavor=build_flavor("cpu"),
+        )
+
+    # sklearn-cpu (no version)
+    if repo == "sklearn-cpu":
+        return ParsedTag(
+            framework="scikit-learn",
+            framework_version=None,
+            cuda_version=None,
+            image_type="runtime",
+            flavor=build_flavor("cpu"),
+        )
+
+    # xgboost-cpu (no version)
+    if repo == "xgboost-cpu":
+        return ParsedTag(
+            framework="xgboost",
+            framework_version=None,
             cuda_version=None,
             image_type="runtime",
             flavor="cpu",
         )
 
-    # Base CUDA image pattern: base-cuXXX
-    base_cuda = re.match(r"^base-cu(\d+)$", tag)
-    if base_cuda:
-        cuda_raw = base_cuda.group(1)
-        # Convert "121" to "12.1", "113" to "11.3"
-        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+    # rapids-gpu (no version)
+    if repo == "rapids-gpu":
         return ParsedTag(
-            framework=None,
-            cuda_version=cuda_version,
-            image_type="base",
+            framework="rapids",
+            framework_version=None,
+            cuda_version="12.1",
+            image_type="runtime",
             flavor="gpu",
         )
 

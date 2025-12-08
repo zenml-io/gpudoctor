@@ -514,30 +514,264 @@ gcp:
   # ==========================================================================
   # GCP Deep Learning Containers
   # Hosted at gcr.io/deeplearning-platform-release/
-  # Available repos discovered via gcr.io API - 368 total repos available
+  # Auto-generated: 340 repos (92% of 368 available)
   # ==========================================================================
 
-  # PyTorch GPU (recent versions)
+  # PYTORCH (55 repos)
+  - id: gcp-pytorch-cu113-1-12
+    repo: pytorch-cu113.1-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu113-1-12-py310
+    repo: pytorch-cu113.1-12.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu113-1-13
+    repo: pytorch-cu113.1-13
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu113-1-13-py310
+    repo: pytorch-cu113.1-13.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu118-2-0
+    repo: pytorch-cu118.2-0
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu118-2-0-py310
+    repo: pytorch-cu118.2-0.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121
+    repo: pytorch-cu121
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-conda-2-2
+    repo: pytorch-cu121-conda.2-2
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-conda-2-2-py310
+    repo: pytorch-cu121-conda.2-2.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-conda-2-3
+    repo: pytorch-cu121-conda.2-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-conda-2-3-py310
+    repo: pytorch-cu121-conda.2-3.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-2-1
+    repo: pytorch-cu121.2-1
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-2-1-py310
+    repo: pytorch-cu121.2-1.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-2-2
+    repo: pytorch-cu121.2-2
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-2-2-py310
+    repo: pytorch-cu121.2-2.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-2-3
+    repo: pytorch-cu121.2-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-2-3-py310
+    repo: pytorch-cu121.2-3.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu121-py310
+    repo: pytorch-cu121.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu124
+    repo: pytorch-cu124
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu124-conda
+    repo: pytorch-cu124-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu124-conda-2-4
+    repo: pytorch-cu124-conda.2-4
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu124-conda-2-4-py310
+    repo: pytorch-cu124-conda.2-4.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu124-conda-py310
+    repo: pytorch-cu124-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu124-2-4
+    repo: pytorch-cu124.2-4
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu124-2-4-py310
+    repo: pytorch-cu124.2-4.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-cu124-py310
+    repo: pytorch-cu124.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
   - id: gcp-pytorch-gpu
-    repo: pytorch-gpu.2-4
+    repo: pytorch-gpu
     parser: gcp_dlc
     tags:
       - "latest"
 
-  - id: gcp-pytorch-gpu-2-3
-    repo: pytorch-gpu.2-3
+  - id: gcp-pytorch-gpu-conda
+    repo: pytorch-gpu-conda
     parser: gcp_dlc
     tags:
       - "latest"
 
-  - id: gcp-pytorch-gpu-2-2
-    repo: pytorch-gpu.2-2
+  - id: gcp-pytorch-gpu-conda-2-2
+    repo: pytorch-gpu-conda.2-2
     parser: gcp_dlc
     tags:
       - "latest"
 
-  - id: gcp-pytorch-gpu-2-1
-    repo: pytorch-gpu.2-1
+  - id: gcp-pytorch-gpu-conda-2-2-py310
+    repo: pytorch-gpu-conda.2-2.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-conda-2-3
+    repo: pytorch-gpu-conda.2-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-conda-2-3-py310
+    repo: pytorch-gpu-conda.2-3.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-conda-2-4
+    repo: pytorch-gpu-conda.2-4
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-conda-2-4-py310
+    repo: pytorch-gpu-conda.2-4.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-conda-py310
+    repo: pytorch-gpu-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-1-10
+    repo: pytorch-gpu.1-10
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-1-11
+    repo: pytorch-gpu.1-11
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-1-12
+    repo: pytorch-gpu.1-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-1-12-py310
+    repo: pytorch-gpu.1-12.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-1-12-py37
+    repo: pytorch-gpu.1-12.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-1-13
+    repo: pytorch-gpu.1-13
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-1-13-py310
+    repo: pytorch-gpu.1-13.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-1-13-py37
+    repo: pytorch-gpu.1-13.py37
     parser: gcp_dlc
     tags:
       - "latest"
@@ -548,53 +782,1786 @@ gcp:
     tags:
       - "latest"
 
-  # TensorFlow GPU (recent versions)
-  - id: gcp-tensorflow-gpu
-    repo: tf-gpu.2-17
+  - id: gcp-pytorch-gpu-2-0-py310
+    repo: pytorch-gpu.2-0.py310
     parser: gcp_dlc
     tags:
       - "latest"
 
-  - id: gcp-tensorflow-gpu-2-16
-    repo: tf-gpu.2-16
+  - id: gcp-pytorch-gpu-2-1
+    repo: pytorch-gpu.2-1
     parser: gcp_dlc
     tags:
       - "latest"
 
-  - id: gcp-tensorflow-gpu-2-15
-    repo: tf-gpu.2-15
+  - id: gcp-pytorch-gpu-2-1-py310
+    repo: pytorch-gpu.2-1.py310
     parser: gcp_dlc
     tags:
       - "latest"
 
-  # TensorFlow CPU
-  - id: gcp-tensorflow-cpu
+  - id: gcp-pytorch-gpu-2-2
+    repo: pytorch-gpu.2-2
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-2-2-py310
+    repo: pytorch-gpu.2-2.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-2-3
+    repo: pytorch-gpu.2-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-2-3-py310
+    repo: pytorch-gpu.2-3.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-2-4
+    repo: pytorch-gpu.2-4
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-2-4-py310
+    repo: pytorch-gpu.2-4.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-py310
+    repo: pytorch-gpu.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-py37
+    repo: pytorch-gpu.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # TENSORFLOW (237 repos)
+  - id: gcp-tf-cpu
+    repo: tf-cpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-conda
+    repo: tf-cpu-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-conda-2-16
+    repo: tf-cpu-conda.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-conda-2-16-py310
+    repo: tf-cpu-conda.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-conda-2-17
+    repo: tf-cpu-conda.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-conda-2-17-py310
+    repo: tf-cpu-conda.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-conda-py310
+    repo: tf-cpu-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-1-15
+    repo: tf-cpu.1-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-1
+    repo: tf-cpu.2-1
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-10
+    repo: tf-cpu.2-10
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-10-py310
+    repo: tf-cpu.2-10.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-10-py37
+    repo: tf-cpu.2-10.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-11
+    repo: tf-cpu.2-11
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-11-py310
+    repo: tf-cpu.2-11.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-11-py37
+    repo: tf-cpu.2-11.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-12
+    repo: tf-cpu.2-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-12-py310
+    repo: tf-cpu.2-12.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-13
+    repo: tf-cpu.2-13
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-13-py310
+    repo: tf-cpu.2-13.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-14
+    repo: tf-cpu.2-14
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-14-py310
+    repo: tf-cpu.2-14.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-15
+    repo: tf-cpu.2-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-15-py310
+    repo: tf-cpu.2-15.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-16
+    repo: tf-cpu.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-16-py310
+    repo: tf-cpu.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-17
     repo: tf-cpu.2-17
     parser: gcp_dlc
     tags:
       - "latest"
 
-  # Base CUDA images (for custom builds)
-  - id: gcp-base-cuda
+  - id: gcp-tf-cpu-2-17-py310
+    repo: tf-cpu.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-3
+    repo: tf-cpu.2-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-3-py37
+    repo: tf-cpu.2-3.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-5
+    repo: tf-cpu.2-5
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-6
+    repo: tf-cpu.2-6
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-6-py37
+    repo: tf-cpu.2-6.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-6-py39
+    repo: tf-cpu.2-6.py39
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-8
+    repo: tf-cpu.2-8
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-8-py310
+    repo: tf-cpu.2-8.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-8-py37
+    repo: tf-cpu.2-8.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-9
+    repo: tf-cpu.2-9
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-2-9-py37
+    repo: tf-cpu.2-9.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cpu-py310
+    repo: tf-cpu.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu113-2-10
+    repo: tf-cu113.2-10
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu113-2-10-py310
+    repo: tf-cu113.2-10.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu113-2-11
+    repo: tf-cu113.2-11
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu113-2-11-py310
+    repo: tf-cu113.2-11.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu113-2-6-py39
+    repo: tf-cu113.2-6.py39
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu113-2-8
+    repo: tf-cu113.2-8
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu113-2-8-py310
+    repo: tf-cu113.2-8.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu118-2-12
+    repo: tf-cu118.2-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu118-2-12-py310
+    repo: tf-cu118.2-12.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu118-2-13
+    repo: tf-cu118.2-13
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu118-2-13-py310
+    repo: tf-cu118.2-13.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu118-2-14
+    repo: tf-cu118.2-14
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu118-2-14-py310
+    repo: tf-cu118.2-14.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu121
+    repo: tf-cu121
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu121-2-15
+    repo: tf-cu121.2-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu121-2-15-py310
+    repo: tf-cu121.2-15.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu121-py310
+    repo: tf-cu121.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu122
+    repo: tf-cu122
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu122-2-15
+    repo: tf-cu122.2-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu122-2-15-py310
+    repo: tf-cu122.2-15.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu122-py310
+    repo: tf-cu122.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123
+    repo: tf-cu123
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-conda
+    repo: tf-cu123-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-conda-2-16
+    repo: tf-cu123-conda.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-conda-2-16-py310
+    repo: tf-cu123-conda.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-conda-2-17
+    repo: tf-cu123-conda.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-conda-2-17-py310
+    repo: tf-cu123-conda.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-conda-py310
+    repo: tf-cu123-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-2-16
+    repo: tf-cu123.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-2-16-py310
+    repo: tf-cu123.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-2-17
+    repo: tf-cu123.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-2-17-py310
+    repo: tf-cu123.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-cu123-py310
+    repo: tf-cu123.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu
+    repo: tf-gpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-conda
+    repo: tf-gpu-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-conda-2-16
+    repo: tf-gpu-conda.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-conda-2-16-py310
+    repo: tf-gpu-conda.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-conda-2-17
+    repo: tf-gpu-conda.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-conda-2-17-py310
+    repo: tf-gpu-conda.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-conda-py310
+    repo: tf-gpu-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-10
+    repo: tf-gpu-slim.2-10
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-10-py37
+    repo: tf-gpu-slim.2-10.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-11
+    repo: tf-gpu-slim.2-11
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-11-py37
+    repo: tf-gpu-slim.2-11.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-12
+    repo: tf-gpu-slim.2-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-12-py310
+    repo: tf-gpu-slim.2-12.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-13
+    repo: tf-gpu-slim.2-13
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-13-py310
+    repo: tf-gpu-slim.2-13.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-6
+    repo: tf-gpu-slim.2-6
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-6-py37
+    repo: tf-gpu-slim.2-6.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-6-py39
+    repo: tf-gpu-slim.2-6.py39
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-8
+    repo: tf-gpu-slim.2-8
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-8-py37
+    repo: tf-gpu-slim.2-8.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-9
+    repo: tf-gpu-slim.2-9
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-slim-2-9-py37
+    repo: tf-gpu-slim.2-9.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-1-15
+    repo: tf-gpu.1-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-1
+    repo: tf-gpu.2-1
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-10
+    repo: tf-gpu.2-10
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-10-py310
+    repo: tf-gpu.2-10.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-10-py37
+    repo: tf-gpu.2-10.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-11
+    repo: tf-gpu.2-11
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-11-py310
+    repo: tf-gpu.2-11.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-11-py37
+    repo: tf-gpu.2-11.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-12
+    repo: tf-gpu.2-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-12-py310
+    repo: tf-gpu.2-12.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-13
+    repo: tf-gpu.2-13
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-13-py310
+    repo: tf-gpu.2-13.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-14
+    repo: tf-gpu.2-14
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-14-py310
+    repo: tf-gpu.2-14.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-15
+    repo: tf-gpu.2-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-15-py310
+    repo: tf-gpu.2-15.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-16
+    repo: tf-gpu.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-16-py310
+    repo: tf-gpu.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-17
+    repo: tf-gpu.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-17-py310
+    repo: tf-gpu.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-3
+    repo: tf-gpu.2-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-3-py37
+    repo: tf-gpu.2-3.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-5
+    repo: tf-gpu.2-5
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-6
+    repo: tf-gpu.2-6
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-6-py37
+    repo: tf-gpu.2-6.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-6-py39
+    repo: tf-gpu.2-6.py39
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-8
+    repo: tf-gpu.2-8
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-8-py310
+    repo: tf-gpu.2-8.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-8-py37
+    repo: tf-gpu.2-8.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-9
+    repo: tf-gpu.2-9
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-2-9-py37
+    repo: tf-gpu.2-9.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf-gpu-py310
+    repo: tf-gpu.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu
+    repo: tf2-cpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-conda
+    repo: tf2-cpu-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-conda-2-16
+    repo: tf2-cpu-conda.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-conda-2-16-py310
+    repo: tf2-cpu-conda.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-conda-2-17
+    repo: tf2-cpu-conda.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-conda-2-17-py310
+    repo: tf2-cpu-conda.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-conda-py310
+    repo: tf2-cpu-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-1
+    repo: tf2-cpu.2-1
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-10
+    repo: tf2-cpu.2-10
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-10-py310
+    repo: tf2-cpu.2-10.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-10-py37
+    repo: tf2-cpu.2-10.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-11
+    repo: tf2-cpu.2-11
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-11-py310
+    repo: tf2-cpu.2-11.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-11-py37
+    repo: tf2-cpu.2-11.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-12
+    repo: tf2-cpu.2-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-12-py310
+    repo: tf2-cpu.2-12.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-13
+    repo: tf2-cpu.2-13
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-13-py310
+    repo: tf2-cpu.2-13.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-14
+    repo: tf2-cpu.2-14
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-14-py310
+    repo: tf2-cpu.2-14.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-15
+    repo: tf2-cpu.2-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-15-py310
+    repo: tf2-cpu.2-15.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-16
+    repo: tf2-cpu.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-16-py310
+    repo: tf2-cpu.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-17
+    repo: tf2-cpu.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-17-py310
+    repo: tf2-cpu.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-3
+    repo: tf2-cpu.2-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-3-py37
+    repo: tf2-cpu.2-3.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-6
+    repo: tf2-cpu.2-6
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-6-py37
+    repo: tf2-cpu.2-6.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-6-py39
+    repo: tf2-cpu.2-6.py39
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-8
+    repo: tf2-cpu.2-8
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-8-py310
+    repo: tf2-cpu.2-8.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-8-py37
+    repo: tf2-cpu.2-8.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-9
+    repo: tf2-cpu.2-9
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-2-9-py37
+    repo: tf2-cpu.2-9.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-py310
+    repo: tf2-cpu.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-py37
+    repo: tf2-cpu.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cpu-py39
+    repo: tf2-cpu.py39
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu113-2-10
+    repo: tf2-cu113.2-10
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu113-2-10-py310
+    repo: tf2-cu113.2-10.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu113-2-11
+    repo: tf2-cu113.2-11
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu113-2-11-py310
+    repo: tf2-cu113.2-11.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu113-2-6-py39
+    repo: tf2-cu113.2-6.py39
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu113-2-8
+    repo: tf2-cu113.2-8
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu113-2-8-py310
+    repo: tf2-cu113.2-8.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu118-2-12
+    repo: tf2-cu118.2-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu118-2-12-py310
+    repo: tf2-cu118.2-12.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu118-2-13
+    repo: tf2-cu118.2-13
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu118-2-13-py310
+    repo: tf2-cu118.2-13.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu118-2-14
+    repo: tf2-cu118.2-14
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu118-2-14-py310
+    repo: tf2-cu118.2-14.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu121
+    repo: tf2-cu121
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu121-2-15
+    repo: tf2-cu121.2-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu121-2-15-py310
+    repo: tf2-cu121.2-15.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu121-py310
+    repo: tf2-cu121.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu122
+    repo: tf2-cu122
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu122-2-15
+    repo: tf2-cu122.2-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu122-2-15-py310
+    repo: tf2-cu122.2-15.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu122-py310
+    repo: tf2-cu122.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123
+    repo: tf2-cu123
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-conda
+    repo: tf2-cu123-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-conda-2-16
+    repo: tf2-cu123-conda.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-conda-2-16-py310
+    repo: tf2-cu123-conda.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-conda-2-17
+    repo: tf2-cu123-conda.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-conda-2-17-py310
+    repo: tf2-cu123-conda.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-conda-py310
+    repo: tf2-cu123-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-2-16
+    repo: tf2-cu123.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-2-16-py310
+    repo: tf2-cu123.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-2-17
+    repo: tf2-cu123.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-2-17-py310
+    repo: tf2-cu123.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-cu123-py310
+    repo: tf2-cu123.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu
+    repo: tf2-gpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-conda
+    repo: tf2-gpu-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-conda-2-16
+    repo: tf2-gpu-conda.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-conda-2-16-py310
+    repo: tf2-gpu-conda.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-conda-2-17
+    repo: tf2-gpu-conda.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-conda-2-17-py310
+    repo: tf2-gpu-conda.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-conda-py310
+    repo: tf2-gpu-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-1
+    repo: tf2-gpu.2-1
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-10
+    repo: tf2-gpu.2-10
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-10-py310
+    repo: tf2-gpu.2-10.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-10-py37
+    repo: tf2-gpu.2-10.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-11
+    repo: tf2-gpu.2-11
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-11-py310
+    repo: tf2-gpu.2-11.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-11-py37
+    repo: tf2-gpu.2-11.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-12
+    repo: tf2-gpu.2-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-12-py310
+    repo: tf2-gpu.2-12.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-13
+    repo: tf2-gpu.2-13
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-13-py310
+    repo: tf2-gpu.2-13.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-14
+    repo: tf2-gpu.2-14
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-14-py310
+    repo: tf2-gpu.2-14.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-15
+    repo: tf2-gpu.2-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-15-py310
+    repo: tf2-gpu.2-15.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-16
+    repo: tf2-gpu.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-16-py310
+    repo: tf2-gpu.2-16.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-17
+    repo: tf2-gpu.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-17-py310
+    repo: tf2-gpu.2-17.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-3
+    repo: tf2-gpu.2-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-3-py37
+    repo: tf2-gpu.2-3.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-6
+    repo: tf2-gpu.2-6
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-6-py37
+    repo: tf2-gpu.2-6.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-6-py39
+    repo: tf2-gpu.2-6.py39
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-8
+    repo: tf2-gpu.2-8
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-8-py310
+    repo: tf2-gpu.2-8.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-8-py37
+    repo: tf2-gpu.2-8.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-9
+    repo: tf2-gpu.2-9
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-2-9-py37
+    repo: tf2-gpu.2-9.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-py310
+    repo: tf2-gpu.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-py37
+    repo: tf2-gpu.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tf2-gpu-py39
+    repo: tf2-gpu.py39
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # BASE (30 repos)
+  - id: gcp-base-cpu
+    repo: base-cpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cpu-conda
+    repo: base-cpu-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cpu-conda-py310
+    repo: base-cpu-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cpu-py310
+    repo: base-cpu.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cpu-py37
+    repo: base-cpu.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu110
+    repo: base-cu110
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu110-py310
+    repo: base-cu110.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu110-py37
+    repo: base-cu110.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu113
+    repo: base-cu113
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu113-py310
+    repo: base-cu113.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu113-py37
+    repo: base-cu113.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu118
+    repo: base-cu118
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu118-py310
+    repo: base-cu118.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu121
     repo: base-cu121
     parser: gcp_dlc
     tags:
       - "latest"
 
-  - id: gcp-base-cuda-122
+  - id: gcp-base-cu121-py310
+    repo: base-cu121.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu122
     repo: base-cu122
     parser: gcp_dlc
     tags:
       - "latest"
 
-  - id: gcp-base-cuda-123
+  - id: gcp-base-cu122-conda
+    repo: base-cu122-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu122-conda-py310
+    repo: base-cu122-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu122-py310
+    repo: base-cu122.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu123
     repo: base-cu123
     parser: gcp_dlc
     tags:
       - "latest"
 
-  - id: gcp-base-cuda-124
+  - id: gcp-base-cu123-conda
+    repo: base-cu123-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu123-conda-py310
+    repo: base-cu123-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu123-py310
+    repo: base-cu123.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu124
     repo: base-cu124
     parser: gcp_dlc
     tags:
       - "latest"
+
+  - id: gcp-base-cu124-conda
+    repo: base-cu124-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu124-conda-py310
+    repo: base-cu124-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cu124-py310
+    repo: base-cu124.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-gpu
+    repo: base-gpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-gpu-py310
+    repo: base-gpu.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-gpu-py37
+    repo: base-gpu.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # R (7 repos)
+  - id: gcp-r-cpu
+    repo: r-cpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-r-cpu-conda
+    repo: r-cpu-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-r-cpu-conda-4-4
+    repo: r-cpu-conda.4-4
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-r-cpu-4-1
+    repo: r-cpu.4-1
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-r-cpu-4-2
+    repo: r-cpu.4-2
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-r-cpu-4-3
+    repo: r-cpu.4-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-r-cpu-4-4
+    repo: r-cpu.4-4
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # SCIKIT-LEARN (2 repos)
+  - id: gcp-sklearn-cpu
+    repo: sklearn-cpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-sklearn-cpu-0-23
+    repo: sklearn-cpu.0-23
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # XGBOOST (2 repos)
+  - id: gcp-xgboost-cpu
+    repo: xgboost-cpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-xgboost-cpu-1-1
+    repo: xgboost-cpu.1-1
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # SPARK (5 repos)
+  - id: gcp-spark-cpu
+    repo: spark-cpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-spark-cpu-conda
+    repo: spark-cpu-conda
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-spark-cpu-conda-py310
+    repo: spark-cpu-conda.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-spark-cpu-py310
+    repo: spark-cpu.py310
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-spark-cpu-py37
+    repo: spark-cpu.py37
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # RAPIDS (2 repos)
+  - id: gcp-rapids-gpu
+    repo: rapids-gpu
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-rapids-gpu-21-12
+    repo: rapids-gpu.21-12
+    parser: gcp_dlc
+    tags:
+      - "latest"
+

@@ -1005,46 +1005,92 @@ def build_gcp_dlc_image(
 ) -> dict[str, Any]:
     """Build a catalog entry for GCP Deep Learning Container images.
 
-    ID pattern: gcp-{framework}-{version}-{cuda|cpu}
+    ID pattern: gcp-{framework}[-{version}]-{cuda|cpu}[-py{python}][-{variant}]
     Examples:
-        - gcp-pytorch-2-2-cuda12-1
-        - gcp-tensorflow-2-15-cpu
-        - gcp-base-cuda12-1  (for base CUDA images)
+        - gcp-pytorch-2-4-cuda12-1
+        - gcp-pytorch-2-4-cuda12-1-py3-10
+        - gcp-pytorch-2-4-cuda12-1-conda
+        - gcp-tensorflow-2-17-cpu-slim
+        - gcp-base-cuda12-1
+        - gcp-r-4-4-cpu
+        - gcp-rapids-21-12-cuda12-1
     """
-    # GCP encodes framework info in repo name, so we use parsed data
-    # Handle base CUDA images specially (they have no framework)
+    import re
+
+    # Extract Python version from repo name if present (e.g., ".py310" -> "3.10")
+    python_suffix = ""
+    python_version = None
+    python_match = re.search(r"\.py(\d)(\d+)$", repo)
+    if python_match:
+        python_version = f"{python_match.group(1)}.{python_match.group(2)}"
+        python_suffix = f"-py{_version_to_id_part(python_version)}"
+
+    # Handle base images specially (they have no framework)
     if parsed.image_type == "base" and parsed.framework is None:
         framework_name = "base"
-        version_id = ""  # No version for base images
+        id_framework = "base"
+        version_id = ""
     else:
         framework_name = parsed.framework or "unknown"
+        # For TensorFlow, preserve tf vs tf2 prefix distinction in ID only
+        # (frameworks array still uses "tensorflow")
+        if framework_name == "tensorflow" and repo.startswith("tf2"):
+            id_framework = "tf2"
+        elif framework_name == "tensorflow":
+            id_framework = "tf"
+        else:
+            id_framework = framework_name
         version_id = _version_to_id_part(parsed.framework_version or "")
 
+    # Determine compute type for ID
+    # Use "gpu" for generic -gpu repos, "cuda{version}" for explicit -cuXXX repos
+    has_explicit_cuda = bool(re.search(r"-cu\d{2,3}", repo))
     if parsed.cuda_version:
-        cuda_id = _version_to_id_part(parsed.cuda_version)
-        compute_id = f"cuda{cuda_id}"
+        if has_explicit_cuda:
+            cuda_id = _version_to_id_part(parsed.cuda_version)
+            compute_id = f"cuda{cuda_id}"
+        else:
+            # Generic -gpu repo - use "gpu" instead of specific CUDA version
+            compute_id = "gpu"
         gpu_vendors = ["nvidia"]
     else:
         compute_id = "cpu"
         gpu_vendors = ["none"]
 
+    # Extract variant suffix directly from repo name (more reliable than parsed.flavor)
+    variant_suffix = ""
+    if "-conda" in repo:
+        variant_suffix += "-conda"
+    if "-slim" in repo:
+        variant_suffix += "-slim"
+
     # Build ID, handling base images which have no version
+    # Include Python suffix to ensure uniqueness for .pyXXX variants
     if version_id:
-        image_id = f"gcp-{framework_name}-{version_id}-{compute_id}"
+        image_id = f"gcp-{id_framework}-{version_id}-{compute_id}{python_suffix}{variant_suffix}"
     else:
-        image_id = f"gcp-{framework_name}-{compute_id}"
+        image_id = f"gcp-{id_framework}-{compute_id}{python_suffix}{variant_suffix}"
     full_name = f"gcr.io/deeplearning-platform-release/{repo}:{tag_info.name}"
 
-    # Determine role and workloads based on framework
-    if framework_name == "pytorch":
-        role = "training"
-        workloads = ["llm", "computer-vision", "nlp", "generic"]
-    elif framework_name == "tensorflow":
-        role = "training"
-        workloads = ["classical-ml", "computer-vision", "nlp", "generic"]
-    else:
-        role = "base"
-        workloads = ["generic"]
+    # Framework-specific role and workloads
+    framework_config = {
+        "pytorch": ("training", ["llm", "computer-vision", "nlp", "generic"]),
+        "tensorflow": ("training", ["classical-ml", "computer-vision", "nlp", "generic"]),
+        "rapids": ("training", ["classical-ml", "scientific-computing", "generic"]),
+        "r": ("notebook", ["classical-ml", "scientific-computing", "generic"]),
+        "scikit-learn": ("training", ["classical-ml", "generic"]),
+        "xgboost": ("training", ["classical-ml", "generic"]),
+        "spark": ("training", ["classical-ml", "generic"]),
+        "base": ("base", ["generic"]),
+    }
+    role, workloads = framework_config.get(framework_name, ("base", ["generic"]))
+
+    # Build notes with variant info
+    notes = "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    if "conda" in (parsed.flavor or ""):
+        notes += " Conda-based environment."
+    if "slim" in (parsed.flavor or ""):
+        notes += " Slim variant without development tools."
 
     return {
         "id": image_id,
@@ -1061,12 +1107,12 @@ def build_gcp_dlc_image(
             version=parsed.cuda_version,
         ),
         "runtime": {
-            "python": "3.10",  # Default for GCP DLCs
+            "python": python_version or "3.10",  # Use extracted version or default
             "os": {"name": "ubuntu", "version": "22.04"},
             "architectures": tag_info.architectures or ["amd64"],
         },
         "frameworks": [
-            {"name": framework_name, "version": parsed.framework_version},
+            {"name": framework_name, "version": parsed.framework_version or "latest"},
         ] if framework_name not in ("unknown", "base") else [],
         "capabilities": {
             "gpu_vendors": gpu_vendors,
@@ -1093,7 +1139,7 @@ def build_gcp_dlc_image(
         },
         "recommended_for": [],
         "system_packages": [],
-        "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine).",
+        "notes": notes,
     }
 
 
