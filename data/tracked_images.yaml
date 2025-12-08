@@ -486,29 +486,72 @@ quay:
 
 aws:
   # ==========================================================================
-  # AWS Deep Learning Containers - PyTorch Training
+  # AWS Deep Learning Containers
   # Hosted at public.ecr.aws/deep-learning-containers/
-  # Note: Only tags available in ECR Public Gallery are listed here.
-  # Tags found via https://gallery.ecr.aws/deep-learning-containers/
+  # Only repos available in ECR Public are included (6 of 14 in available_images.md)
+  # Private repos (HuggingFace, AutoGluon, DJL, StabilityAI) require AWS auth
   # ==========================================================================
+
+  # --- PyTorch Training ---
   - id: aws-pytorch-training
     repo: pytorch-training
     parser: aws_dlc
     tags:
-      # PyTorch 2.5.x - available in ECR Public
-      - "2.5.1-gpu-py311-cu124-ubuntu22.04-ec2"
-      - "2.5.1-cpu-py311-ubuntu22.04-ec2"
+      # PyTorch 2.8.x (latest)
+      - "2.8.0-gpu-py312-cu129-ubuntu22.04-sagemaker"
+      - "2.8.0-gpu-py312-cu129-ubuntu22.04-ec2"
+      - "2.8.0-cpu-py312-ubuntu22.04-sagemaker"
+      - "2.8.0-cpu-py312-ubuntu22.04-ec2"
+      # PyTorch 2.7.x
+      - "2.7.1-gpu-py312-cu128-ubuntu22.04-sagemaker"
+      - "2.7.1-gpu-py312-cu128-ubuntu22.04-ec2"
+      - "2.7.1-cpu-py312-ubuntu22.04-sagemaker"
+      - "2.7.1-cpu-py312-ubuntu22.04-ec2"
+      # PyTorch 2.6.x
+      - "2.6.0-gpu-py312-cu126-ubuntu22.04-sagemaker"
+      - "2.6.0-gpu-py312-cu126-ubuntu22.04-ec2"
+      - "2.6.0-cpu-py312-ubuntu22.04-sagemaker"
+      - "2.6.0-cpu-py312-ubuntu22.04-ec2"
 
+  - id: aws-pytorch-training-arm64
+    repo: pytorch-training-arm64
+    parser: aws_dlc
+    tags:
+      - "2.7.0-gpu-py312-cu128-ubuntu22.04-ec2"
+
+  # --- PyTorch Inference ---
   - id: aws-pytorch-inference
     repo: pytorch-inference
     parser: aws_dlc
     tags:
-      # PyTorch 2.5.x
-      - "2.5.1-gpu-py311-cu124-ubuntu22.04-ec2"
-      - "2.5.1-cpu-py311-ubuntu22.04-ec2"
+      - "2.6.0-gpu-py312-cu124-ubuntu22.04-sagemaker"
+      - "2.6.0-gpu-py312-cu124-ubuntu22.04-ec2"
+      - "2.6.0-cpu-py312-ubuntu22.04-sagemaker"
+      - "2.6.0-cpu-py312-ubuntu22.04-ec2"
 
-  # Note: TensorFlow DLCs are not available in ECR Public Gallery.
-  # They are only accessible from the private AWS account (763104351884).
+  - id: aws-pytorch-inference-arm64
+    repo: pytorch-inference-arm64
+    parser: aws_dlc
+    tags:
+      - "2.6.0-gpu-py312-cu124-ubuntu22.04-ec2"
+      - "2.6.0-cpu-py312-ubuntu22.04-sagemaker"
+      - "2.6.0-cpu-py312-ubuntu22.04-ec2"
+
+  # --- TensorFlow Training ---
+  - id: aws-tensorflow-training
+    repo: tensorflow-training
+    parser: aws_dlc
+    tags:
+      - "2.19.0-gpu-py312-cu125-ubuntu22.04-sagemaker"
+      - "2.19.0-cpu-py312-ubuntu22.04-sagemaker"
+
+  # --- TensorFlow Inference ---
+  - id: aws-tensorflow-inference
+    repo: tensorflow-inference
+    parser: aws_dlc
+    tags:
+      - "2.19.0-gpu-py312-cu122-ubuntu22.04-sagemaker"
+      - "2.19.0-cpu-py312-ubuntu22.04-sagemaker"
 
 gcp:
   # ==========================================================================

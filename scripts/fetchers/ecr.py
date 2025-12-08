@@ -80,13 +80,14 @@ def _get_bearer_token(client: httpx.Client, auth_header: str, image_name: str) -
         return None
 
     service = params.get("service")
-    scope = params.get("scope") or f"repository:{image_name}:pull"
+    # AWS ECR returns scope="aws" which doesn't grant repository access.
+    # Always use the repository-specific scope instead.
+    scope = f"repository:{image_name}:pull"
 
     query: Dict[str, str] = {}
     if service:
         query["service"] = service
-    if scope:
-        query["scope"] = scope
+    query["scope"] = scope
 
     try:
         response = client.get(realm, params=query)

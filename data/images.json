@@ -135,6 +135,463 @@
       "notes": "Optimized for EC2 deployment on AWS."
     },
     {
+      "id": "aws-pytorch-inference-2-6-0-cpu-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-inference:2.6.0-cpu-py312-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1677,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-inference",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-inference-2-6-0-cpu-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-inference:2.6.0-cpu-py312-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1716,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-inference",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-inference-2-6-0-cuda12-4-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-inference:2.6.0-gpu-py312-cu124-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 8299,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-inference",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-inference-2-6-0-cuda12-4-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-inference:2.6.0-gpu-py312-cu124-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 8319,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-inference",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-inference-arm64-2-6-0-cpu-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-inference-arm64:2.6.0-cpu-py312-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1018,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-inference-arm64",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-inference-arm64-2-6-0-cpu-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-inference-arm64:2.6.0-cpu-py312-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1056,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-inference-arm64",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-inference-arm64-2-6-0-cuda12-4-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-inference-arm64:2.6.0-gpu-py312-cu124-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 6997,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-inference-arm64",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
       "id": "aws-pytorch-training-2-5-1-cpu-ec2",
       "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.5.1-cpu-py311-ubuntu22.04-ec2",
       "metadata": {
@@ -264,6 +721,1121 @@
       "recommended_for": [],
       "system_packages": [],
       "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-6-0-cpu-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.6.0-cpu-py312-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1443,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-6-0-cpu-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.6.0-cpu-py312-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1652,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-6-0-cuda12-6-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.6.0-gpu-py312-cu126-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.6",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 9745,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-6-0-cuda12-6-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.6.0-gpu-py312-cu126-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.6",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 9963,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-7-1-cpu-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.7.1-cpu-py312-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.7.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1387,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-7-1-cpu-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.7.1-cpu-py312-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.7.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1558,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-7-1-cuda12-8-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.7.1-gpu-py312-cu128-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.8",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.7.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 11407,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-7-1-cuda12-8-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.7.1-gpu-py312-cu128-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.8",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.7.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 11580,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-8-0-cpu-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.8.0-cpu-py312-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.8.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1394,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-8-0-cpu-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.8.0-cpu-py312-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.8.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1546,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-8-0-cuda12-9-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.8.0-gpu-py312-cu129-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.9",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.8.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 12334,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-8-0-cuda12-9-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.8.0-gpu-py312-cu129-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.9",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.8.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 12506,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-arm64-2-7-0-cuda12-8-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training-arm64:2.7.0-gpu-py312-cu128-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.8",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.7.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 10360,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training-arm64",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-tensorflow-inference-2-19-0-cpu-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/tensorflow-inference:2.19.0-cpu-py312-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.19.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 639,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/tensorflow-inference",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-tensorflow-inference-2-19-0-cuda12-2-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/tensorflow-inference:2.19.0-gpu-py312-cu122-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.2",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.19.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 5251,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/tensorflow-inference",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-tensorflow-training-2-19-0-cpu-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/tensorflow-training:2.19.0-cpu-py312-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.19.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1856,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/tensorflow-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
+    },
+    {
+      "id": "aws-tensorflow-training-2-19-0-cuda12-5-sagemaker",
+      "name": "public.ecr.aws/deep-learning-containers/tensorflow-training:2.19.0-gpu-py312-cu125-ubuntu22.04-sagemaker",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.5",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.19.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 5719,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/tensorflow-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for SAGEMAKER deployment on AWS."
     },
     {
       "id": "gcp-base-cpu",

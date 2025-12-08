@@ -1260,6 +1260,363 @@ def build_jupyter_image(
     }
 
 
+def build_aws_hf_dlc_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    repo: str = "huggingface-pytorch-training",
+) -> dict[str, Any]:
+    """Build a catalog entry for AWS HuggingFace Deep Learning Container images.
+
+    ID pattern: aws-{repo}-{version}-{cuda|cpu}
+    Examples:
+        - aws-huggingface-pytorch-training-2-6-0-cuda12-4
+        - aws-huggingface-pytorch-inference-2-5-0-cpu
+    """
+    version_id = _version_to_id_part(parsed.framework_version or "")
+
+    # Determine role from repo name
+    if "training" in repo:
+        role = "training"
+    elif "inference" in repo:
+        role = "serving"
+    else:
+        role = "base"
+
+    # Build ID based on compute type
+    if parsed.cuda_version:
+        cuda_id = _version_to_id_part(parsed.cuda_version)
+        compute_id = f"cuda{cuda_id}"
+        gpu_vendors = ["nvidia"]
+    else:
+        compute_id = "cpu"
+        gpu_vendors = ["none"]
+
+    image_id = f"aws-{repo}-{version_id}-{compute_id}"
+    full_name = f"public.ecr.aws/deep-learning-containers/{repo}:{tag_info.name}"
+
+    # Extract transformers version from flavor
+    transformers_version = None
+    if parsed.flavor and "transformers" in parsed.flavor:
+        # flavor is like "huggingface-gpu-transformers4.49.0"
+        import re
+        tf_match = re.search(r"transformers([\d.]+)", parsed.flavor)
+        if tf_match:
+            transformers_version = tf_match.group(1)
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "aws-dlc",
+            "registry": "ecr",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "Apache-2.0",
+        },
+        "cuda": _build_cuda_object(
+            version=parsed.cuda_version,
+            cudnn=parsed.cudnn_version,
+        ),
+        "runtime": {
+            "python": "3.11",
+            "os": {"name": parsed.os_name or "ubuntu", "version": parsed.os_version or "22.04"},
+            "architectures": tag_info.architectures or ["amd64"],
+        },
+        "frameworks": [
+            {"name": "pytorch", "version": parsed.framework_version},
+            {"name": "transformers", "version": transformers_version or "varies"},
+        ],
+        "capabilities": {
+            "gpu_vendors": gpu_vendors,
+            "image_type": "runtime",
+            "role": role,
+            "workloads": ["llm", "nlp", "multimodal"],
+        },
+        "cloud": {
+            "affinity": ["aws"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://gallery.ecr.aws/deep-learning-containers/{repo}",
+            "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+            "source": "https://github.com/aws/deep-learning-containers",
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": "HuggingFace Transformers optimized for AWS.",
+    }
+
+
+def build_aws_autogluon_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    repo: str = "autogluon-training",
+) -> dict[str, Any]:
+    """Build a catalog entry for AWS AutoGluon Deep Learning Container images.
+
+    ID pattern: aws-{repo}-{version}-{cuda|cpu}
+    Examples:
+        - aws-autogluon-training-1-4-0-cuda12-4
+        - aws-autogluon-inference-1-4-0-cpu
+    """
+    version_id = _version_to_id_part(parsed.framework_version or "")
+
+    # Determine role from repo name
+    if "training" in repo:
+        role = "training"
+    elif "inference" in repo:
+        role = "serving"
+    else:
+        role = "base"
+
+    # Build ID based on compute type
+    if parsed.cuda_version:
+        cuda_id = _version_to_id_part(parsed.cuda_version)
+        compute_id = f"cuda{cuda_id}"
+        gpu_vendors = ["nvidia"]
+    else:
+        compute_id = "cpu"
+        gpu_vendors = ["none"]
+
+    image_id = f"aws-{repo}-{version_id}-{compute_id}"
+    full_name = f"public.ecr.aws/deep-learning-containers/{repo}:{tag_info.name}"
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "aws-dlc",
+            "registry": "ecr",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "Apache-2.0",
+        },
+        "cuda": _build_cuda_object(
+            version=parsed.cuda_version,
+        ),
+        "runtime": {
+            "python": "3.11",
+            "os": {"name": parsed.os_name or "ubuntu", "version": parsed.os_version or "22.04"},
+            "architectures": tag_info.architectures or ["amd64"],
+        },
+        "frameworks": [
+            {"name": "autogluon", "version": parsed.framework_version},
+        ],
+        "capabilities": {
+            "gpu_vendors": gpu_vendors,
+            "image_type": "runtime",
+            "role": role,
+            "workloads": ["classical-ml", "generic"],
+        },
+        "cloud": {
+            "affinity": ["aws"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://gallery.ecr.aws/deep-learning-containers/{repo}",
+            "documentation": "https://auto.gluon.ai/",
+            "source": "https://github.com/autogluon/autogluon",
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": "AutoGluon AutoML framework optimized for AWS.",
+    }
+
+
+def build_aws_djl_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    repo: str = "djl-inference",
+) -> dict[str, Any]:
+    """Build a catalog entry for AWS DJL (Deep Java Library) inference container images.
+
+    ID pattern: aws-djl-{version}-{backend}[-cuda{version}]
+    Examples:
+        - aws-djl-0-35-0-lmi17-0-0-cuda12-8
+        - aws-djl-0-33-0-tensorrtllm0-21-0-cuda12-8
+        - aws-djl-0-35-0-cpu-full
+    """
+    version_id = _version_to_id_part(parsed.framework_version or "")
+
+    # Determine backend from parsed framework and flavor
+    if parsed.framework == "djl-lmi":
+        backend_type = "lmi"
+    elif parsed.framework == "djl-tensorrt":
+        backend_type = "tensorrt"
+    else:
+        backend_type = parsed.flavor or "default"
+
+    # Build ID based on compute type and backend
+    if parsed.cuda_version:
+        cuda_id = _version_to_id_part(parsed.cuda_version)
+        flavor_id = _version_to_id_part(parsed.flavor or "")
+        image_id = f"aws-djl-{version_id}-{flavor_id}-cuda{cuda_id}"
+        gpu_vendors = ["nvidia"]
+    else:
+        flavor_id = _version_to_id_part(parsed.flavor or "cpu")
+        image_id = f"aws-djl-{version_id}-{flavor_id}"
+        gpu_vendors = ["none"]
+
+    full_name = f"public.ecr.aws/deep-learning-containers/{repo}:{tag_info.name}"
+
+    # Determine workloads based on backend
+    if "lmi" in backend_type or "tensorrt" in backend_type:
+        workloads = ["llm"]
+    else:
+        workloads = ["generic"]
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "aws-dlc",
+            "registry": "ecr",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "Apache-2.0",
+        },
+        "cuda": _build_cuda_object(
+            version=parsed.cuda_version,
+        ),
+        "runtime": {
+            "python": None,  # DJL is Java-based
+            "os": {"name": "ubuntu", "version": "22.04"},
+            "architectures": tag_info.architectures or ["amd64"],
+        },
+        "frameworks": [
+            {"name": parsed.framework or "djl", "version": parsed.framework_version},
+        ],
+        "capabilities": {
+            "gpu_vendors": gpu_vendors,
+            "image_type": "runtime",
+            "role": "serving",
+            "workloads": workloads,
+        },
+        "cloud": {
+            "affinity": ["aws"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://gallery.ecr.aws/deep-learning-containers/{repo}",
+            "documentation": "https://docs.djl.ai/",
+            "source": "https://github.com/deepjavalibrary/djl",
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": f"DJL inference container with {backend_type.upper()} backend for LLM serving.",
+    }
+
+
+def build_aws_stabilityai_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    repo: str = "stabilityai-pytorch-inference",
+) -> dict[str, Any]:
+    """Build a catalog entry for AWS StabilityAI Deep Learning Container images.
+
+    ID pattern: aws-stabilityai-{version}-cuda{cuda}
+    Examples:
+        - aws-stabilityai-2-0-1-cuda11-8
+    """
+    version_id = _version_to_id_part(parsed.framework_version or "")
+
+    if parsed.cuda_version:
+        cuda_id = _version_to_id_part(parsed.cuda_version)
+        image_id = f"aws-stabilityai-{version_id}-cuda{cuda_id}"
+        gpu_vendors = ["nvidia"]
+    else:
+        image_id = f"aws-stabilityai-{version_id}-cpu"
+        gpu_vendors = ["none"]
+
+    full_name = f"public.ecr.aws/deep-learning-containers/{repo}:{tag_info.name}"
+
+    # Extract SGM version from flavor
+    import re
+    sgm_version = None
+    if parsed.flavor and "sgm" in parsed.flavor:
+        sgm_match = re.search(r"sgm([\d.]+)", parsed.flavor)
+        if sgm_match:
+            sgm_version = sgm_match.group(1)
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "aws-dlc",
+            "registry": "ecr",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "Apache-2.0",
+        },
+        "cuda": _build_cuda_object(
+            version=parsed.cuda_version,
+        ),
+        "runtime": {
+            "python": "3.10",
+            "os": {"name": parsed.os_name or "ubuntu", "version": parsed.os_version or "20.04"},
+            "architectures": tag_info.architectures or ["amd64"],
+        },
+        "frameworks": [
+            {"name": "pytorch", "version": parsed.framework_version},
+            {"name": "stability-generative-models", "version": sgm_version or "varies"},
+        ],
+        "capabilities": {
+            "gpu_vendors": gpu_vendors,
+            "image_type": "runtime",
+            "role": "serving",
+            "workloads": ["generative-ai", "computer-vision"],
+        },
+        "cloud": {
+            "affinity": ["aws"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://gallery.ecr.aws/deep-learning-containers/{repo}",
+            "documentation": "https://stability.ai/",
+            "source": "https://github.com/Stability-AI/generative-models",
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": "Stability AI generative models optimized for AWS SageMaker.",
+    }
+
+
 # Registry mapping parser names to builder functions
 BUILDER_REGISTRY: dict[str, type] = {
     "pytorch_cuda": build_pytorch_image,
@@ -1277,6 +1634,10 @@ BUILDER_REGISTRY: dict[str, type] = {
     "ngc_rapids": build_ngc_rapids_image,
     "jupyter_stack": build_jupyter_image,
     "aws_dlc": build_aws_dlc_image,
+    "aws_hf_dlc": build_aws_hf_dlc_image,
+    "aws_autogluon": build_aws_autogluon_image,
+    "aws_djl": build_aws_djl_image,
+    "aws_stabilityai": build_aws_stabilityai_image,
     "gcp_dlc": build_gcp_dlc_image,
 }
 

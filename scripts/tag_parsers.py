@@ -870,6 +870,249 @@ def parse_jupyter_stack(tag: str) -> ParsedTag | None:
     )
 
 
+def parse_aws_hf_dlc(tag: str) -> ParsedTag | None:
+    """Parse AWS HuggingFace Deep Learning Container image tags.
+
+    HuggingFace DLC tags encode PyTorch/TensorFlow version + transformers version:
+        {fw_version}-transformers{tf_version}-{device}-py{python}-[cu{cuda}-]{os}
+
+    Examples:
+        - "2.6.0-transformers4.49.0-gpu-py312-cu124-ubuntu22.04"
+        - "2.6.0-transformers4.49.0-cpu-py312-ubuntu22.04"
+        - "2.1.0-transformers4.37.0-gpu-py310-cu118-ubuntu20.04"
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info, or None if tag doesn't match
+    """
+    # GPU pattern: VERSION-transformersTFVER-gpu-pyPYTHON-cuCUDA-ubuntuOS
+    gpu_pattern = r"^(\d+\.\d+\.\d+)-transformers(\d+\.\d+\.\d+)-gpu-py(\d+)-cu(\d+)-ubuntu(\d+\.\d+)$"
+    gpu_match = re.match(gpu_pattern, tag)
+
+    if gpu_match:
+        fw_version = gpu_match.group(1)
+        transformers_version = gpu_match.group(2)
+        python_raw = gpu_match.group(3)
+        cuda_raw = gpu_match.group(4)
+        os_version = gpu_match.group(5)
+
+        # Convert cuda "124" to "12.4", "118" to "11.8"
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+
+        return ParsedTag(
+            framework="pytorch",  # HF DLCs are built on PyTorch
+            framework_version=fw_version,
+            cuda_version=cuda_version,
+            image_type="runtime",
+            flavor=f"huggingface-gpu-transformers{transformers_version}",
+            os_name="ubuntu",
+            os_version=os_version,
+        )
+
+    # CPU pattern: VERSION-transformersTFVER-cpu-pyPYTHON-ubuntuOS
+    cpu_pattern = r"^(\d+\.\d+\.\d+)-transformers(\d+\.\d+\.\d+)-cpu-py(\d+)-ubuntu(\d+\.\d+)$"
+    cpu_match = re.match(cpu_pattern, tag)
+
+    if cpu_match:
+        fw_version = cpu_match.group(1)
+        transformers_version = cpu_match.group(2)
+        os_version = cpu_match.group(4)
+
+        return ParsedTag(
+            framework="pytorch",
+            framework_version=fw_version,
+            cuda_version=None,
+            image_type="runtime",
+            flavor=f"huggingface-cpu-transformers{transformers_version}",
+            os_name="ubuntu",
+            os_version=os_version,
+        )
+
+    return None
+
+
+def parse_aws_autogluon(tag: str) -> ParsedTag | None:
+    """Parse AWS AutoGluon Deep Learning Container image tags.
+
+    AutoGluon tags follow a similar pattern to standard DLCs but without platform suffix:
+        {version}-{device}-py{python}[-cu{cuda}]-{os}
+
+    Examples:
+        - "1.4.0-gpu-py311-cu124-ubuntu22.04"
+        - "1.4.0-cpu-py311-ubuntu22.04"
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info, or None if tag doesn't match
+    """
+    # GPU pattern
+    gpu_pattern = r"^(\d+\.\d+\.\d+)-gpu-py(\d+)-cu(\d+)-ubuntu(\d+\.\d+)$"
+    gpu_match = re.match(gpu_pattern, tag)
+
+    if gpu_match:
+        version = gpu_match.group(1)
+        cuda_raw = gpu_match.group(3)
+        os_version = gpu_match.group(4)
+
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+
+        return ParsedTag(
+            framework="autogluon",
+            framework_version=version,
+            cuda_version=cuda_version,
+            image_type="runtime",
+            flavor="gpu",
+            os_name="ubuntu",
+            os_version=os_version,
+        )
+
+    # CPU pattern
+    cpu_pattern = r"^(\d+\.\d+\.\d+)-cpu-py(\d+)-ubuntu(\d+\.\d+)$"
+    cpu_match = re.match(cpu_pattern, tag)
+
+    if cpu_match:
+        version = cpu_match.group(1)
+        os_version = cpu_match.group(3)
+
+        return ParsedTag(
+            framework="autogluon",
+            framework_version=version,
+            cuda_version=None,
+            image_type="runtime",
+            flavor="cpu",
+            os_name="ubuntu",
+            os_version=os_version,
+        )
+
+    return None
+
+
+def parse_aws_djl(tag: str) -> ParsedTag | None:
+    """Parse AWS DJL (Deep Java Library) inference container image tags.
+
+    DJL tags have several formats for different backends:
+        - LMI (Large Model Inference): {version}-lmi{lmi_version}-cu{cuda}
+        - TensorRT-LLM: {version}-tensorrtllm{trt_version}-cu{cuda}
+        - CPU: {version}-cpu-full
+        - Neuron: {version}-neuronx-sdk{sdk_version}
+
+    Examples:
+        - "0.35.0-lmi17.0.0-cu128"
+        - "0.33.0-tensorrtllm0.21.0-cu128"
+        - "0.35.0-cpu-full"
+        - "0.30.0-neuronx-sdk2.20.1"
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info, or None if tag doesn't match
+    """
+    # LMI (vLLM-based) pattern: VERSION-lmiLMI_VERSION-cuCUDA
+    lmi_pattern = r"^(\d+\.\d+\.\d+)-lmi(\d+\.\d+\.\d+)-cu(\d+)$"
+    lmi_match = re.match(lmi_pattern, tag)
+
+    if lmi_match:
+        version = lmi_match.group(1)
+        lmi_version = lmi_match.group(2)
+        cuda_raw = lmi_match.group(3)
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+
+        return ParsedTag(
+            framework="djl-lmi",
+            framework_version=version,
+            cuda_version=cuda_version,
+            image_type="runtime",
+            flavor=f"lmi{lmi_version}",
+        )
+
+    # TensorRT-LLM pattern: VERSION-tensorrtllmTRT_VERSION-cuCUDA
+    trt_pattern = r"^(\d+\.\d+\.\d+)-tensorrtllm(\d+\.\d+\.\d+)-cu(\d+)$"
+    trt_match = re.match(trt_pattern, tag)
+
+    if trt_match:
+        version = trt_match.group(1)
+        trt_version = trt_match.group(2)
+        cuda_raw = trt_match.group(3)
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+
+        return ParsedTag(
+            framework="djl-tensorrt",
+            framework_version=version,
+            cuda_version=cuda_version,
+            image_type="runtime",
+            flavor=f"tensorrtllm{trt_version}",
+        )
+
+    # CPU pattern: VERSION-cpu-full
+    cpu_pattern = r"^(\d+\.\d+\.\d+)-cpu-full$"
+    cpu_match = re.match(cpu_pattern, tag)
+
+    if cpu_match:
+        version = cpu_match.group(1)
+
+        return ParsedTag(
+            framework="djl",
+            framework_version=version,
+            cuda_version=None,
+            image_type="runtime",
+            flavor="cpu-full",
+        )
+
+    # Neuron pattern (skip these - they're for AWS Inferentia, not GPU)
+    neuron_pattern = r"^(\d+\.\d+\.\d+)-neuronx-sdk(\d+\.\d+\.\d+)$"
+    if re.match(neuron_pattern, tag):
+        return None  # Skip Neuron images
+
+    return None
+
+
+def parse_aws_stabilityai(tag: str) -> ParsedTag | None:
+    """Parse AWS StabilityAI Deep Learning Container image tags.
+
+    StabilityAI tags include Stability Generative Models (SGM) version:
+        {pytorch_version}-sgm{sgm_version}-{device}-py{python}-cu{cuda}-{os}-{platform}
+
+    Examples:
+        - "2.0.1-sgm0.1.0-gpu-py310-cu118-ubuntu20.04-sagemaker"
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info, or None if tag doesn't match
+    """
+    # GPU pattern: VERSION-sgmSGM_VERSION-gpu-pyPYTHON-cuCUDA-ubuntuOS-PLATFORM
+    gpu_pattern = r"^(\d+\.\d+\.\d+)-sgm(\d+\.\d+\.\d+)-gpu-py(\d+)-cu(\d+)-ubuntu(\d+\.\d+)-(ec2|sagemaker)$"
+    gpu_match = re.match(gpu_pattern, tag)
+
+    if gpu_match:
+        pytorch_version = gpu_match.group(1)
+        sgm_version = gpu_match.group(2)
+        cuda_raw = gpu_match.group(4)
+        os_version = gpu_match.group(5)
+        platform = gpu_match.group(6)
+
+        # Convert cuda "118" to "11.8"
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+
+        return ParsedTag(
+            framework="pytorch",
+            framework_version=pytorch_version,
+            cuda_version=cuda_version,
+            image_type="runtime",
+            flavor=f"stabilityai-sgm{sgm_version}-{platform}",
+            os_name="ubuntu",
+            os_version=os_version,
+        )
+
+    return None
+
+
 # Registry mapping parser names to functions
 PARSER_REGISTRY: dict[str, type] = {
     "pytorch_cuda": parse_pytorch_cuda,
@@ -887,6 +1130,10 @@ PARSER_REGISTRY: dict[str, type] = {
     "ngc_rapids": parse_ngc_rapids,
     "jupyter_stack": parse_jupyter_stack,
     "aws_dlc": parse_aws_dlc,
+    "aws_hf_dlc": parse_aws_hf_dlc,
+    "aws_autogluon": parse_aws_autogluon,
+    "aws_djl": parse_aws_djl,
+    "aws_stabilityai": parse_aws_stabilityai,
     "gcp_dlc": parse_gcp_dlc,
 }
 
