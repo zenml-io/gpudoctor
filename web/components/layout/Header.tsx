@@ -42,19 +42,29 @@ export function Header({ activeTab }: HeaderProps) {
           </div>
         </Link>
 
-        {/* Navigation toggle - only shown when activeTab is provided */}
-        {activeTab && (
-          <nav aria-label="Primary" className="flex items-center">
-            <div className="flex rounded-lg border border-neutral-200 bg-neutral-50 p-0.5">
-              <NavLink href="/guide" isActive={activeTab === 'guide'}>
-                Guide
-              </NavLink>
-              <NavLink href="/table" isActive={activeTab === 'table'}>
-                Table
-              </NavLink>
-            </div>
-          </nav>
-        )}
+        {/* Navigation cluster: Guide/Table toggle (when present) + persistent About link */}
+        <div className="flex items-center gap-4">
+          {/* Navigation toggle - only shown when activeTab is provided */}
+          {activeTab && (
+            <nav aria-label="Primary" className="flex items-center">
+              <div className="flex rounded-lg border border-neutral-200 bg-neutral-50 p-0.5">
+                <NavLink href="/guide" isActive={activeTab === 'guide'}>
+                  Guide
+                </NavLink>
+                <NavLink href="/table" isActive={activeTab === 'table'}>
+                  Table
+                </NavLink>
+              </div>
+            </nav>
+          )}
+
+          <Link
+            href="/about"
+            className="text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-900"
+          >
+            About
+          </Link>
+        </div>
       </div>
     </header>
   );

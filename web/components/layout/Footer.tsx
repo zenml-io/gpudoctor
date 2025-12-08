@@ -9,14 +9,22 @@ export function Footer() {
     <footer className="border-t border-neutral-200 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-xs text-neutral-500 sm:text-sm">
         <span>© 2025 ZenML</span>
-        <Link
-          href="https://github.com/zenml-io/gpudoctor"
-          target="_blank"
-          rel="noreferrer"
-          className="transition-colors hover:text-neutral-900"
-        >
-          GitHub
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/about"
+            className="transition-colors hover:text-neutral-900"
+          >
+            About
+          </Link>
+          <Link
+            href="https://github.com/zenml-io/gpudoctor"
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-neutral-900"
+          >
+            GitHub
+          </Link>
+        </div>
       </div>
     </footer>
   );

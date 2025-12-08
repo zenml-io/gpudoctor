@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320">
+  <!-- Dashed border container -->
+  <rect x="12" y="12" width="936" height="296" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-dasharray="8 6" rx="16" ry="16"/>
+  
+  <!-- Background subtle gradient -->
+  <defs>
+    <linearGradient id="subtleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f3ff;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#fae8ff;stop-opacity:0.3"/>
+    </linearGradient>
+  </defs>
+  <rect x="13" y="13" width="934" height="294" fill="url(#subtleGrad)" rx="15" ry="15"/>
+  
+  <!-- Title -->
+  <text x="40" y="56" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#4c1d95">
+    The Compatibility Matrix Nightmare
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="40" y="84" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#6b7280">
+    Placeholder: The 6-dimensional dependency space every ML container must navigate
+  </text>
+  
+  <!-- Six dimension boxes arranged in a flow -->
+  <g transform="translate(40, 120)">
+    <!-- Host Drivers -->
+    <rect x="0" y="0" width="120" height="70" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="60" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">HOST DRIVERS</text>
+    <text x="60" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#374151">530.30.02+</text>
+    
+    <!-- Arrow -->
+    <path d="M130 35 L155 35" stroke="#a78bfa" stroke-width="2" fill="none"/>
+    <polygon points="155,35 148,30 148,40" fill="#a78bfa"/>
+    
+    <!-- CUDA Toolkit -->
+    <rect x="165" y="0" width="120" height="70" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="225" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">CUDA TOOLKIT</text>
+    <text x="225" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#374151">12.1 / 11.8</text>
+    
+    <!-- Arrow -->
+    <path d="M295 35 L320 35" stroke="#a78bfa" stroke-width="2" fill="none"/>
+    <polygon points="320,35 313,30 313,40" fill="#a78bfa"/>
+    
+    <!-- cuDNN -->
+    <rect x="330" y="0" width="120" height="70" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="390" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">cuDNN</text>
+    <text x="390" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#374151">8.9 / 8.6</text>
+    
+    <!-- Arrow -->
+    <path d="M460 35 L485 35" stroke="#a78bfa" stroke-width="2" fill="none"/>
+    <polygon points="485,35 478,30 478,40" fill="#a78bfa"/>
+    
+    <!-- Framework -->
+    <rect x="495" y="0" width="120" height="70" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="555" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">FRAMEWORK</text>
+    <text x="555" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#374151">PyTorch 2.1</text>
+    
+    <!-- Arrow -->
+    <path d="M625 35 L650 35" stroke="#a78bfa" stroke-width="2" fill="none"/>
+    <polygon points="650,35 643,30 643,40" fill="#a78bfa"/>
+    
+    <!-- Python -->
+    <rect x="660" y="0" width="100" height="70" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="710" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">PYTHON</text>
+    <text x="710" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#374151">3.10 / 3.11</text>
+    
+    <!-- Arrow -->
+    <path d="M770 35 L795 35" stroke="#a78bfa" stroke-width="2" fill="none"/>
+    <polygon points="795,35 788,30 788,40" fill="#a78bfa"/>
+    
+    <!-- GPU Arch -->
+    <rect x="805" y="0" width="100" height="70" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="855" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">GPU ARCH</text>
+    <text x="855" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#374151">sm_86+</text>
+  </g>
+  
+  <!-- Error message example -->
+  <rect x="40" y="220" width="880" height="60" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <text x="60" y="248" font-family="JetBrains Mono, monospace" font-size="12" fill="#dc2626">
+    RuntimeError: CUDA_ERROR_UNSUPPORTED_PTX_VERSION
+  </text>
+  <text x="60" y="268" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#9ca3af">
+    Get any edge of this cube wrong and your container fails silently — or worse, produces incorrect results.
+  </text>
+</svg>
