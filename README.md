@@ -40,7 +40,7 @@ print('Valid')
 ## Project Status
 
 - [x] JSON Schema design
-- [x] Initial catalog (15+ images)
+- [x] Comprehensive catalog (200+ images covering PyTorch, TensorFlow, vLLM, TGI, Ollama, CUDA bases, NGC images for JAX, NeMo, Triton, and more)
 - [x] Website with guided picker (5-step wizard) and table view
 - [x] CI automation for catalog updates from registries
 - [ ] Security scan enrichment (Trivy integration)

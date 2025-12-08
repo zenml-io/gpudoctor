@@ -96,7 +96,7 @@ import { ImageEntry } from '@/lib/types/images';
 **Automation (`scripts/`):**
 - `update_catalog.py` - Main CLI orchestrator for catalog updates
 - `config.py` - Loads `data/tracked_images.yaml` configuration
-- `tag_parsers.py` - Parsers for different tag formats (PyTorch, TensorFlow, NGC, etc.)
+- `tag_parsers.py` - Parsers for different tag formats (PyTorch, TensorFlow, vLLM, Ollama, NVIDIA CUDA, NGC PyTorch/TensorFlow/Triton/JAX/NeMo, TGI)
 - `builders.py` - Constructs schema-compliant image dicts from parsed tags
 - `merge.py` - Merges new data with existing catalog, preserving curated fields
 - `fetchers/dockerhub.py` - Docker Hub API client with tag discovery
