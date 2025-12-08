@@ -30,19 +30,25 @@ from jsonschema import Draft202012Validator, FormatChecker, ValidationError
 
 from builders import get_builder
 from config import (
+    AWSSeed,
     DockerHubSeed,
+    GCPSeed,
     GHCRSeed,
     NGCSeed,
     QuaySeed,
     IMAGES_PATH,
     SCHEMA_PATH,
+    load_aws_seeds,
     load_dockerhub_seeds,
+    load_gcp_seeds,
     load_ghcr_seeds,
     load_ngc_seeds,
     load_quay_seeds,
 )
 from fetchers import TagInfo
 from fetchers import dockerhub as dockerhub_client
+from fetchers import ecr as ecr_client
+from fetchers import gcr as gcr_client
 from fetchers import ghcr as ghcr_client
 from fetchers import ngc as ngc_client
 from fetchers import quay as quay_client
@@ -52,7 +58,7 @@ from tag_parsers import get_parser
 
 logger = logging.getLogger(__name__)
 
-SOURCE_CHOICES = ("dockerhub", "ghcr", "ngc", "quay", "all")
+SOURCE_CHOICES = ("dockerhub", "ghcr", "ngc", "quay", "aws", "gcp", "all")
 
 
 def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
@@ -69,7 +75,7 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
         choices=SOURCE_CHOICES,
         default="dockerhub",
         help=(
-            "Sources to update. Use 'dockerhub', 'ghcr', 'ngc', or 'quay' to limit to a single registry, "
+            "Sources to update. Use 'dockerhub', 'ghcr', 'ngc', 'quay', 'aws', or 'gcp' to limit to a single registry, "
             "or 'all' to update from all configured registries."
         ),
     )
@@ -472,6 +478,144 @@ def generate_quay_images(cache: TagCache) -> List[Dict[str, Any]]:
     logger.info("Generated %d images from Quay.io seeds", len(images))
     return images
 
+
+def generate_aws_images(cache: TagCache) -> List[Dict[str, Any]]:
+    """Generate catalog images from all configured AWS DLC seeds."""
+    seeds: List[AWSSeed] = load_aws_seeds()
+    logger.info("Loaded %d AWS DLC seeds from configuration", len(seeds))
+
+    images: List[Dict[str, Any]] = []
+    for seed in seeds:
+        parser_fn = get_parser(seed.parser)
+        builder_fn = get_builder(seed.parser)
+
+        seed_images: List[Dict[str, Any]] = []
+
+        for tag in seed.tags:
+            # Check cache first
+            tag_info = cache.get("ecr", "deep-learning-containers", seed.repo, tag)
+            if tag_info is None:
+                tag_info = ecr_client.get_tag(seed.repo, tag)
+                if tag_info is None:
+                    logger.warning(
+                        "Seed %s: failed to fetch explicit tag public.ecr.aws/deep-learning-containers/%s:%s",
+                        seed.id,
+                        seed.repo,
+                        tag,
+                    )
+                    continue
+                cache.set("ecr", "deep-learning-containers", seed.repo, tag, tag_info)
+
+            parsed = parser_fn(tag_info.name)
+            if parsed is None:
+                logger.warning(
+                    "Seed %s: parser '%s' could not handle tag %s for %s",
+                    seed.id,
+                    seed.parser,
+                    tag_info.name,
+                    seed.repo,
+                )
+                continue
+
+            try:
+                image = builder_fn(
+                    tag_info,
+                    parsed,
+                    repo=seed.repo,
+                )
+            except TypeError as exc:
+                logger.error(
+                    "Seed %s: builder '%s' failed for tag %s: %s",
+                    seed.id,
+                    seed.parser,
+                    tag_info.name,
+                    exc,
+                )
+                continue
+
+            seed_images.append(image)
+
+        logger.info(
+            "Seed %s: built %d images for public.ecr.aws/deep-learning-containers/%s",
+            seed.id,
+            len(seed_images),
+            seed.repo,
+        )
+        images.extend(seed_images)
+
+    logger.info("Generated %d images from AWS DLC seeds", len(images))
+    return images
+
+
+def generate_gcp_images(cache: TagCache) -> List[Dict[str, Any]]:
+    """Generate catalog images from all configured GCP DLC seeds."""
+    seeds: List[GCPSeed] = load_gcp_seeds()
+    logger.info("Loaded %d GCP DLC seeds from configuration", len(seeds))
+
+    images: List[Dict[str, Any]] = []
+    for seed in seeds:
+        parser_fn = get_parser(seed.parser)
+        builder_fn = get_builder(seed.parser)
+
+        seed_images: List[Dict[str, Any]] = []
+
+        for tag in seed.tags:
+            # Check cache first
+            tag_info = cache.get("gcr", "deeplearning-platform-release", seed.repo, tag)
+            if tag_info is None:
+                tag_info = gcr_client.get_tag(seed.repo, tag)
+                if tag_info is None:
+                    logger.warning(
+                        "Seed %s: failed to fetch explicit tag gcr.io/deeplearning-platform-release/%s:%s",
+                        seed.id,
+                        seed.repo,
+                        tag,
+                    )
+                    continue
+                cache.set("gcr", "deeplearning-platform-release", seed.repo, tag, tag_info)
+
+            # For GCP DLCs, we parse the repo name (which encodes framework/version)
+            # not the tag (which is typically just "latest" or "py310")
+            parsed = parser_fn(seed.repo)
+            if parsed is None:
+                logger.warning(
+                    "Seed %s: parser '%s' could not handle repo name %s",
+                    seed.id,
+                    seed.parser,
+                    seed.repo,
+                )
+                continue
+
+            try:
+                image = builder_fn(
+                    tag_info,
+                    parsed,
+                    repo=seed.repo,
+                )
+            except TypeError as exc:
+                logger.error(
+                    "Seed %s: builder '%s' failed for tag %s: %s",
+                    seed.id,
+                    seed.parser,
+                    tag_info.name,
+                    exc,
+                )
+                continue
+
+            seed_images.append(image)
+
+        logger.info(
+            "Seed %s: built %d images for gcr.io/deeplearning-platform-release/%s",
+            seed.id,
+            len(seed_images),
+            seed.repo,
+        )
+        images.extend(seed_images)
+
+    logger.info("Generated %d images from GCP DLC seeds", len(images))
+    return images
+
+
 def summarize_changes(
     existing_images: List[Dict[str, Any]],
     merged_images: List[Dict[str, Any]],
@@ -546,6 +690,12 @@ def run(source: str, dry_run: bool, no_cache: bool = False) -> None:
 
     if source in ("quay", "all"):
         generated_images.extend(generate_quay_images(cache))
+
+    if source in ("aws", "all"):
+        generated_images.extend(generate_aws_images(cache))
+
+    if source in ("gcp", "all"):
+        generated_images.extend(generate_gcp_images(cache))
 
     # Save cache after all fetches complete (persists for subsequent runs today)
     cache.save()

@@ -483,3 +483,118 @@ quay:
     tags:
       - "latest"
       - "python-3.12"
+
+aws:
+  # ==========================================================================
+  # AWS Deep Learning Containers - PyTorch Training
+  # Hosted at public.ecr.aws/deep-learning-containers/
+  # Note: Only tags available in ECR Public Gallery are listed here.
+  # Tags found via https://gallery.ecr.aws/deep-learning-containers/
+  # ==========================================================================
+  - id: aws-pytorch-training
+    repo: pytorch-training
+    parser: aws_dlc
+    tags:
+      # PyTorch 2.5.x - available in ECR Public
+      - "2.5.1-gpu-py311-cu124-ubuntu22.04-ec2"
+      - "2.5.1-cpu-py311-ubuntu22.04-ec2"
+
+  - id: aws-pytorch-inference
+    repo: pytorch-inference
+    parser: aws_dlc
+    tags:
+      # PyTorch 2.5.x
+      - "2.5.1-gpu-py311-cu124-ubuntu22.04-ec2"
+      - "2.5.1-cpu-py311-ubuntu22.04-ec2"
+
+  # Note: TensorFlow DLCs are not available in ECR Public Gallery.
+  # They are only accessible from the private AWS account (763104351884).
+
+gcp:
+  # ==========================================================================
+  # GCP Deep Learning Containers
+  # Hosted at gcr.io/deeplearning-platform-release/
+  # Available repos discovered via gcr.io API - 368 total repos available
+  # ==========================================================================
+
+  # PyTorch GPU (recent versions)
+  - id: gcp-pytorch-gpu
+    repo: pytorch-gpu.2-4
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-2-3
+    repo: pytorch-gpu.2-3
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-2-2
+    repo: pytorch-gpu.2-2
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-2-1
+    repo: pytorch-gpu.2-1
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-pytorch-gpu-2-0
+    repo: pytorch-gpu.2-0
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # TensorFlow GPU (recent versions)
+  - id: gcp-tensorflow-gpu
+    repo: tf-gpu.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tensorflow-gpu-2-16
+    repo: tf-gpu.2-16
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-tensorflow-gpu-2-15
+    repo: tf-gpu.2-15
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # TensorFlow CPU
+  - id: gcp-tensorflow-cpu
+    repo: tf-cpu.2-17
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  # Base CUDA images (for custom builds)
+  - id: gcp-base-cuda
+    repo: base-cu121
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cuda-122
+    repo: base-cu122
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cuda-123
+    repo: base-cu123
+    parser: gcp_dlc
+    tags:
+      - "latest"
+
+  - id: gcp-base-cuda-124
+    repo: base-cu124
+    parser: gcp_dlc
+    tags:
+      - "latest"

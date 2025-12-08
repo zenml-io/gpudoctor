@@ -899,6 +899,204 @@ def build_ngc_rapids_image(
     }
 
 
+def build_aws_dlc_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    repo: str = "pytorch-training",
+) -> dict[str, Any]:
+    """Build a catalog entry for AWS Deep Learning Container images.
+
+    ID pattern: aws-{repo}-{version}-{cuda|cpu}-{platform}
+    Examples:
+        - aws-pytorch-training-2-7-1-cuda12-8-ec2
+        - aws-tensorflow-inference-2-18-0-cpu-sagemaker
+    """
+    version_id = _version_to_id_part(parsed.framework_version or "")
+
+    # Determine framework from repo name
+    if "pytorch" in repo:
+        framework_name = "pytorch"
+    elif "tensorflow" in repo:
+        framework_name = "tensorflow"
+    else:
+        framework_name = "unknown"
+
+    # Determine role from repo name
+    if "training" in repo:
+        role = "training"
+    elif "inference" in repo:
+        role = "serving"
+    else:
+        role = "base"
+
+    # Build ID from flavor which includes platform (gpu-ec2, cpu-sagemaker, etc.)
+    flavor = parsed.flavor or "gpu-ec2"
+    flavor_parts = flavor.split("-")
+    compute_type = flavor_parts[0]  # "gpu" or "cpu"
+    platform = flavor_parts[1] if len(flavor_parts) > 1 else "ec2"
+
+    if parsed.cuda_version:
+        cuda_id = _version_to_id_part(parsed.cuda_version)
+        compute_id = f"cuda{cuda_id}"
+        gpu_vendors = ["nvidia"]
+    else:
+        compute_id = "cpu"
+        gpu_vendors = ["none"]
+
+    image_id = f"aws-{repo}-{version_id}-{compute_id}-{platform}"
+    full_name = f"public.ecr.aws/deep-learning-containers/{repo}:{tag_info.name}"
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "aws-dlc",
+            "registry": "ecr",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "Apache-2.0",
+        },
+        "cuda": _build_cuda_object(
+            version=parsed.cuda_version,
+            cudnn=parsed.cudnn_version,
+        ),
+        "runtime": {
+            "python": "3.11",  # Default for recent AWS DLCs
+            "os": {"name": parsed.os_name or "ubuntu", "version": parsed.os_version or "22.04"},
+            "architectures": tag_info.architectures or ["amd64"],
+        },
+        "frameworks": [
+            {"name": framework_name, "version": parsed.framework_version},
+        ],
+        "capabilities": {
+            "gpu_vendors": gpu_vendors,
+            "image_type": "runtime",
+            "role": role,
+            "workloads": ["llm", "computer-vision", "nlp", "generic"] if framework_name == "pytorch" else ["classical-ml", "computer-vision", "nlp", "generic"],
+        },
+        "cloud": {
+            "affinity": ["aws"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://gallery.ecr.aws/deep-learning-containers/{repo}",
+            "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+            "source": "https://github.com/aws/deep-learning-containers",
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": f"Optimized for {platform.upper()} deployment on AWS.",
+    }
+
+
+def build_gcp_dlc_image(
+    tag_info: TagInfo,
+    parsed: ParsedTag,
+    repo: str = "pytorch-gpu.2-2",
+) -> dict[str, Any]:
+    """Build a catalog entry for GCP Deep Learning Container images.
+
+    ID pattern: gcp-{framework}-{version}-{cuda|cpu}
+    Examples:
+        - gcp-pytorch-2-2-cuda12-1
+        - gcp-tensorflow-2-15-cpu
+        - gcp-base-cuda12-1  (for base CUDA images)
+    """
+    # GCP encodes framework info in repo name, so we use parsed data
+    # Handle base CUDA images specially (they have no framework)
+    if parsed.image_type == "base" and parsed.framework is None:
+        framework_name = "base"
+        version_id = ""  # No version for base images
+    else:
+        framework_name = parsed.framework or "unknown"
+        version_id = _version_to_id_part(parsed.framework_version or "")
+
+    if parsed.cuda_version:
+        cuda_id = _version_to_id_part(parsed.cuda_version)
+        compute_id = f"cuda{cuda_id}"
+        gpu_vendors = ["nvidia"]
+    else:
+        compute_id = "cpu"
+        gpu_vendors = ["none"]
+
+    # Build ID, handling base images which have no version
+    if version_id:
+        image_id = f"gcp-{framework_name}-{version_id}-{compute_id}"
+    else:
+        image_id = f"gcp-{framework_name}-{compute_id}"
+    full_name = f"gcr.io/deeplearning-platform-release/{repo}:{tag_info.name}"
+
+    # Determine role and workloads based on framework
+    if framework_name == "pytorch":
+        role = "training"
+        workloads = ["llm", "computer-vision", "nlp", "generic"]
+    elif framework_name == "tensorflow":
+        role = "training"
+        workloads = ["classical-ml", "computer-vision", "nlp", "generic"]
+    else:
+        role = "base"
+        workloads = ["generic"]
+
+    return {
+        "id": image_id,
+        "name": full_name,
+        "metadata": {
+            "status": "official",
+            "provider": "gcp-dlc",
+            "registry": "gcr",
+            "maintenance": "active",
+            "last_updated": _truncate_date(tag_info.last_updated),
+            "license": "Apache-2.0",
+        },
+        "cuda": _build_cuda_object(
+            version=parsed.cuda_version,
+        ),
+        "runtime": {
+            "python": "3.10",  # Default for GCP DLCs
+            "os": {"name": "ubuntu", "version": "22.04"},
+            "architectures": tag_info.architectures or ["amd64"],
+        },
+        "frameworks": [
+            {"name": framework_name, "version": parsed.framework_version},
+        ] if framework_name not in ("unknown", "base") else [],
+        "capabilities": {
+            "gpu_vendors": gpu_vendors,
+            "image_type": parsed.image_type or "runtime",
+            "role": role,
+            "workloads": workloads,
+        },
+        "cloud": {
+            "affinity": ["gcp"],
+            "exclusive_to": None,
+            "aws_ami": None,
+            "gcp_image": None,
+            "azure_image": None,
+        },
+        "security": None,
+        "size": {
+            "compressed_mb": tag_info.compressed_size_mb,
+            "uncompressed_mb": None,
+        },
+        "urls": {
+            "registry": f"https://gcr.io/deeplearning-platform-release/{repo}",
+            "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+            "source": None,
+        },
+        "recommended_for": [],
+        "system_packages": [],
+        "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine).",
+    }
+
+
 def build_jupyter_image(
     tag_info: TagInfo,
     parsed: ParsedTag,
@@ -1032,6 +1230,8 @@ BUILDER_REGISTRY: dict[str, type] = {
     "ngc_nemo": build_ngc_nemo_image,
     "ngc_rapids": build_ngc_rapids_image,
     "jupyter_stack": build_jupyter_image,
+    "aws_dlc": build_aws_dlc_image,
+    "gcp_dlc": build_gcp_dlc_image,
 }
 
 

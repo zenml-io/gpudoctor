@@ -434,6 +434,156 @@ def parse_ngc_rapids(tag: str) -> ParsedTag | None:
     )
 
 
+def parse_aws_dlc(tag: str) -> ParsedTag | None:
+    """Parse AWS Deep Learning Container image tags.
+
+    AWS DLC tags follow the format:
+        {version}-{device}-py{python}-cu{cuda}-{os}-{platform}
+
+    Examples:
+        - "2.7.1-gpu-py312-cu128-ubuntu22.04-ec2"
+        - "2.6.0-cpu-py311-ubuntu22.04-sagemaker"
+        - "2.18.0-gpu-py310-cu125-ubuntu22.04-ec2"
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info, or None if tag doesn't match
+    """
+    # GPU pattern: VERSION-gpu-pyPYTHON-cuCUDA-OS-PLATFORM
+    gpu_pattern = r"^(\d+\.\d+(?:\.\d+)?)-gpu-py(\d+)-cu(\d+)-ubuntu(\d+\.\d+)-(ec2|sagemaker)$"
+    gpu_match = re.match(gpu_pattern, tag)
+
+    if gpu_match:
+        version = gpu_match.group(1)
+        python_version = f"3.{gpu_match.group(2)[-2:]}" if len(gpu_match.group(2)) == 3 else f"3.{gpu_match.group(2)}"
+        cuda_raw = gpu_match.group(3)
+        # Convert cuda "128" to "12.8", "121" to "12.1", etc.
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else f"{cuda_raw[0]}.{cuda_raw[1]}"
+        os_version = gpu_match.group(4)
+        platform = gpu_match.group(5)
+
+        return ParsedTag(
+            framework_version=version,
+            cuda_version=cuda_version,
+            cudnn_version="9",  # AWS DLCs typically use cuDNN 9
+            image_type="runtime",
+            flavor=f"gpu-{platform}",
+            os_name="ubuntu",
+            os_version=os_version,
+        )
+
+    # CPU pattern: VERSION-cpu-pyPYTHON-OS-PLATFORM
+    cpu_pattern = r"^(\d+\.\d+(?:\.\d+)?)-cpu-py(\d+)-ubuntu(\d+\.\d+)-(ec2|sagemaker)$"
+    cpu_match = re.match(cpu_pattern, tag)
+
+    if cpu_match:
+        version = cpu_match.group(1)
+        python_version = f"3.{cpu_match.group(2)[-2:]}" if len(cpu_match.group(2)) == 3 else f"3.{cpu_match.group(2)}"
+        os_version = cpu_match.group(3)
+        platform = cpu_match.group(4)
+
+        return ParsedTag(
+            framework_version=version,
+            cuda_version=None,
+            image_type="runtime",
+            flavor=f"cpu-{platform}",
+            os_name="ubuntu",
+            os_version=os_version,
+        )
+
+    return None
+
+
+def parse_gcp_dlc(tag: str) -> ParsedTag | None:
+    """Parse GCP Deep Learning Container repo names and tags.
+
+    GCP DLC repo names encode framework and compute type:
+        pytorch-gpu.2-2, tf-gpu.2-15, base-cu121
+
+    The tag itself is usually "latest", a Python version like "py310",
+    or a milestone like "m96".
+
+    For GCP DLCs, we actually parse the *repo name* which is passed as the tag
+    since the actual tag is typically just "latest" or "py310".
+
+    This parser expects a combined format: REPO:TAG where REPO contains
+    the framework info.
+
+    Args:
+        tag: Combined repo:tag string or just repo name
+
+    Returns:
+        ParsedTag with extracted info, or None if doesn't match
+    """
+    # This parser is designed for the full repo name which encodes framework/version
+    # Examples: pytorch-gpu.2-2, tf-gpu.2-15, pytorch-cpu.2-2, base-cu121
+
+    # PyTorch GPU pattern: pytorch-gpu.MAJOR-MINOR
+    pytorch_gpu = re.match(r"^pytorch-gpu\.(\d+)-(\d+)$", tag)
+    if pytorch_gpu:
+        version = f"{pytorch_gpu.group(1)}.{pytorch_gpu.group(2)}"
+        return ParsedTag(
+            framework="pytorch",
+            framework_version=version,
+            cuda_version="12.1",  # Default for recent releases
+            image_type="runtime",
+            flavor="gpu",
+        )
+
+    # PyTorch CPU pattern: pytorch-cpu.MAJOR-MINOR
+    pytorch_cpu = re.match(r"^pytorch-cpu\.(\d+)-(\d+)$", tag)
+    if pytorch_cpu:
+        version = f"{pytorch_cpu.group(1)}.{pytorch_cpu.group(2)}"
+        return ParsedTag(
+            framework="pytorch",
+            framework_version=version,
+            cuda_version=None,
+            image_type="runtime",
+            flavor="cpu",
+        )
+
+    # TensorFlow GPU pattern: tf-gpu.MAJOR-MINOR
+    tf_gpu = re.match(r"^tf-gpu\.(\d+)-(\d+)$", tag)
+    if tf_gpu:
+        version = f"{tf_gpu.group(1)}.{tf_gpu.group(2)}"
+        return ParsedTag(
+            framework="tensorflow",
+            framework_version=version,
+            cuda_version="12.1",
+            image_type="runtime",
+            flavor="gpu",
+        )
+
+    # TensorFlow CPU pattern: tf-cpu.MAJOR-MINOR
+    tf_cpu = re.match(r"^tf-cpu\.(\d+)-(\d+)$", tag)
+    if tf_cpu:
+        version = f"{tf_cpu.group(1)}.{tf_cpu.group(2)}"
+        return ParsedTag(
+            framework="tensorflow",
+            framework_version=version,
+            cuda_version=None,
+            image_type="runtime",
+            flavor="cpu",
+        )
+
+    # Base CUDA image pattern: base-cuXXX
+    base_cuda = re.match(r"^base-cu(\d+)$", tag)
+    if base_cuda:
+        cuda_raw = base_cuda.group(1)
+        # Convert "121" to "12.1", "113" to "11.3"
+        cuda_version = f"{cuda_raw[:-1]}.{cuda_raw[-1]}" if len(cuda_raw) == 3 else cuda_raw
+        return ParsedTag(
+            framework=None,
+            cuda_version=cuda_version,
+            image_type="base",
+            flavor="gpu",
+        )
+
+    return None
+
+
 def parse_jupyter_stack(tag: str) -> ParsedTag | None:
     """Parse Jupyter Docker Stacks image tags.
 
@@ -530,6 +680,8 @@ PARSER_REGISTRY: dict[str, type] = {
     "ngc_nemo": parse_ngc_nemo,
     "ngc_rapids": parse_ngc_rapids,
     "jupyter_stack": parse_jupyter_stack,
+    "aws_dlc": parse_aws_dlc,
+    "gcp_dlc": parse_gcp_dlc,
 }
 
 

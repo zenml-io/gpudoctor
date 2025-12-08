@@ -4,6 +4,1092 @@
   "last_updated": "2025-12-08",
   "images": [
     {
+      "id": "aws-pytorch-inference-2-5-1-cpu-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-inference:2.5.1-cpu-py311-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1642,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-inference",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-inference-2-5-1-cuda12-4-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-inference:2.5.1-gpu-py311-cu124-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 8242,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-inference",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-5-1-cpu-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.5.1-cpu-py311-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1470,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "aws-pytorch-training-2-5-1-cuda12-4-ec2",
+      "name": "public.ecr.aws/deep-learning-containers/pytorch-training:2.5.1-gpu-py311-cu124-ubuntu22.04-ec2",
+      "metadata": {
+        "status": "official",
+        "provider": "aws-dlc",
+        "registry": "ecr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "aws"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 9740,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gallery.ecr.aws/deep-learning-containers/pytorch-training",
+        "documentation": "https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/",
+        "source": "https://github.com/aws/deep-learning-containers"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for EC2 deployment on AWS."
+    },
+    {
+      "id": "gcp-base-cuda12-1",
+      "name": "gcr.io/deeplearning-platform-release/base-cu121:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.1"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "base",
+        "role": "base",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 9492,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/base-cu121",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-base-cuda12-2",
+      "name": "gcr.io/deeplearning-platform-release/base-cu122:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.2"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "base",
+        "role": "base",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 6759,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/base-cu122",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-base-cuda12-3",
+      "name": "gcr.io/deeplearning-platform-release/base-cu123:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.3"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "base",
+        "role": "base",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 6011,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/base-cu123",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-base-cuda12-4",
+      "name": "gcr.io/deeplearning-platform-release/base-cu124:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.4"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "base",
+        "role": "base",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 6212,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/base-cu124",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-pytorch-2-0-cuda12-1",
+      "name": "gcr.io/deeplearning-platform-release/pytorch-gpu.2-0:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.1"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 10033,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/pytorch-gpu.2-0",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-pytorch-2-1-cuda12-1",
+      "name": "gcr.io/deeplearning-platform-release/pytorch-gpu.2-1:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.1"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 11110,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/pytorch-gpu.2-1",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-pytorch-2-2-cuda12-1",
+      "name": "gcr.io/deeplearning-platform-release/pytorch-gpu.2-2:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.1"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.2"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 11157,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/pytorch-gpu.2-2",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-pytorch-2-3-cuda12-1",
+      "name": "gcr.io/deeplearning-platform-release/pytorch-gpu.2-3:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.1"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.3"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 11174,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/pytorch-gpu.2-3",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-pytorch-2-4-cuda12-1",
+      "name": "gcr.io/deeplearning-platform-release/pytorch-gpu.2-4:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.1"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.4"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 8987,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/pytorch-gpu.2-4",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-tensorflow-2-15-cuda12-1",
+      "name": "gcr.io/deeplearning-platform-release/tf-gpu.2-15:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.1"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.15"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 11165,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/tf-gpu.2-15",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-tensorflow-2-16-cuda12-1",
+      "name": "gcr.io/deeplearning-platform-release/tf-gpu.2-16:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.1"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.16"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 12782,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/tf-gpu.2-16",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-tensorflow-2-17-cpu",
+      "name": "gcr.io/deeplearning-platform-release/tf-cpu.2-17:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": null,
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.17"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "none"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 4494,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/tf-cpu.2-17",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
+      "id": "gcp-tensorflow-2-17-cuda12-1",
+      "name": "gcr.io/deeplearning-platform-release/tf-gpu.2-17:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "gcp-dlc",
+        "registry": "gcr",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.1"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.17"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "gcp"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 12792,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://gcr.io/deeplearning-platform-release/tf-gpu.2-17",
+        "documentation": "https://cloud.google.com/deep-learning-containers/docs",
+        "source": null
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": "Optimized for Google Cloud Platform (Vertex AI, GKE, Compute Engine)."
+    },
+    {
       "id": "jupyter-all-spark-notebook-latest",
       "name": "quay.io/jupyter/all-spark-notebook:latest",
       "metadata": {

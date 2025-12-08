@@ -70,6 +70,37 @@ class QuaySeed:
 
 
 @dataclass
+class AWSSeed:
+    """An AWS Deep Learning Container image family to track.
+
+    AWS DLCs are hosted in ECR Public Gallery at public.ecr.aws/deep-learning-containers/
+    Tags follow the format: {version}-{device}-py{python}-cu{cuda}-{os}-{platform}
+    Example: 2.7.1-gpu-py312-cu128-ubuntu22.04-ec2
+    """
+
+    id: str
+    repo: str  # e.g., "pytorch-training", "tensorflow-inference"
+    parser: str
+    tags: list[str] = field(default_factory=list)
+
+
+@dataclass
+class GCPSeed:
+    """A GCP Deep Learning Container image family to track.
+
+    GCP DLCs are hosted at gcr.io/deeplearning-platform-release/
+    Repo names encode framework and compute: e.g., pytorch-gpu.2-2
+    Tags are typically "latest" or milestone like "m96"
+    """
+
+    id: str
+    repo: str  # e.g., "pytorch-gpu.2-2", "tf-gpu.2-15"
+    parser: str
+    tags: list[str] = field(default_factory=list)
+    python_version: str | None = None  # e.g., "py310" - sometimes in tag, sometimes in repo
+
+
+@dataclass
 class TrackedImagesConfig:
     """Full configuration from tracked_images.yaml."""
 
@@ -77,6 +108,8 @@ class TrackedImagesConfig:
     ghcr: list[GHCRSeed] = field(default_factory=list)
     ngc: list[NGCSeed] = field(default_factory=list)
     quay: list[QuaySeed] = field(default_factory=list)
+    aws: list[AWSSeed] = field(default_factory=list)
+    gcp: list[GCPSeed] = field(default_factory=list)
 
 
 def _parse_discover(discover_cfg: dict | None) -> DiscoverConfig | None:
@@ -159,11 +192,38 @@ def load_config(config_path: Path | None = None) -> TrackedImagesConfig:
             )
         )
 
+    # Parse AWS DLC seeds
+    aws_seeds: list[AWSSeed] = []
+    for entry in cfg.get("aws", []):
+        aws_seeds.append(
+            AWSSeed(
+                id=entry["id"],
+                repo=entry["repo"],
+                parser=entry["parser"],
+                tags=entry.get("tags", []),
+            )
+        )
+
+    # Parse GCP DLC seeds
+    gcp_seeds: list[GCPSeed] = []
+    for entry in cfg.get("gcp", []):
+        gcp_seeds.append(
+            GCPSeed(
+                id=entry["id"],
+                repo=entry["repo"],
+                parser=entry["parser"],
+                tags=entry.get("tags", []),
+                python_version=entry.get("python_version"),
+            )
+        )
+
     return TrackedImagesConfig(
         dockerhub=dockerhub_seeds,
         ghcr=ghcr_seeds,
         ngc=ngc_seeds,
         quay=quay_seeds,
+        aws=aws_seeds,
+        gcp=gcp_seeds,
     )
 
 
@@ -185,3 +245,13 @@ def load_ngc_seeds(config_path: Path | None = None) -> list[NGCSeed]:
 def load_quay_seeds(config_path: Path | None = None) -> list[QuaySeed]:
     """Convenience function to load only Quay.io seeds."""
     return load_config(config_path).quay
+
+
+def load_aws_seeds(config_path: Path | None = None) -> list[AWSSeed]:
+    """Convenience function to load only AWS DLC seeds."""
+    return load_config(config_path).aws
+
+
+def load_gcp_seeds(config_path: Path | None = None) -> list[GCPSeed]:
+    """Convenience function to load only GCP DLC seeds."""
+    return load_config(config_path).gcp
