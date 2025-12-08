@@ -1,0 +1,94 @@
+# GPU Doctor - Tracked Image Configuration
+# This file defines which Docker images are tracked for automatic catalog updates.
+#
+# Each entry specifies:
+#   - id: Internal grouping identifier
+#   - namespace/org: The container namespace or organization
+#   - repo: Repository name
+#   - parser: Tag parser to use (maps to functions in tag_parsers.py)
+#   - tags: Explicit tags to track
+#   - discover: (optional) Auto-discover new tags matching a pattern
+
+dockerhub:
+  # PyTorch official images
+  - id: pytorch-cuda
+    namespace: pytorch
+    repo: pytorch
+    parser: pytorch_cuda
+    tags:
+      - "2.5.1-cuda12.4-cudnn9-runtime"
+      - "2.5.1-cuda12.4-cudnn9-devel"
+      - "2.4.0-cuda11.8-cudnn9-runtime"
+    discover:
+      pattern: "^2\\.(4|5)\\.\\d+-cuda\\d+\\.\\d+-cudnn\\d+-(runtime|devel)$"
+      limit: 10
+
+  # TensorFlow official images
+  - id: tensorflow
+    namespace: tensorflow
+    repo: tensorflow
+    parser: tensorflow_tf
+    tags:
+      - "2.17.0"
+      - "2.17.0-gpu"
+      - "2.17.0-gpu-jupyter"
+
+  # vLLM OpenAI-compatible server
+  - id: vllm-openai
+    namespace: vllm
+    repo: vllm-openai
+    parser: vllm_simple
+    tags:
+      - "latest"
+
+  # Ollama local LLM runner
+  - id: ollama
+    namespace: ollama
+    repo: ollama
+    parser: ollama_simple
+    tags:
+      - "latest"
+
+  # NVIDIA CUDA base images
+  - id: nvidia-cuda
+    namespace: nvidia
+    repo: cuda
+    parser: nvidia_cuda
+    tags:
+      - "12.4.0-runtime-ubuntu22.04"
+      - "12.4.0-devel-ubuntu22.04"
+      - "12.4.0-cudnn9-devel-ubuntu22.04"
+
+ghcr:
+  # Hugging Face Text Generation Inference
+  - id: tgi
+    org: huggingface
+    repo: text-generation-inference
+    parser: tgi_simple
+    tags:
+      - "3.3.5"
+
+ngc:
+  # NVIDIA NGC PyTorch
+  - id: ngc-pytorch
+    org: nvidia
+    repo: pytorch
+    parser: ngc_pytorch
+    tags:
+      - "24.12-py3"
+
+  # NVIDIA NGC TensorFlow
+  - id: ngc-tensorflow
+    org: nvidia
+    repo: tensorflow
+    parser: ngc_tensorflow
+    tags:
+      - "24.12-tf2-py3"
+
+  # NVIDIA Triton Inference Server
+  - id: tritonserver
+    org: nvidia
+    repo: tritonserver
+    parser: ngc_triton
+    tags:
+      - "25.11-py3"
