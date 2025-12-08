@@ -18,7 +18,7 @@
   
   <!-- Subtitle -->
   <text x="40" y="84" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#6b7280">
-    Placeholder: The 6-dimensional dependency space every ML container must navigate
+    The 6-dimensional dependency space every ML container must navigate
   </text>
   
   <!-- Six dimension boxes arranged in a flow -->

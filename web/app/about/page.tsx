@@ -5,6 +5,8 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 
+const basePath = process.env.GITHUB_ACTIONS ? '/gpudoctor' : '';
+
 export const metadata: Metadata = {
   title: 'About',
   description:
@@ -165,8 +167,8 @@ function CompatibilityInfographic() {
 
       <div className="overflow-hidden rounded-xl border border-dashed border-primary-200 bg-white">
         <img
-          src="/about/compatibility-matrix.svg"
-          alt="Placeholder diagram illustrating the dependency chain between GPU drivers, CUDA, cuDNN, frameworks, Python versions and GPU architectures."
+          src={`${basePath}/about/compatibility-matrix.svg`}
+          alt="Diagram illustrating the dependency chain between GPU drivers, CUDA, cuDNN, frameworks, Python versions and GPU architectures."
           className="w-full"
         />
       </div>
@@ -272,8 +274,8 @@ function SolutionFlowInfographic() {
 
       <div className="overflow-hidden rounded-xl border border-dashed border-primary-200 bg-white">
         <img
-          src="/about/solution-flow.svg"
-          alt="Placeholder flow diagram showing how GPU Doctor turns scattered documentation and guesswork into a confident base image decision."
+          src={`${basePath}/about/solution-flow.svg`}
+          alt="Flow diagram showing how GPU Doctor turns scattered documentation and guesswork into a confident base image decision."
           className="w-full"
         />
       </div>
