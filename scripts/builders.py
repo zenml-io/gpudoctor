@@ -61,14 +61,25 @@ def build_pytorch_image(
 ) -> dict[str, Any]:
     """Build a catalog entry for PyTorch official images.
 
-    ID pattern: pytorch-{version}-cuda{cuda_version}-{image_type}
-    Example: pytorch-2-5-1-cuda12-4-runtime
+    ID patterns:
+        - CUDA: pytorch-{version}-cuda{cuda_version}-{image_type}
+        - CPU: pytorch-{version}-cpu-runtime
+    Examples:
+        - pytorch-2-5-1-cuda12-4-runtime
+        - pytorch-2-6-0-cpu-runtime
     """
     version_id = _version_to_id_part(parsed.framework_version or "")
-    cuda_id = _version_to_id_part(parsed.cuda_version or "")
     image_type = parsed.image_type or "runtime"
 
-    image_id = f"pytorch-{version_id}-cuda{cuda_id}-{image_type}"
+    # Build ID based on whether this is a CPU or GPU image
+    if parsed.cuda_version:
+        cuda_id = _version_to_id_part(parsed.cuda_version)
+        image_id = f"pytorch-{version_id}-cuda{cuda_id}-{image_type}"
+        gpu_vendors = ["nvidia"]
+    else:
+        image_id = f"pytorch-{version_id}-cpu-{image_type}"
+        gpu_vendors = ["none"]
+
     full_name = f"{namespace}/{repo}:{tag_info.name}"
 
     return {
@@ -95,7 +106,7 @@ def build_pytorch_image(
             {"name": "pytorch", "version": parsed.framework_version},
         ],
         "capabilities": {
-            "gpu_vendors": ["nvidia"],
+            "gpu_vendors": gpu_vendors,
             "image_type": image_type,
             "role": "training",
             "workloads": ["llm", "computer-vision", "nlp", "generic"],
@@ -411,11 +422,25 @@ def build_tgi_image(
 ) -> dict[str, Any]:
     """Build a catalog entry for Hugging Face TGI images.
 
-    ID pattern: tgi-{version}
-    Example: tgi-3-3-5
+    ID patterns:
+        - tgi-{version} for bare version tags
+        - tgi-{version}-cuda{cuda} for CUDA-suffixed tags
+    Examples:
+        - tgi-3-3-5
+        - tgi-3-3-5-cuda12-4
     """
-    version_id = _version_to_id_part(tag_info.name)
-    image_id = f"tgi-{version_id}"
+    version_id = _version_to_id_part(parsed.framework_version or tag_info.name)
+
+    # Use parsed CUDA version or default to 12.4
+    cuda_version = parsed.cuda_version or "12.4"
+
+    # Include CUDA in ID only if explicitly specified in tag
+    if parsed.cuda_version:
+        cuda_id = _version_to_id_part(parsed.cuda_version)
+        image_id = f"tgi-{version_id}-cuda{cuda_id}"
+    else:
+        image_id = f"tgi-{version_id}"
+
     full_name = f"ghcr.io/{org}/{repo}:{tag_info.name}"
 
     return {
@@ -430,7 +455,7 @@ def build_tgi_image(
             "license": "Apache-2.0",
         },
         "cuda": _build_cuda_object(
-            version="12.4",
+            version=cuda_version,
             cudnn="9",
         ),
         "runtime": {
@@ -877,6 +902,7 @@ def build_ngc_rapids_image(
 # Registry mapping parser names to builder functions
 BUILDER_REGISTRY: dict[str, type] = {
     "pytorch_cuda": build_pytorch_image,
+    "pytorch_cpu": build_pytorch_image,
     "tensorflow_tf": build_tensorflow_image,
     "vllm_simple": build_vllm_image,
     "ollama_simple": build_ollama_image,

@@ -301,14 +301,17 @@ def generate_ngc_images() -> List[Dict[str, Any]]:
         seed_images: List[Dict[str, Any]] = []
 
         for tag in seed.tags:
-            tag_info = ngc_client.get_tag(seed.org, seed.repo, tag)
+            tag_info = ngc_client.get_tag(seed.org, seed.repo, tag, team=seed.team)
             if tag_info is None:
+                # Build the full image path for logging
+                if seed.team:
+                    image_path = f"nvcr.io/{seed.org}/{seed.team}/{seed.repo}:{tag}"
+                else:
+                    image_path = f"nvcr.io/{seed.org}/{seed.repo}:{tag}"
                 logger.warning(
-                    "Seed %s: failed to fetch explicit tag nvcr.io/%s/%s:%s",
+                    "Seed %s: failed to fetch explicit tag %s",
                     seed.id,
-                    seed.org,
-                    seed.repo,
-                    tag,
+                    image_path,
                 )
                 continue
 
@@ -325,10 +328,12 @@ def generate_ngc_images() -> List[Dict[str, Any]]:
                 continue
 
             try:
+                # For team-scoped images, combine org/team for the builder
+                effective_org = f"{seed.org}/{seed.team}" if seed.team else seed.org
                 image = builder_fn(
                     tag_info,
                     parsed,
-                    org=seed.org,
+                    org=effective_org,
                     repo=seed.repo,
                 )
             except TypeError as exc:
@@ -343,12 +348,16 @@ def generate_ngc_images() -> List[Dict[str, Any]]:
 
             seed_images.append(image)
 
+        # Build the full image path for logging
+        if seed.team:
+            image_path = f"nvcr.io/{seed.org}/{seed.team}/{seed.repo}"
+        else:
+            image_path = f"nvcr.io/{seed.org}/{seed.repo}"
         logger.info(
-            "Seed %s: built %d images for nvcr.io/%s/%s",
+            "Seed %s: built %d images for %s",
             seed.id,
             len(seed_images),
-            seed.org,
-            seed.repo,
+            image_path,
         )
         images.extend(seed_images)
 

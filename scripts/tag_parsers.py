@@ -59,6 +59,37 @@ def parse_pytorch_cuda(tag: str) -> ParsedTag | None:
         cuda_version=match.group(2),
         cudnn_version=match.group(3),
         image_type=match.group(4),
+        flavor="gpu",
+    )
+
+
+def parse_pytorch_cpu(tag: str) -> ParsedTag | None:
+    """Parse PyTorch official CPU image tags.
+
+    Examples:
+        - "2.5.1-cpu" -> pytorch 2.5.1, CPU
+        - "2.6.0-py3.11-cpu" -> pytorch 2.6.0, CPU with Python 3.11
+
+    Args:
+        tag: The image tag string
+
+    Returns:
+        ParsedTag with extracted info, or None if tag doesn't match expected pattern
+    """
+    # Pattern: VERSION[-pyPYTHON]-cpu
+    pattern = r"^(\d+\.\d+\.\d+)(?:-py(\d+\.\d+))?-cpu$"
+    match = re.match(pattern, tag)
+
+    if not match:
+        return None
+
+    return ParsedTag(
+        framework="pytorch",
+        framework_version=match.group(1),
+        cuda_version=None,
+        cudnn_version=None,
+        image_type="runtime",
+        flavor="cpu",
     )
 
 
@@ -172,7 +203,8 @@ def parse_tgi_simple(tag: str) -> ParsedTag | None:
     """Parse Hugging Face TGI image tags.
 
     Examples:
-        - "3.3.5" -> TGI 3.3.5
+        - "3.3.5" -> TGI 3.3.5 (CUDA defaulted)
+        - "3.3.5-cuda12.4" -> TGI 3.3.5, CUDA 12.4
         - "latest" -> TGI latest
 
     Args:
@@ -181,9 +213,22 @@ def parse_tgi_simple(tag: str) -> ParsedTag | None:
     Returns:
         ParsedTag with extracted info
     """
+    # Try to match version-cuda pattern first
+    cuda_pattern = r"^(\d+\.\d+\.\d+)-cuda(\d+\.\d+)$"
+    cuda_match = re.match(cuda_pattern, tag)
+    if cuda_match:
+        return ParsedTag(
+            framework="text-generation-inference",
+            framework_version=cuda_match.group(1),
+            cuda_version=cuda_match.group(2),
+            image_type="runtime",
+        )
+
+    # Otherwise, treat as bare version tag
     return ParsedTag(
         framework="text-generation-inference",
         framework_version=tag,
+        cuda_version=None,  # Builder will default to 12.4
         image_type="runtime",
     )
 
@@ -392,6 +437,7 @@ def parse_ngc_rapids(tag: str) -> ParsedTag | None:
 # Registry mapping parser names to functions
 PARSER_REGISTRY: dict[str, type] = {
     "pytorch_cuda": parse_pytorch_cuda,
+    "pytorch_cpu": parse_pytorch_cpu,
     "tensorflow_tf": parse_tensorflow_tf,
     "vllm_simple": parse_vllm_simple,
     "ollama_simple": parse_ollama_simple,

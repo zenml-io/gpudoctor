@@ -74,6 +74,9 @@ dockerhub:
       pattern: "^2\\.[3-6]\\.\\d+-cuda\\d+\\.\\d+-cudnn\\d+-(runtime|devel)$"
       limit: 30
 
+  # Note: PyTorch official images don't have CPU-only variants.
+  # The pytorch_cpu parser/builder is ready for future use with community images.
+
   # ==========================================================================
   # TensorFlow Official Images
   # ==========================================================================
@@ -228,7 +231,7 @@ ghcr:
     parser: tgi_simple
     tags:
       # TGI 3.x series (latest)
-      - "3.3.5"
+      # Note: 3.3.x tags not yet available; TGI parser supports CUDA-suffixed tags when they exist
       - "3.3.4"
       - "3.3.3"
       - "3.3.2"
@@ -384,5 +387,21 @@ ngc:
       - "23.11"
       - "23.10"
 
-  # Note: RAPIDS images require special handling due to nested org structure
-  # (nvidia/rapidsai/base). These can be added manually or with custom fetcher support.
+  # ==========================================================================
+  # NVIDIA RAPIDS (GPU-accelerated data science)
+  # ==========================================================================
+  - id: ngc-rapids
+    org: nvidia
+    team: rapidsai  # Used by NGC API for nested org structure
+    repo: base
+    parser: ngc_rapids
+    tags:
+      # 2024 releases
+      - "24.10-cuda12.5-py3.12"
+      - "24.08-cuda12.5-py3.11"
+      - "24.06-cuda12.2-py3.11"
+      - "24.04-cuda12.2-py3.10"
+      - "24.02-cuda12.0-py3.10"
+      # 2023 releases (for compatibility)
+      - "23.12-cuda12.0-py3.10"
+      - "23.10-cuda12.0-py3.10"

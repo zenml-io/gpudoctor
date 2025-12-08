@@ -263,6 +263,7 @@ def _fetch_ngc_tag_metadata(
     repo: str,
     tag: str,
     api_key: str | None,
+    team: str | None = None,
 ) -> Dict[str, Any] | None:
     """Fetch tag metadata from the NGC REST API, if available.
 
@@ -273,7 +274,11 @@ def _fetch_ngc_tag_metadata(
     if api_key:
         headers["Authorization"] = f"Bearer {api_key}"
 
-    url = f"{NGC_API_BASE}/orgs/{org}/containers/{repo}/tags/{tag}"
+    # Build URL based on whether this is a team-scoped container
+    if team:
+        url = f"{NGC_API_BASE}/orgs/{org}/teams/{team}/containers/{repo}/tags/{tag}"
+    else:
+        url = f"{NGC_API_BASE}/orgs/{org}/containers/{repo}/tags/{tag}"
 
     try:
         response = client.get(url, headers=headers)
@@ -363,7 +368,13 @@ def _extract_last_updated_from_metadata(metadata: Dict[str, Any] | None) -> str 
     return None
 
 
-def get_tag(org: str, repo: str, tag: str, api_key: str | None = None) -> TagInfo | None:
+def get_tag(
+    org: str,
+    repo: str,
+    tag: str,
+    api_key: str | None = None,
+    team: str | None = None,
+) -> TagInfo | None:
     """Fetch metadata for a specific NGC image tag.
 
     Args:
@@ -372,15 +383,21 @@ def get_tag(org: str, repo: str, tag: str, api_key: str | None = None) -> TagInf
         tag: Tag name (e.g., "24.12-py3")
         api_key: Optional NGC API key. If not provided, the NGC_API_KEY
             environment variable will be used if set.
+        team: Optional team name for nested repos (e.g., "rapidsai" for
+            nvidia/rapidsai/base).
 
     Returns:
         TagInfo if found and parsed successfully, otherwise None.
     """
-    image_name = f"{org}/{repo}"
+    # For team-scoped images, the registry path is org/team/repo
+    if team:
+        image_name = f"{org}/{team}/{repo}"
+    else:
+        image_name = f"{org}/{repo}"
     effective_api_key = api_key or os.getenv("NGC_API_KEY")
 
     with httpx.Client(timeout=TIMEOUT) as client:
-        metadata = _fetch_ngc_tag_metadata(client, org, repo, tag, effective_api_key)
+        metadata = _fetch_ngc_tag_metadata(client, org, repo, tag, effective_api_key, team)
 
         try:
             manifest, auth_headers = _get_manifest(client, image_name, tag)

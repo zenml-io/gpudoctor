@@ -55,6 +55,7 @@ class NGCSeed:
     repo: str
     parser: str
     tags: list[str] = field(default_factory=list)
+    team: str | None = None  # For nested repos like nvidia/rapidsai/base
 
 
 @dataclass
@@ -129,6 +130,7 @@ def load_config(config_path: Path | None = None) -> TrackedImagesConfig:
                 repo=entry["repo"],
                 parser=entry["parser"],
                 tags=entry.get("tags", []),
+                team=entry.get("team"),
             )
         )
 
