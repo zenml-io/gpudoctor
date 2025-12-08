@@ -1,158 +1,83 @@
 {
   "$schema": "./schema.json",
   "version": "0.1.0",
-  "last_updated": "2025-12-07",
+  "last_updated": "2025-12-08",
   "images": [
     {
-      "id": "pytorch-2-5-1-cuda12-4-runtime",
-      "name": "pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime",
+      "id": "ngc-pytorch-24-12",
+      "name": "nvcr.io/nvidia/pytorch:24.12-py3",
       "metadata": {
         "status": "official",
-        "provider": "pytorch",
-        "registry": "dockerhub",
+        "provider": "nvidia-ngc",
+        "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2024-11-01",
-        "license": "BSD-3-Clause"
+        "last_updated": "2025-12-08",
+        "license": "NVIDIA-proprietary"
       },
       "cuda": {
-        "version": "12.4",
-        "cudnn": "9",
-        "min_driver": "550.54.14",
-        "compute_capabilities": ["5.0", "6.0", "7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
-      },
-      "runtime": {
-        "python": "3.11",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
-      },
-      "frameworks": [
-        { "name": "pytorch", "version": "2.5.1" },
-        { "name": "torchvision", "version": "0.20.1" },
-        { "name": "torchaudio", "version": "2.5.1" }
-      ],
-      "capabilities": {
-        "gpu_vendors": ["nvidia"],
-        "image_type": "runtime",
-        "role": "training",
-        "workloads": ["llm", "computer-vision", "nlp", "generic"]
-      },
-      "cloud": {
-        "affinity": ["any"],
-        "exclusive_to": null,
-        "aws_ami": null,
-        "gcp_image": null,
-        "azure_image": null
-      },
-      "security": null,
-      "size": {
-        "compressed_mb": 2900,
-        "uncompressed_mb": 8500
-      },
-      "urls": {
-        "registry": "https://hub.docker.com/r/pytorch/pytorch",
-        "documentation": "https://pytorch.org/docs/stable/",
-        "source": "https://github.com/pytorch/pytorch"
-      },
-      "recommended_for": [
-        "PyTorch training on NVIDIA GPUs",
-        "General deep learning development",
-        "LLM fine-tuning"
-      ],
-      "system_packages": ["git", "wget", "curl"],
-      "notes": "Official PyTorch image with CUDA 12.4 runtime. Use -devel variant if you need to compile custom CUDA kernels."
-    },
-    {
-      "id": "tensorflow-2-17-0-gpu",
-      "name": "tensorflow/tensorflow:2.17.0-gpu",
-      "metadata": {
-        "status": "official",
-        "provider": "tensorflow",
-        "registry": "dockerhub",
-        "maintenance": "active",
-        "last_updated": "2024-07-15",
-        "license": "Apache-2.0"
-      },
-      "cuda": {
-        "version": "12.3",
-        "cudnn": "8.9",
-        "min_driver": "545.23.06",
-        "compute_capabilities": ["5.0", "6.0", "7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
-      },
-      "runtime": {
-        "python": "3.11",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
-      },
-      "frameworks": [
-        { "name": "tensorflow", "version": "2.17.0" },
-        { "name": "keras", "version": "3.4.1" }
-      ],
-      "capabilities": {
-        "gpu_vendors": ["nvidia"],
-        "image_type": "runtime",
-        "role": "training",
-        "workloads": ["classical-ml", "computer-vision", "nlp", "generic"]
-      },
-      "cloud": {
-        "affinity": ["any"],
-        "exclusive_to": null,
-        "aws_ami": null,
-        "gcp_image": null,
-        "azure_image": null
-      },
-      "security": null,
-      "size": {
-        "compressed_mb": 2600,
-        "uncompressed_mb": 7800
-      },
-      "urls": {
-        "registry": "https://hub.docker.com/r/tensorflow/tensorflow",
-        "documentation": "https://www.tensorflow.org/install/docker",
-        "source": "https://github.com/tensorflow/tensorflow"
-      },
-      "recommended_for": [
-        "TensorFlow training on NVIDIA GPUs",
-        "Keras deep learning projects",
-        "Production ML pipelines"
-      ],
-      "system_packages": ["git", "wget", "curl"],
-      "notes": "Official TensorFlow GPU image. For Jupyter support, use tensorflow/tensorflow:2.17.0-gpu-jupyter variant."
-    },
-    {
-      "id": "vllm-openai-latest",
-      "name": "vllm/vllm-openai:latest",
-      "metadata": {
-        "status": "official",
-        "provider": "vllm",
-        "registry": "dockerhub",
-        "maintenance": "active",
-        "last_updated": "2024-12-01",
-        "license": "Apache-2.0"
-      },
-      "cuda": {
-        "version": "12.4",
-        "cudnn": "9",
-        "min_driver": "550.54.14",
-        "compute_capabilities": ["7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
+        "version": "12.6",
+        "cudnn": "9.5",
+        "min_driver": "560.00",
+        "compute_capabilities": [
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
       },
       "runtime": {
         "python": "3.12",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
       },
       "frameworks": [
-        { "name": "vllm", "version": "0.6.4" },
-        { "name": "pytorch", "version": "2.5.1" },
-        { "name": "transformers", "version": "4.47.0" }
+        {
+          "name": "pytorch",
+          "version": "2.6.0"
+        },
+        {
+          "name": "torchvision",
+          "version": "0.21.0"
+        },
+        {
+          "name": "torchaudio",
+          "version": "2.6.0"
+        },
+        {
+          "name": "transformer-engine",
+          "version": "1.13"
+        },
+        {
+          "name": "apex",
+          "version": "latest"
+        }
       ],
       "capabilities": {
-        "gpu_vendors": ["nvidia"],
-        "image_type": "runtime",
-        "role": "serving",
-        "workloads": ["llm"]
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "devel",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "multimodal",
+          "generic"
+        ]
       },
       "cloud": {
-        "affinity": ["any"],
+        "affinity": [
+          "any"
+        ],
         "exclusive_to": null,
         "aws_ami": null,
         "gcp_image": null,
@@ -160,57 +85,177 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 4500,
-        "uncompressed_mb": 12000
+        "compressed_mb": 10417,
+        "uncompressed_mb": 25000
       },
       "urls": {
-        "registry": "https://hub.docker.com/r/vllm/vllm-openai",
-        "documentation": "https://docs.vllm.ai/en/latest/",
-        "source": "https://github.com/vllm-project/vllm"
+        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch",
+        "documentation": "https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/",
+        "source": null
       },
       "recommended_for": [
-        "High-throughput LLM inference",
-        "OpenAI-compatible API serving",
-        "Production LLM deployment"
+        "Maximum NVIDIA GPU performance",
+        "Large-scale training",
+        "H100/A100 optimized workloads"
       ],
-      "system_packages": [],
-      "notes": "Production-ready LLM inference server with OpenAI-compatible API. Supports continuous batching and PagedAttention for optimal GPU utilization."
+      "system_packages": [
+        "git",
+        "wget",
+        "curl",
+        "gcc",
+        "g++",
+        "make"
+      ],
+      "notes": "NVIDIA-optimized PyTorch with Transformer Engine, APEX, and NCCL. Best performance on H100, A100, and data center GPUs. Monthly releases with security patches."
     },
     {
-      "id": "pytorch-2-5-1-cuda12-4-devel",
-      "name": "pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel",
+      "id": "ngc-tensorflow-24-12",
+      "name": "nvcr.io/nvidia/tensorflow:24.12-tf2-py3",
       "metadata": {
         "status": "official",
-        "provider": "pytorch",
+        "provider": "nvidia-ngc",
+        "registry": "ngc",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "NVIDIA-proprietary"
+      },
+      "cuda": {
+        "version": "12.6",
+        "cudnn": "9.5",
+        "min_driver": "560.00",
+        "compute_capabilities": [
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.17.0"
+        },
+        {
+          "name": "keras",
+          "version": "3.4.1"
+        },
+        {
+          "name": "tensorrt",
+          "version": "10.7.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "devel",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 8710,
+        "uncompressed_mb": 22000
+      },
+      "urls": {
+        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow",
+        "documentation": "https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/",
+        "source": null
+      },
+      "recommended_for": [
+        "Maximum NVIDIA GPU performance with TensorFlow",
+        "TensorRT integration",
+        "Enterprise TensorFlow training"
+      ],
+      "system_packages": [
+        "git",
+        "wget",
+        "curl",
+        "gcc",
+        "g++",
+        "make"
+      ],
+      "notes": "NVIDIA-optimized TensorFlow with TensorRT integration. Volta (V100) support will be discontinued by 25.01 release. Use NVIDIA driver 560+ for best compatibility."
+    },
+    {
+      "id": "nvidia-cuda-12-4-cudnn-devel-ubuntu22-04",
+      "name": "nvidia/cuda:12.4.0-cudnn-devel-ubuntu22.04",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
         "registry": "dockerhub",
         "maintenance": "active",
-        "last_updated": "2024-11-01",
-        "license": "BSD-3-Clause"
+        "last_updated": "2024-03-01",
+        "license": "NVIDIA-proprietary"
       },
       "cuda": {
         "version": "12.4",
         "cudnn": "9",
         "min_driver": "550.54.14",
-        "compute_capabilities": ["5.0", "6.0", "7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
+        "compute_capabilities": [
+          "5.0",
+          "6.0",
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
       },
       "runtime": {
-        "python": "3.11",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
       },
-      "frameworks": [
-        { "name": "pytorch", "version": "2.5.1" },
-        { "name": "torchvision", "version": "0.20.1" },
-        { "name": "torchaudio", "version": "2.5.1" }
-      ],
+      "frameworks": [],
       "capabilities": {
-        "gpu_vendors": ["nvidia"],
+        "gpu_vendors": [
+          "nvidia"
+        ],
         "image_type": "devel",
-        "role": "training",
-        "workloads": ["llm", "computer-vision", "nlp", "generic"]
+        "role": "base",
+        "workloads": [
+          "generic"
+        ]
       },
       "cloud": {
-        "affinity": ["any"],
+        "affinity": [
+          "any"
+        ],
         "exclusive_to": null,
         "aws_ami": null,
         "gcp_image": null,
@@ -218,21 +263,264 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 5200,
-        "uncompressed_mb": 14000
+        "compressed_mb": 3500,
+        "uncompressed_mb": 10000
       },
       "urls": {
-        "registry": "https://hub.docker.com/r/pytorch/pytorch",
-        "documentation": "https://pytorch.org/docs/stable/",
-        "source": "https://github.com/pytorch/pytorch"
+        "registry": "https://hub.docker.com/r/nvidia/cuda",
+        "documentation": "https://docs.nvidia.com/cuda/",
+        "source": null
       },
       "recommended_for": [
-        "Custom CUDA kernel development",
-        "PyTorch extension compilation",
-        "Research requiring nvcc compiler"
+        "Building ML frameworks from source",
+        "Custom deep learning development",
+        "Full CUDA development environment"
       ],
-      "system_packages": ["git", "wget", "curl", "gcc", "g++", "make"],
-      "notes": "Development variant with CUDA compiler (nvcc). Use this for custom CUDA kernels, torch.compile with Triton, or PyTorch extensions requiring compilation."
+      "system_packages": [
+        "gcc",
+        "g++",
+        "make"
+      ],
+      "notes": "Full CUDA development image with cuDNN. Ideal base for building custom ML containers or compiling frameworks from source."
+    },
+    {
+      "id": "nvidia-cuda-12-4-devel-ubuntu22-04",
+      "name": "nvidia/cuda:12.4.0-devel-ubuntu22.04",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-04-05",
+        "license": "NVIDIA-proprietary"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": null,
+        "min_driver": "550.54.14",
+        "compute_capabilities": [
+          "5.0",
+          "6.0",
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
+      },
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "devel",
+        "role": "base",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 3891,
+        "uncompressed_mb": 8000
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/nvidia/cuda",
+        "documentation": "https://docs.nvidia.com/cuda/",
+        "source": null
+      },
+      "recommended_for": [
+        "Custom CUDA kernel compilation",
+        "Building from source",
+        "Development with nvcc"
+      ],
+      "system_packages": [
+        "gcc",
+        "g++",
+        "make"
+      ],
+      "notes": "CUDA development image with nvcc compiler. Use for building custom CUDA kernels or compiling PyTorch/TensorFlow from source. Does NOT include cuDNN."
+    },
+    {
+      "id": "nvidia-cuda-12-4-runtime-ubuntu22-04",
+      "name": "nvidia/cuda:12.4.0-runtime-ubuntu22.04",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-04-05",
+        "license": "NVIDIA-proprietary"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": null,
+        "min_driver": "550.54.14",
+        "compute_capabilities": [
+          "5.0",
+          "6.0",
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
+      },
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "base",
+        "workloads": [
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1385,
+        "uncompressed_mb": 2500
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/nvidia/cuda",
+        "documentation": "https://docs.nvidia.com/cuda/",
+        "source": null
+      },
+      "recommended_for": [
+        "Custom ML image base",
+        "CUDA application runtime",
+        "Minimal CUDA environment"
+      ],
+      "system_packages": [],
+      "notes": "Base CUDA runtime image. Use as FROM base for custom ML containers. Does NOT include cuDNN or Python - add those as needed."
+    },
+    {
+      "id": "ollama-latest",
+      "name": "ollama/ollama:latest",
+      "metadata": {
+        "status": "official",
+        "provider": "ollama",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2025-12-02",
+        "license": "MIT"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": null,
+        "min_driver": "531.00",
+        "compute_capabilities": [
+          "5.0",
+          "6.0",
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
+      },
+      "runtime": {
+        "python": null,
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "ollama",
+          "version": "0.5.4"
+        },
+        {
+          "name": "llama.cpp",
+          "version": "latest"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia",
+          "amd"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 1961,
+        "uncompressed_mb": 3500
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/ollama/ollama",
+        "documentation": "https://ollama.ai/",
+        "source": "https://github.com/ollama/ollama"
+      },
+      "recommended_for": [
+        "Local LLM inference",
+        "Easy model management",
+        "Development and prototyping"
+      ],
+      "system_packages": [],
+      "notes": "Lightweight LLM runner. Run with: docker run --gpus all -v ollama:/root/.ollama -p 11434:11434 ollama/ollama. Supports NVIDIA (compute 5.0+) and AMD GPUs."
     },
     {
       "id": "pytorch-2-4-0-cuda11-8-runtime",
@@ -242,33 +530,66 @@
         "provider": "pytorch",
         "registry": "dockerhub",
         "maintenance": "active",
-        "last_updated": "2024-07-01",
+        "last_updated": "2024-07-24",
         "license": "BSD-3-Clause"
       },
       "cuda": {
         "version": "11.8",
         "cudnn": "9",
         "min_driver": "520.61.05",
-        "compute_capabilities": ["3.5", "5.0", "6.0", "7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
+        "compute_capabilities": [
+          "3.5",
+          "5.0",
+          "6.0",
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
       },
       "runtime": {
         "python": "3.11",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
       },
       "frameworks": [
-        { "name": "pytorch", "version": "2.4.0" },
-        { "name": "torchvision", "version": "0.19.0" },
-        { "name": "torchaudio", "version": "2.4.0" }
+        {
+          "name": "pytorch",
+          "version": "2.4.0"
+        },
+        {
+          "name": "torchvision",
+          "version": "0.19.0"
+        },
+        {
+          "name": "torchaudio",
+          "version": "2.4.0"
+        }
       ],
       "capabilities": {
-        "gpu_vendors": ["nvidia"],
+        "gpu_vendors": [
+          "nvidia"
+        ],
         "image_type": "runtime",
         "role": "training",
-        "workloads": ["llm", "computer-vision", "nlp", "generic"]
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
       },
       "cloud": {
-        "affinity": ["any"],
+        "affinity": [
+          "any"
+        ],
         "exclusive_to": null,
         "aws_ami": null,
         "gcp_image": null,
@@ -276,7 +597,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 2700,
+        "compressed_mb": 3959,
         "uncompressed_mb": 8000
       },
       "urls": {
@@ -289,44 +610,61 @@
         "Older GPU driver support",
         "Wider GPU architecture support (Kepler+)"
       ],
-      "system_packages": ["git", "wget", "curl"],
+      "system_packages": [
+        "git",
+        "wget",
+        "curl"
+      ],
       "notes": "CUDA 11.8 variant for systems with older drivers or requiring broader GPU compatibility. Supports older Kepler architecture (compute capability 3.5+)."
     },
     {
-      "id": "tensorflow-2-17-0-gpu-jupyter",
-      "name": "tensorflow/tensorflow:2.17.0-gpu-jupyter",
+      "id": "pytorch-2-5-0-cuda11-8-devel",
+      "name": "pytorch/pytorch:2.5.0-cuda11.8-cudnn9-devel",
       "metadata": {
         "status": "official",
-        "provider": "tensorflow",
+        "provider": "pytorch",
         "registry": "dockerhub",
         "maintenance": "active",
-        "last_updated": "2024-07-15",
-        "license": "Apache-2.0"
+        "last_updated": "2024-10-17",
+        "license": "BSD-3-Clause"
       },
       "cuda": {
-        "version": "12.3",
-        "cudnn": "8.9",
-        "min_driver": "545.23.06",
-        "compute_capabilities": ["5.0", "6.0", "7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
+        "version": "11.8",
+        "cudnn": "9"
       },
       "runtime": {
         "python": "3.11",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
       },
       "frameworks": [
-        { "name": "tensorflow", "version": "2.17.0" },
-        { "name": "keras", "version": "3.4.1" },
-        { "name": "jupyter", "version": "1.0.0" }
+        {
+          "name": "pytorch",
+          "version": "2.5.0"
+        }
       ],
       "capabilities": {
-        "gpu_vendors": ["nvidia"],
-        "image_type": "runtime",
-        "role": "notebook",
-        "workloads": ["classical-ml", "computer-vision", "nlp", "generic"]
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "devel",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
       },
       "cloud": {
-        "affinity": ["any"],
+        "affinity": [
+          "any"
+        ],
         "exclusive_to": null,
         "aws_ami": null,
         "gcp_image": null,
@@ -334,21 +672,811 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 2900,
+        "compressed_mb": 6774,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-0-cuda11-8-runtime",
+      "name": "pytorch/pytorch:2.5.0-cuda11.8-cudnn9-runtime",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-17",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "11.8",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 3060,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-0-cuda12-1-devel",
+      "name": "pytorch/pytorch:2.5.0-cuda12.1-cudnn9-devel",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-17",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "12.1",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "devel",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 6752,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-0-cuda12-1-runtime",
+      "name": "pytorch/pytorch:2.5.0-cuda12.1-cudnn9-runtime",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-17",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "12.1",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 3002,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-0-cuda12-4-devel",
+      "name": "pytorch/pytorch:2.5.0-cuda12.4-cudnn9-devel",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-17",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "devel",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 7069,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-0-cuda12-4-runtime",
+      "name": "pytorch/pytorch:2.5.0-cuda12.4-cudnn9-runtime",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-17",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 3181,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-1-cuda11-8-devel",
+      "name": "pytorch/pytorch:2.5.1-cuda11.8-cudnn9-devel",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-29",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "11.8",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "devel",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 6776,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-1-cuda11-8-runtime",
+      "name": "pytorch/pytorch:2.5.1-cuda11.8-cudnn9-runtime",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-29",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "11.8",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 3061,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-1-cuda12-1-devel",
+      "name": "pytorch/pytorch:2.5.1-cuda12.1-cudnn9-devel",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-29",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "12.1",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "devel",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 6753,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-1-cuda12-1-runtime",
+      "name": "pytorch/pytorch:2.5.1-cuda12.1-cudnn9-runtime",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-29",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "12.1",
+        "cudnn": "9"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 3004,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "pytorch-2-5-1-cuda12-4-devel",
+      "name": "pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-29",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": "9",
+        "min_driver": "550.54.14",
+        "compute_capabilities": [
+          "5.0",
+          "6.0",
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        },
+        {
+          "name": "torchvision",
+          "version": "0.20.1"
+        },
+        {
+          "name": "torchaudio",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "devel",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 7071,
+        "uncompressed_mb": 14000
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
+      },
+      "recommended_for": [
+        "Custom CUDA kernel development",
+        "PyTorch extension compilation",
+        "Research requiring nvcc compiler"
+      ],
+      "system_packages": [
+        "git",
+        "wget",
+        "curl",
+        "gcc",
+        "g++",
+        "make"
+      ],
+      "notes": "Development variant with CUDA compiler (nvcc). Use this for custom CUDA kernels, torch.compile with Triton, or PyTorch extensions requiring compilation."
+    },
+    {
+      "id": "pytorch-2-5-1-cuda12-4-runtime",
+      "name": "pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime",
+      "metadata": {
+        "status": "official",
+        "provider": "pytorch",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-10-29",
+        "license": "BSD-3-Clause"
+      },
+      "cuda": {
+        "version": "12.4",
+        "cudnn": "9",
+        "min_driver": "550.54.14",
+        "compute_capabilities": [
+          "5.0",
+          "6.0",
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        },
+        {
+          "name": "torchvision",
+          "version": "0.20.1"
+        },
+        {
+          "name": "torchaudio",
+          "version": "2.5.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 3183,
         "uncompressed_mb": 8500
       },
       "urls": {
-        "registry": "https://hub.docker.com/r/tensorflow/tensorflow",
-        "documentation": "https://www.tensorflow.org/install/docker",
-        "source": "https://github.com/tensorflow/tensorflow"
+        "registry": "https://hub.docker.com/r/pytorch/pytorch",
+        "documentation": "https://pytorch.org/docs/stable/",
+        "source": "https://github.com/pytorch/pytorch"
       },
       "recommended_for": [
-        "Interactive TensorFlow development",
-        "GPU-accelerated notebooks",
-        "Data science experimentation"
+        "PyTorch training on NVIDIA GPUs",
+        "General deep learning development",
+        "LLM fine-tuning"
       ],
-      "system_packages": ["git", "wget", "curl"],
-      "notes": "TensorFlow GPU image with Jupyter notebook server. Start with: docker run --gpus all -p 8888:8888 tensorflow/tensorflow:2.17.0-gpu-jupyter"
+      "system_packages": [
+        "git",
+        "wget",
+        "curl"
+      ],
+      "notes": "Official PyTorch image with CUDA 12.4 runtime. Use -devel variant if you need to compile custom CUDA kernels."
     },
     {
       "id": "tensorflow-2-17-0-cpu",
@@ -358,27 +1486,47 @@
         "provider": "tensorflow",
         "registry": "dockerhub",
         "maintenance": "active",
-        "last_updated": "2024-07-15",
+        "last_updated": "2024-07-12",
         "license": "Apache-2.0"
       },
       "cuda": null,
       "runtime": {
         "python": "3.11",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
       },
       "frameworks": [
-        { "name": "tensorflow", "version": "2.17.0" },
-        { "name": "keras", "version": "3.4.1" }
+        {
+          "name": "tensorflow",
+          "version": "2.17.0"
+        },
+        {
+          "name": "keras",
+          "version": "3.4.1"
+        }
       ],
       "capabilities": {
-        "gpu_vendors": ["none"],
+        "gpu_vendors": [
+          "none"
+        ],
         "image_type": "runtime",
         "role": "training",
-        "workloads": ["classical-ml", "computer-vision", "nlp", "generic"]
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
       },
       "cloud": {
-        "affinity": ["any"],
+        "affinity": [
+          "any"
+        ],
         "exclusive_to": null,
         "aws_ami": null,
         "gcp_image": null,
@@ -386,7 +1534,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1100,
+        "compressed_mb": 534,
         "uncompressed_mb": 3200
       },
       "urls": {
@@ -399,8 +1547,196 @@
         "Development without GPU",
         "CI/CD pipelines"
       ],
-      "system_packages": ["git", "wget", "curl"],
+      "system_packages": [
+        "git",
+        "wget",
+        "curl"
+      ],
       "notes": "CPU-only TensorFlow image. Much smaller than GPU variant. Good for inference or development on machines without NVIDIA GPUs."
+    },
+    {
+      "id": "tensorflow-2-17-0-gpu",
+      "name": "tensorflow/tensorflow:2.17.0-gpu",
+      "metadata": {
+        "status": "official",
+        "provider": "tensorflow",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-07-12",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.3",
+        "cudnn": "8.9",
+        "min_driver": "545.23.06",
+        "compute_capabilities": [
+          "5.0",
+          "6.0",
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.17.0"
+        },
+        {
+          "name": "keras",
+          "version": "3.4.1"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 3656,
+        "uncompressed_mb": 7800
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/tensorflow/tensorflow",
+        "documentation": "https://www.tensorflow.org/install/docker",
+        "source": "https://github.com/tensorflow/tensorflow"
+      },
+      "recommended_for": [
+        "TensorFlow training on NVIDIA GPUs",
+        "Keras deep learning projects",
+        "Production ML pipelines"
+      ],
+      "system_packages": [
+        "git",
+        "wget",
+        "curl"
+      ],
+      "notes": "Official TensorFlow GPU image. For Jupyter support, use tensorflow/tensorflow:2.17.0-gpu-jupyter variant."
+    },
+    {
+      "id": "tensorflow-2-17-0-gpu-jupyter",
+      "name": "tensorflow/tensorflow:2.17.0-gpu-jupyter",
+      "metadata": {
+        "status": "official",
+        "provider": "tensorflow",
+        "registry": "dockerhub",
+        "maintenance": "active",
+        "last_updated": "2024-07-12",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.3",
+        "cudnn": "8.9",
+        "min_driver": "545.23.06",
+        "compute_capabilities": [
+          "5.0",
+          "6.0",
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "tensorflow",
+          "version": "2.17.0"
+        },
+        {
+          "name": "keras",
+          "version": "3.4.1"
+        },
+        {
+          "name": "jupyter",
+          "version": "1.0.0"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "notebook",
+        "workloads": [
+          "classical-ml",
+          "computer-vision",
+          "nlp",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 3772,
+        "uncompressed_mb": 8500
+      },
+      "urls": {
+        "registry": "https://hub.docker.com/r/tensorflow/tensorflow",
+        "documentation": "https://www.tensorflow.org/install/docker",
+        "source": "https://github.com/tensorflow/tensorflow"
+      },
+      "recommended_for": [
+        "Interactive TensorFlow development",
+        "GPU-accelerated notebooks",
+        "Data science experimentation"
+      ],
+      "system_packages": [
+        "git",
+        "wget",
+        "curl"
+      ],
+      "notes": "TensorFlow GPU image with Jupyter notebook server. Start with: docker run --gpus all -p 8888:8888 tensorflow/tensorflow:2.17.0-gpu-jupyter"
     },
     {
       "id": "tgi-3-3-5",
@@ -417,26 +1753,53 @@
         "version": "12.4",
         "cudnn": "9",
         "min_driver": "550.54.14",
-        "compute_capabilities": ["7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
+        "compute_capabilities": [
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
       },
       "runtime": {
         "python": "3.11",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
       },
       "frameworks": [
-        { "name": "text-generation-inference", "version": "3.3.5" },
-        { "name": "transformers", "version": "4.47.0" },
-        { "name": "pytorch", "version": "2.5.1" }
+        {
+          "name": "text-generation-inference",
+          "version": "3.3.5"
+        },
+        {
+          "name": "transformers",
+          "version": "4.47.0"
+        },
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        }
       ],
       "capabilities": {
-        "gpu_vendors": ["nvidia"],
+        "gpu_vendors": [
+          "nvidia"
+        ],
         "image_type": "runtime",
         "role": "serving",
-        "workloads": ["llm"]
+        "workloads": [
+          "llm"
+        ]
       },
       "cloud": {
-        "affinity": ["any"],
+        "affinity": [
+          "any"
+        ],
         "exclusive_to": null,
         "aws_ami": null,
         "gcp_image": null,
@@ -468,33 +1831,65 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-11-01",
+        "last_updated": "2025-12-08",
         "license": "NVIDIA-proprietary"
       },
       "cuda": {
         "version": "12.9",
         "cudnn": "9",
         "min_driver": "560.00",
-        "compute_capabilities": ["7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
+        "compute_capabilities": [
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
       },
       "runtime": {
         "python": "3.12",
-        "os": { "name": "ubuntu", "version": "24.04" },
-        "architectures": ["amd64"]
+        "os": {
+          "name": "ubuntu",
+          "version": "24.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
       },
       "frameworks": [
-        { "name": "triton-inference-server", "version": "2.63.0" },
-        { "name": "tensorrt", "version": "10.11.0" },
-        { "name": "pytorch", "version": "2.9.0" }
+        {
+          "name": "triton-inference-server",
+          "version": "2.63.0"
+        },
+        {
+          "name": "tensorrt",
+          "version": "10.11.0"
+        },
+        {
+          "name": "pytorch",
+          "version": "2.9.0"
+        }
       ],
       "capabilities": {
-        "gpu_vendors": ["nvidia"],
+        "gpu_vendors": [
+          "nvidia"
+        ],
         "image_type": "runtime",
         "role": "serving",
-        "workloads": ["llm", "computer-vision", "nlp", "multimodal", "generic"]
+        "workloads": [
+          "llm",
+          "computer-vision",
+          "nlp",
+          "multimodal",
+          "generic"
+        ]
       },
       "cloud": {
-        "affinity": ["any"],
+        "affinity": [
+          "any"
+        ],
         "exclusive_to": null,
         "aws_ami": null,
         "gcp_image": null,
@@ -502,7 +1897,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 8500,
+        "compressed_mb": 7285,
         "uncompressed_mb": 22000
       },
       "urls": {
@@ -519,261 +1914,68 @@
       "notes": "NVIDIA Triton Inference Server supports multiple frameworks (PyTorch, TensorFlow, ONNX, TensorRT) and provides dynamic batching, model versioning, and ensemble models."
     },
     {
-      "id": "ollama-latest",
-      "name": "ollama/ollama:latest",
+      "id": "vllm-openai-latest",
+      "name": "vllm/vllm-openai:latest",
       "metadata": {
         "status": "official",
-        "provider": "ollama",
+        "provider": "vllm",
         "registry": "dockerhub",
         "maintenance": "active",
-        "last_updated": "2025-01-01",
-        "license": "MIT"
-      },
-      "cuda": {
-        "version": "12.4",
-        "cudnn": null,
-        "min_driver": "531.00",
-        "compute_capabilities": ["5.0", "6.0", "7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
-      },
-      "runtime": {
-        "python": null,
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64", "arm64"]
-      },
-      "frameworks": [
-        { "name": "ollama", "version": "0.5.4" },
-        { "name": "llama.cpp", "version": "latest" }
-      ],
-      "capabilities": {
-        "gpu_vendors": ["nvidia", "amd"],
-        "image_type": "runtime",
-        "role": "serving",
-        "workloads": ["llm"]
-      },
-      "cloud": {
-        "affinity": ["any"],
-        "exclusive_to": null,
-        "aws_ami": null,
-        "gcp_image": null,
-        "azure_image": null
-      },
-      "security": null,
-      "size": {
-        "compressed_mb": 1200,
-        "uncompressed_mb": 3500
-      },
-      "urls": {
-        "registry": "https://hub.docker.com/r/ollama/ollama",
-        "documentation": "https://ollama.ai/",
-        "source": "https://github.com/ollama/ollama"
-      },
-      "recommended_for": [
-        "Local LLM inference",
-        "Easy model management",
-        "Development and prototyping"
-      ],
-      "system_packages": [],
-      "notes": "Lightweight LLM runner. Run with: docker run --gpus all -v ollama:/root/.ollama -p 11434:11434 ollama/ollama. Supports NVIDIA (compute 5.0+) and AMD GPUs."
-    },
-    {
-      "id": "nvidia-cuda-12-4-runtime-ubuntu22-04",
-      "name": "nvidia/cuda:12.4.0-runtime-ubuntu22.04",
-      "metadata": {
-        "status": "official",
-        "provider": "nvidia-ngc",
-        "registry": "dockerhub",
-        "maintenance": "active",
-        "last_updated": "2024-03-01",
-        "license": "NVIDIA-proprietary"
-      },
-      "cuda": {
-        "version": "12.4",
-        "cudnn": null,
-        "min_driver": "550.54.14",
-        "compute_capabilities": ["5.0", "6.0", "7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
-      },
-      "runtime": {
-        "python": null,
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64", "arm64"]
-      },
-      "frameworks": [],
-      "capabilities": {
-        "gpu_vendors": ["nvidia"],
-        "image_type": "runtime",
-        "role": "base",
-        "workloads": ["generic"]
-      },
-      "cloud": {
-        "affinity": ["any"],
-        "exclusive_to": null,
-        "aws_ami": null,
-        "gcp_image": null,
-        "azure_image": null
-      },
-      "security": null,
-      "size": {
-        "compressed_mb": 850,
-        "uncompressed_mb": 2500
-      },
-      "urls": {
-        "registry": "https://hub.docker.com/r/nvidia/cuda",
-        "documentation": "https://docs.nvidia.com/cuda/",
-        "source": null
-      },
-      "recommended_for": [
-        "Custom ML image base",
-        "CUDA application runtime",
-        "Minimal CUDA environment"
-      ],
-      "system_packages": [],
-      "notes": "Base CUDA runtime image. Use as FROM base for custom ML containers. Does NOT include cuDNN or Python - add those as needed."
-    },
-    {
-      "id": "nvidia-cuda-12-4-devel-ubuntu22-04",
-      "name": "nvidia/cuda:12.4.0-devel-ubuntu22.04",
-      "metadata": {
-        "status": "official",
-        "provider": "nvidia-ngc",
-        "registry": "dockerhub",
-        "maintenance": "active",
-        "last_updated": "2024-03-01",
-        "license": "NVIDIA-proprietary"
-      },
-      "cuda": {
-        "version": "12.4",
-        "cudnn": null,
-        "min_driver": "550.54.14",
-        "compute_capabilities": ["5.0", "6.0", "7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
-      },
-      "runtime": {
-        "python": null,
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64", "arm64"]
-      },
-      "frameworks": [],
-      "capabilities": {
-        "gpu_vendors": ["nvidia"],
-        "image_type": "devel",
-        "role": "base",
-        "workloads": ["generic"]
-      },
-      "cloud": {
-        "affinity": ["any"],
-        "exclusive_to": null,
-        "aws_ami": null,
-        "gcp_image": null,
-        "azure_image": null
-      },
-      "security": null,
-      "size": {
-        "compressed_mb": 2800,
-        "uncompressed_mb": 8000
-      },
-      "urls": {
-        "registry": "https://hub.docker.com/r/nvidia/cuda",
-        "documentation": "https://docs.nvidia.com/cuda/",
-        "source": null
-      },
-      "recommended_for": [
-        "Custom CUDA kernel compilation",
-        "Building from source",
-        "Development with nvcc"
-      ],
-      "system_packages": ["gcc", "g++", "make"],
-      "notes": "CUDA development image with nvcc compiler. Use for building custom CUDA kernels or compiling PyTorch/TensorFlow from source. Does NOT include cuDNN."
-    },
-    {
-      "id": "nvidia-cuda-12-4-cudnn-devel-ubuntu22-04",
-      "name": "nvidia/cuda:12.4.0-cudnn-devel-ubuntu22.04",
-      "metadata": {
-        "status": "official",
-        "provider": "nvidia-ngc",
-        "registry": "dockerhub",
-        "maintenance": "active",
-        "last_updated": "2024-03-01",
-        "license": "NVIDIA-proprietary"
+        "last_updated": "2025-12-03",
+        "license": "Apache-2.0"
       },
       "cuda": {
         "version": "12.4",
         "cudnn": "9",
         "min_driver": "550.54.14",
-        "compute_capabilities": ["5.0", "6.0", "7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
-      },
-      "runtime": {
-        "python": null,
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64", "arm64"]
-      },
-      "frameworks": [],
-      "capabilities": {
-        "gpu_vendors": ["nvidia"],
-        "image_type": "devel",
-        "role": "base",
-        "workloads": ["generic"]
-      },
-      "cloud": {
-        "affinity": ["any"],
-        "exclusive_to": null,
-        "aws_ami": null,
-        "gcp_image": null,
-        "azure_image": null
-      },
-      "security": null,
-      "size": {
-        "compressed_mb": 3500,
-        "uncompressed_mb": 10000
-      },
-      "urls": {
-        "registry": "https://hub.docker.com/r/nvidia/cuda",
-        "documentation": "https://docs.nvidia.com/cuda/",
-        "source": null
-      },
-      "recommended_for": [
-        "Building ML frameworks from source",
-        "Custom deep learning development",
-        "Full CUDA development environment"
-      ],
-      "system_packages": ["gcc", "g++", "make"],
-      "notes": "Full CUDA development image with cuDNN. Ideal base for building custom ML containers or compiling frameworks from source."
-    },
-    {
-      "id": "ngc-pytorch-24-12",
-      "name": "nvcr.io/nvidia/pytorch:24.12-py3",
-      "metadata": {
-        "status": "official",
-        "provider": "nvidia-ngc",
-        "registry": "ngc",
-        "maintenance": "active",
-        "last_updated": "2024-12-01",
-        "license": "NVIDIA-proprietary"
-      },
-      "cuda": {
-        "version": "12.6",
-        "cudnn": "9.5",
-        "min_driver": "560.00",
-        "compute_capabilities": ["7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
+        "compute_capabilities": [
+          "7.0",
+          "7.5",
+          "8.0",
+          "8.6",
+          "8.9",
+          "9.0"
+        ]
       },
       "runtime": {
         "python": "3.12",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
       },
       "frameworks": [
-        { "name": "pytorch", "version": "2.6.0" },
-        { "name": "torchvision", "version": "0.21.0" },
-        { "name": "torchaudio", "version": "2.6.0" },
-        { "name": "transformer-engine", "version": "1.13" },
-        { "name": "apex", "version": "latest" }
+        {
+          "name": "vllm",
+          "version": "0.6.4"
+        },
+        {
+          "name": "pytorch",
+          "version": "2.5.1"
+        },
+        {
+          "name": "transformers",
+          "version": "4.47.0"
+        }
       ],
       "capabilities": {
-        "gpu_vendors": ["nvidia"],
-        "image_type": "devel",
-        "role": "training",
-        "workloads": ["llm", "computer-vision", "nlp", "multimodal", "generic"]
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "serving",
+        "workloads": [
+          "llm"
+        ]
       },
       "cloud": {
-        "affinity": ["any"],
+        "affinity": [
+          "any"
+        ],
         "exclusive_to": null,
         "aws_ami": null,
         "gcp_image": null,
@@ -781,79 +1983,21 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 9500,
-        "uncompressed_mb": 25000
+        "compressed_mb": 8517,
+        "uncompressed_mb": 12000
       },
       "urls": {
-        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch",
-        "documentation": "https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/",
-        "source": null
+        "registry": "https://hub.docker.com/r/vllm/vllm-openai",
+        "documentation": "https://docs.vllm.ai/en/latest/",
+        "source": "https://github.com/vllm-project/vllm"
       },
       "recommended_for": [
-        "Maximum NVIDIA GPU performance",
-        "Large-scale training",
-        "H100/A100 optimized workloads"
+        "High-throughput LLM inference",
+        "OpenAI-compatible API serving",
+        "Production LLM deployment"
       ],
-      "system_packages": ["git", "wget", "curl", "gcc", "g++", "make"],
-      "notes": "NVIDIA-optimized PyTorch with Transformer Engine, APEX, and NCCL. Best performance on H100, A100, and data center GPUs. Monthly releases with security patches."
-    },
-    {
-      "id": "ngc-tensorflow-24-12",
-      "name": "nvcr.io/nvidia/tensorflow:24.12-tf2-py3",
-      "metadata": {
-        "status": "official",
-        "provider": "nvidia-ngc",
-        "registry": "ngc",
-        "maintenance": "active",
-        "last_updated": "2024-12-01",
-        "license": "NVIDIA-proprietary"
-      },
-      "cuda": {
-        "version": "12.6",
-        "cudnn": "9.5",
-        "min_driver": "560.00",
-        "compute_capabilities": ["7.0", "7.5", "8.0", "8.6", "8.9", "9.0"]
-      },
-      "runtime": {
-        "python": "3.10",
-        "os": { "name": "ubuntu", "version": "22.04" },
-        "architectures": ["amd64"]
-      },
-      "frameworks": [
-        { "name": "tensorflow", "version": "2.17.0" },
-        { "name": "keras", "version": "3.4.1" },
-        { "name": "tensorrt", "version": "10.7.0" }
-      ],
-      "capabilities": {
-        "gpu_vendors": ["nvidia"],
-        "image_type": "devel",
-        "role": "training",
-        "workloads": ["classical-ml", "computer-vision", "nlp", "generic"]
-      },
-      "cloud": {
-        "affinity": ["any"],
-        "exclusive_to": null,
-        "aws_ami": null,
-        "gcp_image": null,
-        "azure_image": null
-      },
-      "security": null,
-      "size": {
-        "compressed_mb": 8500,
-        "uncompressed_mb": 22000
-      },
-      "urls": {
-        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow",
-        "documentation": "https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/",
-        "source": null
-      },
-      "recommended_for": [
-        "Maximum NVIDIA GPU performance with TensorFlow",
-        "TensorRT integration",
-        "Enterprise TensorFlow training"
-      ],
-      "system_packages": ["git", "wget", "curl", "gcc", "g++", "make"],
-      "notes": "NVIDIA-optimized TensorFlow with TensorRT integration. Volta (V100) support will be discontinued by 25.01 release. Use NVIDIA driver 560+ for best compatibility."
+      "system_packages": [],
+      "notes": "Production-ready LLM inference server with OpenAI-compatible API. Supports continuous batching and PagedAttention for optimal GPU utilization."
     }
   ]
 }
