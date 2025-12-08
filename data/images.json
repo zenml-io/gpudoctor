@@ -1763,6 +1763,523 @@
       "notes": null
     },
     {
+      "id": "ngc-rapids-23-10-cuda12-0-py3-10",
+      "name": "nvcr.io/nvidia/rapidsai/base:23.10-cuda12.0-py3.10",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
+        "registry": "ngc",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.0"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "cudf",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cuml",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cugraph",
+          "version": "varies-by-release"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 4273,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/rapidsai/containers/base",
+        "documentation": "https://docs.rapids.ai/",
+        "source": "https://github.com/rapidsai"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "ngc-rapids-23-12-cuda12-0-py3-10",
+      "name": "nvcr.io/nvidia/rapidsai/base:23.12-cuda12.0-py3.10",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
+        "registry": "ngc",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.0"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "cudf",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cuml",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cugraph",
+          "version": "varies-by-release"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 4363,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/rapidsai/containers/base",
+        "documentation": "https://docs.rapids.ai/",
+        "source": "https://github.com/rapidsai"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "ngc-rapids-24-02-cuda12-0-py3-10",
+      "name": "nvcr.io/nvidia/rapidsai/base:24.02-cuda12.0-py3.10",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
+        "registry": "ngc",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.0"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "cudf",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cuml",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cugraph",
+          "version": "varies-by-release"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 4132,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/rapidsai/containers/base",
+        "documentation": "https://docs.rapids.ai/",
+        "source": "https://github.com/rapidsai"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "ngc-rapids-24-04-cuda12-2-py3-10",
+      "name": "nvcr.io/nvidia/rapidsai/base:24.04-cuda12.2-py3.10",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
+        "registry": "ngc",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.2"
+      },
+      "runtime": {
+        "python": "3.10",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "cudf",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cuml",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cugraph",
+          "version": "varies-by-release"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 4471,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/rapidsai/containers/base",
+        "documentation": "https://docs.rapids.ai/",
+        "source": "https://github.com/rapidsai"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "ngc-rapids-24-06-cuda12-2-py3-11",
+      "name": "nvcr.io/nvidia/rapidsai/base:24.06-cuda12.2-py3.11",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
+        "registry": "ngc",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.2"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "cudf",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cuml",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cugraph",
+          "version": "varies-by-release"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 4820,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/rapidsai/containers/base",
+        "documentation": "https://docs.rapids.ai/",
+        "source": "https://github.com/rapidsai"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "ngc-rapids-24-08-cuda12-5-py3-11",
+      "name": "nvcr.io/nvidia/rapidsai/base:24.08-cuda12.5-py3.11",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
+        "registry": "ngc",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.5"
+      },
+      "runtime": {
+        "python": "3.11",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "cudf",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cuml",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cugraph",
+          "version": "varies-by-release"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 5317,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/rapidsai/containers/base",
+        "documentation": "https://docs.rapids.ai/",
+        "source": "https://github.com/rapidsai"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
+      "id": "ngc-rapids-24-10-cuda12-5-py3-12",
+      "name": "nvcr.io/nvidia/rapidsai/base:24.10-cuda12.5-py3.12",
+      "metadata": {
+        "status": "official",
+        "provider": "nvidia-ngc",
+        "registry": "ngc",
+        "maintenance": "active",
+        "last_updated": "2025-12-08",
+        "license": "Apache-2.0"
+      },
+      "cuda": {
+        "version": "12.5"
+      },
+      "runtime": {
+        "python": "3.12",
+        "os": {
+          "name": "ubuntu",
+          "version": "22.04"
+        },
+        "architectures": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "frameworks": [
+        {
+          "name": "cudf",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cuml",
+          "version": "varies-by-release"
+        },
+        {
+          "name": "cugraph",
+          "version": "varies-by-release"
+        }
+      ],
+      "capabilities": {
+        "gpu_vendors": [
+          "nvidia"
+        ],
+        "image_type": "runtime",
+        "role": "training",
+        "workloads": [
+          "classical-ml",
+          "scientific-computing",
+          "generic"
+        ]
+      },
+      "cloud": {
+        "affinity": [
+          "any"
+        ],
+        "exclusive_to": null,
+        "aws_ami": null,
+        "gcp_image": null,
+        "azure_image": null
+      },
+      "security": null,
+      "size": {
+        "compressed_mb": 5964,
+        "uncompressed_mb": null
+      },
+      "urls": {
+        "registry": "https://catalog.ngc.nvidia.com/orgs/nvidia/rapidsai/containers/base",
+        "documentation": "https://docs.rapids.ai/",
+        "source": "https://github.com/rapidsai"
+      },
+      "recommended_for": [],
+      "system_packages": [],
+      "notes": null
+    },
+    {
       "id": "ngc-tensorflow-23-10",
       "name": "nvcr.io/nvidia/tensorflow:23.10-tf2-py3",
       "metadata": {
