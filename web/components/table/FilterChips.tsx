@@ -6,6 +6,7 @@ import type {
   Workload
 } from '@/lib/types/images';
 import type { TableState } from '@/lib/url/tableSearchParams';
+import { formatFrameworkLabel } from '@/lib/format/frameworkLabels';
 
 interface FilterChipsProps {
   state: TableState;
@@ -161,37 +162,6 @@ function buildChips(
   }
 
   return chips;
-}
-
-function formatFrameworkLabel(rawName: string): string {
-  const normalized = rawName.toLowerCase();
-
-  const known: Record<string, string> = {
-    pytorch: 'PyTorch',
-    torchvision: 'TorchVision',
-    torchaudio: 'Torchaudio',
-    tensorflow: 'TensorFlow',
-    keras: 'Keras',
-    jax: 'JAX',
-    vllm: 'vLLM',
-    ollama: 'Ollama',
-    jupyter: 'Jupyter',
-    transformers: 'Transformers',
-    tensorrt: 'TensorRT',
-    'tensorrt-llm': 'TensorRT-LLM',
-    'text-generation-inference': 'Text Generation Inference',
-    'triton-inference-server': 'Triton Inference Server'
-  };
-
-  if (normalized in known) {
-    return known[normalized];
-  }
-
-  return normalized
-    .split(/[-_]+/)
-    .filter(Boolean)
-    .map((part) => part[0]?.toUpperCase() + part.slice(1))
-    .join(' ');
 }
 
 function formatProviderLabel(provider: ImageProvider): string {

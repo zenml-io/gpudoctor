@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import type { GuideState } from '@/lib/url/guideSearchParams';
 import type { CloudProviderAffinity, ImageRole } from '@/lib/types/images';
 import { Checkbox } from '@/components/ui/Checkbox';
+import { formatFrameworkLabel } from '@/lib/format/frameworkLabels';
 
 interface RequirementsSectionProps {
   state: GuideState;
@@ -156,33 +157,3 @@ export function RequirementsSection({
   );
 }
 
-function formatFrameworkLabel(rawName: string): string {
-  const normalized = rawName.toLowerCase();
-
-  const knownNames: Record<string, string> = {
-    pytorch: 'PyTorch',
-    torchvision: 'TorchVision',
-    torchaudio: 'Torchaudio',
-    tensorflow: 'TensorFlow',
-    keras: 'Keras',
-    jax: 'JAX',
-    vllm: 'vLLM',
-    ollama: 'Ollama',
-    jupyter: 'Jupyter',
-    transformers: 'Transformers',
-    tensorrt: 'TensorRT',
-    'tensorrt-llm': 'TensorRT-LLM',
-    'text-generation-inference': 'Text Generation Inference',
-    'triton-inference-server': 'Triton Inference Server'
-  };
-
-  if (normalized in knownNames) {
-    return knownNames[normalized];
-  }
-
-  return normalized
-    .split(/[-_]+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-}

@@ -4,6 +4,7 @@ import type { GuideState } from '@/lib/url/guideSearchParams';
 import type { ImageRole } from '@/lib/types/images';
 import { Checkbox } from '@/components/ui/Checkbox';
 import { Button } from '@/components/ui/Button';
+import { formatFrameworkLabel } from '@/lib/format/frameworkLabels';
 
 interface FrameworkRoleStepProps {
   state: GuideState;
@@ -152,36 +153,3 @@ export function FrameworkRoleStep({
   );
 }
 
-function formatFrameworkLabel(rawName: string): string {
-  const normalized = rawName.toLowerCase();
-
-  const knownNames: Record<string, string> = {
-    pytorch: 'PyTorch',
-    torchvision: 'TorchVision',
-    torchaudio: 'Torchaudio',
-    tensorflow: 'TensorFlow',
-    keras: 'Keras',
-    jax: 'JAX',
-    vllm: 'vLLM',
-    ollama: 'Ollama',
-    'llama.cpp': 'llama.cpp',
-    jupyter: 'Jupyter',
-    transformers: 'Transformers',
-    tensorrt: 'TensorRT',
-    'tensorrt-llm': 'TensorRT-LLM',
-    'text-generation-inference': 'Text Generation Inference',
-    'triton-inference-server': 'Triton Inference Server',
-    'transformer-engine': 'Transformer Engine',
-    apex: 'APEX'
-  };
-
-  if (normalized in knownNames) {
-    return knownNames[normalized];
-  }
-
-  return normalized
-    .split(/[-_]+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-}
