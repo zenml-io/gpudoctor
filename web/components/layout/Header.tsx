@@ -42,8 +42,15 @@ export function Header({ activeTab }: HeaderProps) {
           </div>
         </Link>
 
-        {/* Navigation cluster: Guide/Table toggle (when present) + persistent About link */}
+        {/* Navigation cluster: About link (persistent) + Guide/Table toggle (when present) */}
         <div className="flex items-center gap-4">
+          <Link
+            href="/about"
+            className="text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-900"
+          >
+            About
+          </Link>
+
           {/* Navigation toggle - only shown when activeTab is provided */}
           {activeTab && (
             <nav aria-label="Primary" className="flex items-center">
@@ -57,13 +64,6 @@ export function Header({ activeTab }: HeaderProps) {
               </div>
             </nav>
           )}
-
-          <Link
-            href="/about"
-            className="text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-900"
-          >
-            About
-          </Link>
         </div>
       </div>
     </header>
