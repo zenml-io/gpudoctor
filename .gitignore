@@ -212,6 +212,8 @@ design/
 
 # Tag metadata cache (local development artifact)
 data/.tag_cache.json
+data/.audit/
+.trivy-cache/
 
 # ===================
 # Node.js / Next.js
