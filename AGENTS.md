@@ -11,6 +11,8 @@
   - `merge.py`: Safe merge preserving curated fields
   - `fetchers/`: Registry API clients
   - `enrichers/`: Placeholder hooks for future security/CUDA enrichment
+  - `audit_catalog.py`: Image audit CLI (uses skopeo/Trivy, writes audit data under `data/.audit`)
+  - `audit/`: Helpers (models, cache, tools, parsers) for image audit overlays
 
 ## Build, Test, and Development Commands
 - Install web deps once: `cd web && npm install`.

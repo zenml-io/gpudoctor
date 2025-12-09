@@ -80,6 +80,13 @@
           ],
           "description": "Security scan results (null if not yet scanned)"
         },
+        "audit": {
+          "oneOf": [
+            { "$ref": "#/$defs/audit" },
+            { "type": "null" }
+          ],
+          "description": "Image audit metadata and cache references (null if not yet audited)"
+        },
         "size": {
           "oneOf": [
             { "$ref": "#/$defs/size" },
@@ -153,6 +160,11 @@
           "type": ["string", "null"],
           "format": "date",
           "description": "When this image was last updated (YYYY-MM-DD)"
+        },
+        "verified_at": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "When this image entry was last verified (manual or automated)"
         },
         "license": {
           "type": ["string", "null"],
@@ -410,6 +422,71 @@
         }
       },
       "required": ["registry"]
+    },
+
+    "audit": {
+      "type": "object",
+      "description": "Audit metadata for an image digest",
+      "properties": {
+        "digest": {
+          "type": "string",
+          "description": "OCI image digest (e.g., sha256:...)"
+        },
+        "digest_last_seen": {
+          "type": "string",
+          "format": "date",
+          "description": "Date when this digest was last observed in the catalog"
+        },
+        "verified_at": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "Date when this digest was last verified via inspect"
+        },
+        "verify_method": {
+          "type": ["string", "null"],
+          "description": "Verification method used (e.g., skopeo-inspect)"
+        },
+        "trivy_report_ref": {
+          "type": ["string", "null"],
+          "description": "Repository-relative path to the raw Trivy report for this digest"
+        },
+        "packages_ref": {
+          "type": ["string", "null"],
+          "description": "Repository-relative path to the compact package inventory for this digest"
+        },
+        "observed": {
+          "type": "object",
+          "description": "Observed runtime characteristics from inspection (best-effort)",
+          "properties": {
+            "python": {
+              "type": ["string", "null"],
+              "description": "Observed Python version inside the image"
+            },
+            "cuda": {
+              "type": ["string", "null"],
+              "description": "Observed CUDA version inside the image"
+            },
+            "cudnn": {
+              "type": ["string", "null"],
+              "description": "Observed cuDNN version inside the image"
+            },
+            "os_name": {
+              "type": ["string", "null"],
+              "description": "Observed OS name inside the image"
+            },
+            "os_version": {
+              "type": ["string", "null"],
+              "description": "Observed OS version inside the image"
+            }
+          },
+          "additionalProperties": true
+        },
+        "notes": {
+          "type": ["string", "null"],
+          "description": "Human-authored notes about this digest's audit state"
+        }
+      },
+      "required": ["digest", "digest_last_seen"]
     }
   }
 }

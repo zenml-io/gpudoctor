@@ -25,6 +25,16 @@ AUTO_FIELDS: set[tuple[str, ...]] = {
     ("runtime", "architectures"),
 }
 
+# Fields that may be populated by enrichment/audit pipelines and should not
+# be cleared when newly generated images provide null values.
+PRESERVE_IF_NEW_NULL: set[tuple[str, ...]] = {
+    ("security",),
+    ("audit",),
+    ("size", "uncompressed_mb"),
+    ("cuda", "min_driver"),
+    ("cuda", "compute_capabilities"),
+}
+
 
 def _get_nested(data: dict, path: tuple[str, ...]) -> Any:
     """Get a value from a nested dict using a path tuple.
@@ -93,6 +103,15 @@ def merge_image(
         new_value = _get_nested(new, path)
         if new_value is not None:
             _set_nested(merged, path, new_value)
+
+    # Preserve enrichment/audit fields when the new image has an explicit null
+    # value. This prevents scraping runs from wiping data produced by separate
+    # enrichers or the audit pipeline.
+    for path in PRESERVE_IF_NEW_NULL:
+        existing_value = _get_nested(existing, path)
+        new_value = _get_nested(new, path)
+        if existing_value is not None and new_value is None:
+            _set_nested(merged, path, existing_value)
 
     # For top-level fields that exist in new but not in existing,
     # copy them over (gradual enrichment)
