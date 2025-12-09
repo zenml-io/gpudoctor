@@ -55,7 +55,14 @@ pip install -r scripts/requirements.txt
 .venv/bin/python scripts/update_catalog.py --source dockerhub
 .venv/bin/python scripts/update_catalog.py --source ghcr
 .venv/bin/python scripts/update_catalog.py --source ngc
+
+# Audit / security scans: dry-run a small batch with fresh security data
+.venv/bin/python scripts/audit_catalog.py --dry-run --mode security --max-images 5 --force
 ```
+
+Scans against `public.ecr.aws` require a public ECR auth token: run
+`aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws`
+once per session or set `TRIVY_REGISTRY_TOKEN` to that password before running the audit CLI.
 
 ## Architecture
 

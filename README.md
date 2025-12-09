@@ -70,6 +70,23 @@ python scripts/update_catalog.py --source dockerhub
 - Curated fields (`notes`, `recommended_for`, etc.) are preserved during updates
 - A GitHub Actions workflow runs weekly and creates PRs with updates
 
+### Audit / Security scans
+
+To run lightweight security scans against the catalog:
+
+```bash
+python scripts/audit_catalog.py --dry-run --mode security --max-images 5
+```
+
+Before scanning images from `public.ecr.aws`, authenticate once per shell session:
+
+```bash
+aws ecr-public get-login-password --region us-east-1 \
+  | docker login --username AWS --password-stdin public.ecr.aws
+```
+
+Alternatively, set `TRIVY_REGISTRY_TOKEN` to that password so Trivy can reuse it without an explicit `docker login`. Scan artifacts and cache live under `data/.audit`, which keeps reruns fast.
+
 ## Website
 
 The website is a Next.js app in `web/`:

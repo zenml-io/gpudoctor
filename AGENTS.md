@@ -13,6 +13,7 @@
   - `enrichers/`: Placeholder hooks for future security/CUDA enrichment
   - `audit_catalog.py`: Image audit CLI (uses skopeo/Trivy, writes audit data under `data/.audit`)
   - `audit/`: Helpers (models, cache, tools, parsers) for image audit overlays
+  - Note: Trivy scans that hit `public.ecr.aws` need an auth token; run `aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws` or set `TRIVY_REGISTRY_TOKEN` before invoking `audit_catalog.py`.
 
 ## Build, Test, and Development Commands
 - Install web deps once: `cd web && npm install`.
