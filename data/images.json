@@ -65,7 +65,18 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:30af98af3028a9abdcf782831f18a40edf62e00e395b7d77a8abf63eae104156",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-inference-2-5-1-cuda12-4-ec2",
@@ -132,7 +143,19 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:53a23fea55cd3bb90f0ff3be8275f9e17aa39baaeb7631c51480815d9a9cbb07",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "cuda": "12.4",
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-inference-2-6-0-cpu-ec2",
@@ -196,7 +219,18 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:21b8d8d7cadc5d6c8b608ee20e69f7d331ea59511a056c8f93c5f3d569be4735",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-inference-2-6-0-cpu-sagemaker",
@@ -260,7 +294,18 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for SAGEMAKER deployment on AWS."
+      "notes": "Optimized for SAGEMAKER deployment on AWS.",
+      "audit": {
+        "digest": "sha256:8f7031cfc188d2ca57f661e226d66c208686159844ba4055bb3a6c5a0dab3736",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-inference-2-6-0-cuda12-4-ec2",
@@ -327,7 +372,19 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:065de6104259c84b72e609b69ac07670d7235ba7f726fbd581659659c7c55c9b",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "cuda": "12.4",
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-inference-2-6-0-cuda12-4-sagemaker",
@@ -394,7 +451,19 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for SAGEMAKER deployment on AWS."
+      "notes": "Optimized for SAGEMAKER deployment on AWS.",
+      "audit": {
+        "digest": "sha256:a235634394a43f7955d0651f9fcb29c3fec95f9d9f607ec43bb35787808d9f49",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "cuda": "12.4",
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-inference-arm64-2-6-0-cpu-ec2",
@@ -446,7 +515,16 @@
         "gcp_image": null,
         "azure_image": null
       },
-      "security": null,
+      "security": {
+        "total_cves": 1471,
+        "critical": 0,
+        "high": 7,
+        "medium": 1295,
+        "low": 169,
+        "rating": "B",
+        "last_scan": "2025-12-09",
+        "scanner": "trivy"
+      },
       "size": {
         "compressed_mb": 1018,
         "uncompressed_mb": null
@@ -458,7 +536,20 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:7b3c78cc7df379ab6658285ce455ed2f8e31305a12f145341f96f58071d79f00",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null,
+        "trivy_report_ref": "data/.audit/trivy/sha256-7b3c78cc7df379ab6658285ce455ed2f8e31305a12f145341f96f58071d79f00.json",
+        "packages_ref": "data/.audit/packages/sha256-7b3c78cc7df379ab6658285ce455ed2f8e31305a12f145341f96f58071d79f00.json.gz"
+      }
     },
     {
       "id": "aws-pytorch-inference-arm64-2-6-0-cpu-sagemaker",
@@ -510,7 +601,16 @@
         "gcp_image": null,
         "azure_image": null
       },
-      "security": null,
+      "security": {
+        "total_cves": 1471,
+        "critical": 0,
+        "high": 7,
+        "medium": 1295,
+        "low": 169,
+        "rating": "B",
+        "last_scan": "2025-12-09",
+        "scanner": "trivy"
+      },
       "size": {
         "compressed_mb": 1056,
         "uncompressed_mb": null
@@ -522,7 +622,20 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for SAGEMAKER deployment on AWS."
+      "notes": "Optimized for SAGEMAKER deployment on AWS.",
+      "audit": {
+        "digest": "sha256:22b83a1f2d980d16fcbadad749fb61b491e0b24b3a87a2c015433878a3cd8a24",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null,
+        "trivy_report_ref": "data/.audit/trivy/sha256-22b83a1f2d980d16fcbadad749fb61b491e0b24b3a87a2c015433878a3cd8a24.json",
+        "packages_ref": "data/.audit/packages/sha256-22b83a1f2d980d16fcbadad749fb61b491e0b24b3a87a2c015433878a3cd8a24.json.gz"
+      }
     },
     {
       "id": "aws-pytorch-inference-arm64-2-6-0-cuda12-4-ec2",
@@ -589,7 +702,19 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:8fa2335edf8e44efd33a045535279f5688faf0946f82b2d268b2c416d5e2d529",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "cuda": "12.4",
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-training-2-5-1-cpu-ec2",
@@ -641,7 +766,16 @@
         "gcp_image": null,
         "azure_image": null
       },
-      "security": null,
+      "security": {
+        "total_cves": 1666,
+        "critical": 1,
+        "high": 9,
+        "medium": 1493,
+        "low": 163,
+        "rating": "C",
+        "last_scan": "2025-12-09",
+        "scanner": "trivy"
+      },
       "size": {
         "compressed_mb": 1470,
         "uncompressed_mb": null
@@ -653,7 +787,20 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:85484f07f594926598daa1192cf6ee31d972e55775dd1b22627e1483a537f8f3",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null,
+        "trivy_report_ref": "data/.audit/trivy/sha256-85484f07f594926598daa1192cf6ee31d972e55775dd1b22627e1483a537f8f3.json",
+        "packages_ref": "data/.audit/packages/sha256-85484f07f594926598daa1192cf6ee31d972e55775dd1b22627e1483a537f8f3.json.gz"
+      }
     },
     {
       "id": "aws-pytorch-training-2-5-1-cuda12-4-ec2",
@@ -720,7 +867,19 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:3c867d1eeeef6e45a0d965826fb3569e92877aa41461a54662eaa972f8dcf387",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "cuda": "12.4",
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-training-2-6-0-cpu-ec2",
@@ -772,7 +931,16 @@
         "gcp_image": null,
         "azure_image": null
       },
-      "security": null,
+      "security": {
+        "total_cves": 1466,
+        "critical": 0,
+        "high": 7,
+        "medium": 1295,
+        "low": 164,
+        "rating": "B",
+        "last_scan": "2025-12-09",
+        "scanner": "trivy"
+      },
       "size": {
         "compressed_mb": 1443,
         "uncompressed_mb": null
@@ -784,7 +952,20 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:b0fd089b81e1f10982b6176a25b1dbb7b68b4c48ee072e4cdc5e8deb28fae16e",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null,
+        "trivy_report_ref": "data/.audit/trivy/sha256-b0fd089b81e1f10982b6176a25b1dbb7b68b4c48ee072e4cdc5e8deb28fae16e.json",
+        "packages_ref": "data/.audit/packages/sha256-b0fd089b81e1f10982b6176a25b1dbb7b68b4c48ee072e4cdc5e8deb28fae16e.json.gz"
+      }
     },
     {
       "id": "aws-pytorch-training-2-6-0-cpu-sagemaker",
@@ -836,7 +1017,16 @@
         "gcp_image": null,
         "azure_image": null
       },
-      "security": null,
+      "security": {
+        "total_cves": 1666,
+        "critical": 0,
+        "high": 8,
+        "medium": 1493,
+        "low": 165,
+        "rating": "B",
+        "last_scan": "2025-12-09",
+        "scanner": "trivy"
+      },
       "size": {
         "compressed_mb": 1652,
         "uncompressed_mb": null
@@ -848,7 +1038,20 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for SAGEMAKER deployment on AWS."
+      "notes": "Optimized for SAGEMAKER deployment on AWS.",
+      "audit": {
+        "digest": "sha256:47e087a2c412d1ccbeea5fa79d45a6420a2f404c9955bbeaf18cb66c19dc36ad",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null,
+        "trivy_report_ref": "data/.audit/trivy/sha256-47e087a2c412d1ccbeea5fa79d45a6420a2f404c9955bbeaf18cb66c19dc36ad.json",
+        "packages_ref": "data/.audit/packages/sha256-47e087a2c412d1ccbeea5fa79d45a6420a2f404c9955bbeaf18cb66c19dc36ad.json.gz"
+      }
     },
     {
       "id": "aws-pytorch-training-2-6-0-cuda12-6-ec2",
@@ -915,7 +1118,19 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for EC2 deployment on AWS."
+      "notes": "Optimized for EC2 deployment on AWS.",
+      "audit": {
+        "digest": "sha256:f4c60598324d4472cca385ad8ea2344e45cb91274b4aeb61b470fd9e0c5efacc",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "cuda": "12.6",
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-training-2-6-0-cuda12-6-sagemaker",
@@ -982,7 +1197,19 @@
       },
       "recommended_for": [],
       "system_packages": [],
-      "notes": "Optimized for SAGEMAKER deployment on AWS."
+      "notes": "Optimized for SAGEMAKER deployment on AWS.",
+      "audit": {
+        "digest": "sha256:4ea7c8ea44ef6927db50e2a6333a1bb6b8723182979b6ecc3360c4c0d0636156",
+        "digest_last_seen": "2025-12-09",
+        "verify_method": "skopeo-inspect",
+        "verified_at": "2025-12-09",
+        "observed": {
+          "cuda": "12.6",
+          "os_name": "ubuntu",
+          "os_version": "22.04"
+        },
+        "notes": null
+      }
     },
     {
       "id": "aws-pytorch-training-2-7-1-cpu-ec2",
