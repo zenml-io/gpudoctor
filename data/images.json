@@ -1,7 +1,7 @@
 {
   "$schema": "./schema.json",
   "version": "0.1.0",
-  "last_updated": "2025-12-08",
+  "last_updated": "2026-09-07",
   "images": [
     {
       "id": "aws-pytorch-inference-2-5-1-cpu-ec2",
@@ -165,7 +165,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -209,7 +209,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1677,
+        "compressed_mb": 1461,
         "uncompressed_mb": null
       },
       "urls": {
@@ -315,7 +315,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -362,7 +362,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 8299,
+        "compressed_mb": 8070,
         "uncompressed_mb": null
       },
       "urls": {
@@ -394,7 +394,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -441,7 +441,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 8319,
+        "compressed_mb": 8091,
         "uncompressed_mb": null
       },
       "urls": {
@@ -473,7 +473,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -526,7 +526,7 @@
         "scanner": "trivy"
       },
       "size": {
-        "compressed_mb": 1018,
+        "compressed_mb": 1032,
         "uncompressed_mb": null
       },
       "urls": {
@@ -645,7 +645,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -692,7 +692,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 6997,
+        "compressed_mb": 7009,
         "uncompressed_mb": null
       },
       "urls": {
@@ -889,7 +889,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -942,7 +942,7 @@
         "scanner": "trivy"
       },
       "size": {
-        "compressed_mb": 1443,
+        "compressed_mb": 1344,
         "uncompressed_mb": null
       },
       "urls": {
@@ -975,7 +975,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -1028,7 +1028,7 @@
         "scanner": "trivy"
       },
       "size": {
-        "compressed_mb": 1652,
+        "compressed_mb": 1568,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1061,7 +1061,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -1108,7 +1108,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 9745,
+        "compressed_mb": 9565,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1140,7 +1140,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -1187,7 +1187,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 9963,
+        "compressed_mb": 9798,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1219,7 +1219,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -1263,7 +1263,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1387,
+        "compressed_mb": 1388,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1283,7 +1283,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -1327,7 +1327,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1558,
+        "compressed_mb": 1540,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1347,7 +1347,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -1394,7 +1394,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 11407,
+        "compressed_mb": 11421,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1414,7 +1414,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -1461,7 +1461,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 11580,
+        "compressed_mb": 11591,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1481,7 +1481,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -1525,7 +1525,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1394,
+        "compressed_mb": 1429,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1545,7 +1545,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -1589,7 +1589,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1546,
+        "compressed_mb": 1604,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1609,7 +1609,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -1656,7 +1656,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 12334,
+        "compressed_mb": 12372,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1676,7 +1676,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -1723,7 +1723,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 12506,
+        "compressed_mb": 12566,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1743,7 +1743,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -1790,7 +1790,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 10360,
+        "compressed_mb": 10117,
         "uncompressed_mb": null
       },
       "urls": {
@@ -1874,7 +1874,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -1921,7 +1921,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 5251,
+        "compressed_mb": 5226,
         "uncompressed_mb": null
       },
       "urls": {
@@ -2005,7 +2005,7 @@
         "provider": "aws-dlc",
         "registry": "ecr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2052,7 +2052,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 5719,
+        "compressed_mb": 5352,
         "uncompressed_mb": null
       },
       "urls": {
@@ -2072,7 +2072,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -2128,7 +2128,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -2184,7 +2184,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -2240,7 +2240,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -2296,7 +2296,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -2352,7 +2352,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2410,7 +2410,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2468,7 +2468,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2526,7 +2526,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2584,7 +2584,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2642,7 +2642,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2700,7 +2700,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2758,7 +2758,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2816,7 +2816,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2874,7 +2874,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2932,7 +2932,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -2990,7 +2990,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3048,7 +3048,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3106,7 +3106,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3164,7 +3164,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3222,7 +3222,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3280,7 +3280,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3338,7 +3338,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3396,7 +3396,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3454,7 +3454,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3512,7 +3512,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3570,7 +3570,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3628,7 +3628,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3686,7 +3686,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3744,7 +3744,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3802,7 +3802,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3868,7 +3868,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -3934,7 +3934,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4000,7 +4000,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4066,7 +4066,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4132,7 +4132,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4198,7 +4198,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4264,7 +4264,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4330,7 +4330,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4396,7 +4396,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4462,7 +4462,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4528,7 +4528,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4594,7 +4594,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4660,7 +4660,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4792,7 +4792,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4858,7 +4858,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4924,7 +4924,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -4990,7 +4990,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5056,7 +5056,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5122,7 +5122,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5188,7 +5188,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5254,7 +5254,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5320,7 +5320,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5386,7 +5386,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5452,7 +5452,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5518,7 +5518,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5584,7 +5584,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5650,7 +5650,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5716,7 +5716,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5782,7 +5782,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5848,7 +5848,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5914,7 +5914,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -5980,7 +5980,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6046,7 +6046,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6112,7 +6112,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6178,7 +6178,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6310,7 +6310,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6376,7 +6376,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6442,7 +6442,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6508,7 +6508,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6574,7 +6574,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6640,7 +6640,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6706,7 +6706,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6772,7 +6772,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6838,7 +6838,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6904,7 +6904,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -6970,7 +6970,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -7036,7 +7036,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -7102,7 +7102,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -7168,7 +7168,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -7234,7 +7234,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -7300,7 +7300,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -7366,7 +7366,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -7432,7 +7432,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -7498,7 +7498,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -7564,7 +7564,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -7627,7 +7627,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -7690,7 +7690,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -7753,7 +7753,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -7816,7 +7816,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -7879,7 +7879,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -7942,7 +7942,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -8005,7 +8005,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -8070,7 +8070,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -8135,7 +8135,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -8197,7 +8197,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -8259,7 +8259,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -8321,7 +8321,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -8383,7 +8383,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -8445,7 +8445,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -8507,7 +8507,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -8831,7 +8831,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -8895,7 +8895,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -8961,7 +8961,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -9025,7 +9025,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -9091,7 +9091,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -9155,7 +9155,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -9219,7 +9219,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -9283,7 +9283,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -9349,7 +9349,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -9415,7 +9415,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -9481,7 +9481,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -9547,7 +9547,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -9613,7 +9613,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -9679,7 +9679,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -9745,7 +9745,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -9809,7 +9809,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -9873,7 +9873,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -9937,7 +9937,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10003,7 +10003,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10069,7 +10069,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10135,7 +10135,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10201,7 +10201,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10267,7 +10267,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10333,7 +10333,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10399,7 +10399,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -10463,7 +10463,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -10527,7 +10527,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10593,7 +10593,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10659,7 +10659,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10725,7 +10725,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10791,7 +10791,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10857,7 +10857,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -10923,7 +10923,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -10987,7 +10987,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -11051,7 +11051,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11117,7 +11117,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11183,7 +11183,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11249,7 +11249,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11315,7 +11315,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11381,7 +11381,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11447,7 +11447,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -11511,7 +11511,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -11575,7 +11575,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11641,7 +11641,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11707,7 +11707,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11773,7 +11773,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -11839,7 +11839,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -11903,7 +11903,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -11967,7 +11967,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12033,7 +12033,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12099,7 +12099,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12165,7 +12165,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12231,7 +12231,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12297,7 +12297,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12363,7 +12363,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -12427,7 +12427,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -12491,7 +12491,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -12555,7 +12555,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -12619,7 +12619,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12685,7 +12685,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12751,7 +12751,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12817,7 +12817,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12883,7 +12883,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -12949,7 +12949,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13015,7 +13015,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13081,7 +13081,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13147,7 +13147,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -13211,7 +13211,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -13275,7 +13275,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -13339,7 +13339,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -13403,7 +13403,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13469,7 +13469,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13535,7 +13535,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13601,7 +13601,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13667,7 +13667,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13733,7 +13733,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13799,7 +13799,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13865,7 +13865,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -13931,7 +13931,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -13995,7 +13995,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -14059,7 +14059,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14125,7 +14125,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14191,7 +14191,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -14255,7 +14255,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14321,7 +14321,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -14385,7 +14385,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -14449,7 +14449,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -14513,7 +14513,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14579,7 +14579,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14645,7 +14645,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14711,7 +14711,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14777,7 +14777,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14843,7 +14843,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14909,7 +14909,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -14975,7 +14975,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -15039,7 +15039,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -15103,7 +15103,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -15167,7 +15167,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15233,7 +15233,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15299,7 +15299,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15365,7 +15365,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15431,7 +15431,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15497,7 +15497,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15563,7 +15563,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15629,7 +15629,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -15693,7 +15693,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -15757,7 +15757,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15823,7 +15823,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15889,7 +15889,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -15955,7 +15955,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16021,7 +16021,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -16085,7 +16085,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -16149,7 +16149,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -16213,7 +16213,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -16277,7 +16277,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16343,7 +16343,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16409,7 +16409,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16475,7 +16475,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16541,7 +16541,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16607,7 +16607,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16673,7 +16673,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16739,7 +16739,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16805,7 +16805,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16871,7 +16871,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -16937,7 +16937,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -17003,7 +17003,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -17069,7 +17069,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -17133,7 +17133,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -17199,7 +17199,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -17263,7 +17263,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -17327,7 +17327,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -17391,7 +17391,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -17457,7 +17457,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -17523,7 +17523,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -17589,7 +17589,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -17655,7 +17655,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -17721,7 +17721,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -17785,7 +17785,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -17849,7 +17849,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -17913,7 +17913,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -17979,7 +17979,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18045,7 +18045,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18111,7 +18111,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18177,7 +18177,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18243,7 +18243,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -18307,7 +18307,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -18371,7 +18371,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18437,7 +18437,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18503,7 +18503,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18569,7 +18569,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18635,7 +18635,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -18699,7 +18699,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -18763,7 +18763,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18829,7 +18829,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18895,7 +18895,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -18961,7 +18961,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19027,7 +19027,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -19091,7 +19091,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -19155,7 +19155,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19221,7 +19221,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19287,7 +19287,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19353,7 +19353,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19419,7 +19419,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -19483,7 +19483,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -19547,7 +19547,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19613,7 +19613,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19679,7 +19679,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19745,7 +19745,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19811,7 +19811,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19877,7 +19877,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -19943,7 +19943,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -20007,7 +20007,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -20071,7 +20071,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -20135,7 +20135,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -20199,7 +20199,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -20265,7 +20265,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -20331,7 +20331,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -20397,7 +20397,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -20463,7 +20463,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -20529,7 +20529,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -20595,7 +20595,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -20661,7 +20661,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -20727,7 +20727,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -20791,7 +20791,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -20855,7 +20855,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -20919,7 +20919,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -20983,7 +20983,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21049,7 +21049,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21115,7 +21115,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21181,7 +21181,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21247,7 +21247,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21313,7 +21313,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21379,7 +21379,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21445,7 +21445,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21511,7 +21511,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -21575,7 +21575,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -21639,7 +21639,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21705,7 +21705,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -21771,7 +21771,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -21835,7 +21835,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -21899,7 +21899,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -21963,7 +21963,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22029,7 +22029,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22095,7 +22095,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22161,7 +22161,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22227,7 +22227,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -22291,7 +22291,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -22355,7 +22355,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -22419,7 +22419,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22485,7 +22485,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22551,7 +22551,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22617,7 +22617,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22683,7 +22683,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22749,7 +22749,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -22813,7 +22813,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -22877,7 +22877,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -22943,7 +22943,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23009,7 +23009,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -23073,7 +23073,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -23137,7 +23137,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -23201,7 +23201,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -23265,7 +23265,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -23329,7 +23329,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -23393,7 +23393,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23459,7 +23459,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23525,7 +23525,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23591,7 +23591,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23657,7 +23657,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23723,7 +23723,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23789,7 +23789,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23855,7 +23855,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23921,7 +23921,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -23987,7 +23987,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -24053,7 +24053,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -24119,7 +24119,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -24185,7 +24185,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -24251,7 +24251,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -24317,7 +24317,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -24379,7 +24379,7 @@
         "provider": "gcp-dlc",
         "registry": "gcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": null,
@@ -24441,7 +24441,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -24483,7 +24483,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 2258,
+        "compressed_mb": 2315,
         "uncompressed_mb": null
       },
       "urls": {
@@ -24503,7 +24503,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -24565,7 +24565,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -24607,7 +24607,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 265,
+        "compressed_mb": 311,
         "uncompressed_mb": null
       },
       "urls": {
@@ -24627,7 +24627,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -24689,7 +24689,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -24731,7 +24731,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 265,
+        "compressed_mb": 311,
         "uncompressed_mb": null
       },
       "urls": {
@@ -24751,7 +24751,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -24807,7 +24807,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 2215,
+        "compressed_mb": 2313,
         "uncompressed_mb": null
       },
       "urls": {
@@ -24827,7 +24827,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -24903,7 +24903,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -24979,7 +24979,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25035,7 +25035,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 2215,
+        "compressed_mb": 2313,
         "uncompressed_mb": null
       },
       "urls": {
@@ -25055,7 +25055,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25097,7 +25097,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 498,
+        "compressed_mb": 544,
         "uncompressed_mb": null
       },
       "urls": {
@@ -25117,7 +25117,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25179,7 +25179,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25221,7 +25221,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 498,
+        "compressed_mb": 544,
         "uncompressed_mb": null
       },
       "urls": {
@@ -25241,7 +25241,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25288,7 +25288,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1782,
+        "compressed_mb": 1863,
         "uncompressed_mb": null
       },
       "urls": {
@@ -25308,7 +25308,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25375,7 +25375,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25442,7 +25442,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25491,7 +25491,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1361,
+        "compressed_mb": 1449,
         "uncompressed_mb": null
       },
       "urls": {
@@ -25511,7 +25511,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25580,7 +25580,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25649,7 +25649,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25697,7 +25697,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1169,
+        "compressed_mb": 1241,
         "uncompressed_mb": null
       },
       "urls": {
@@ -25717,7 +25717,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25785,7 +25785,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25853,7 +25853,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25901,7 +25901,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1169,
+        "compressed_mb": 1241,
         "uncompressed_mb": null
       },
       "urls": {
@@ -25921,7 +25921,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -25970,7 +25970,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1478,
+        "compressed_mb": 1638,
         "uncompressed_mb": null
       },
       "urls": {
@@ -25990,7 +25990,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -26059,7 +26059,7 @@
         "provider": "jupyter",
         "registry": "quay",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "BSD-3-Clause"
       },
       "cuda": null,
@@ -26128,7 +26128,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26192,7 +26192,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26256,7 +26256,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26320,7 +26320,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26384,7 +26384,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26452,7 +26452,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26520,7 +26520,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26588,7 +26588,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26656,7 +26656,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26724,7 +26724,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26792,7 +26792,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26858,7 +26858,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26924,7 +26924,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -26990,7 +26990,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27056,7 +27056,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27122,7 +27122,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27188,7 +27188,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27254,7 +27254,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27320,7 +27320,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27386,7 +27386,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27452,7 +27452,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27518,7 +27518,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27584,7 +27584,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27650,7 +27650,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27716,7 +27716,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": {
@@ -27821,7 +27821,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -27887,7 +27887,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -27960,7 +27960,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -28034,7 +28034,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -28108,7 +28108,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -28182,7 +28182,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -28256,7 +28256,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -28330,7 +28330,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -28404,7 +28404,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -28469,7 +28469,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -28534,7 +28534,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -28599,7 +28599,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -28664,7 +28664,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -28729,7 +28729,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -28794,7 +28794,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -28859,7 +28859,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -28924,7 +28924,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -28989,7 +28989,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -29054,7 +29054,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -29119,7 +29119,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -29184,7 +29184,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -29249,7 +29249,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -29314,7 +29314,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": {
@@ -29410,7 +29410,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -32243,7 +32243,7 @@
         "provider": "ollama",
         "registry": "dockerhub",
         "maintenance": "active",
-        "last_updated": "2025-12-02",
+        "last_updated": "2026-09-03",
         "license": "MIT"
       },
       "cuda": {
@@ -32304,7 +32304,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 1961,
+        "compressed_mb": 3533,
         "uncompressed_mb": 3500
       },
       "urls": {
@@ -36547,7 +36547,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -36611,7 +36611,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -36675,7 +36675,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -36739,7 +36739,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -36803,7 +36803,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -36867,7 +36867,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -36931,7 +36931,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -36995,7 +36995,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37059,7 +37059,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37123,7 +37123,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37187,7 +37187,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37251,7 +37251,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37315,7 +37315,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37379,7 +37379,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37443,7 +37443,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37507,7 +37507,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37571,7 +37571,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37635,7 +37635,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37699,7 +37699,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37763,7 +37763,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37827,7 +37827,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37891,7 +37891,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -37955,7 +37955,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -38019,7 +38019,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -38083,7 +38083,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -38147,7 +38147,7 @@
         "provider": "huggingface",
         "registry": "ghcr",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -38296,7 +38296,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38362,7 +38362,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38428,7 +38428,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38494,7 +38494,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38560,7 +38560,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38626,7 +38626,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38692,7 +38692,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38758,7 +38758,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38824,7 +38824,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38890,7 +38890,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -38956,7 +38956,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -39022,7 +39022,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -39088,7 +39088,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -39154,7 +39154,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": null,
@@ -39220,7 +39220,7 @@
         "provider": "nvidia-ngc",
         "registry": "ngc",
         "maintenance": "active",
-        "last_updated": "2025-12-08",
+        "last_updated": "2026-09-07",
         "license": "NVIDIA-proprietary"
       },
       "cuda": {
@@ -39310,7 +39310,7 @@
         "provider": "vllm",
         "registry": "dockerhub",
         "maintenance": "active",
-        "last_updated": "2025-12-03",
+        "last_updated": "2026-08-26",
         "license": "Apache-2.0"
       },
       "cuda": {
@@ -39372,7 +39372,7 @@
       },
       "security": null,
       "size": {
-        "compressed_mb": 8517,
+        "compressed_mb": 8234,
         "uncompressed_mb": 12000
       },
       "urls": {
